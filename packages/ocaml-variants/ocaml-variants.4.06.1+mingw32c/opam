@@ -22,6 +22,6 @@ build: [
 install: ["dash.exe" "install.sh" prefix]
 url {
   src:
-    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.06.1+mingw32c.tar.xz"
-  checksum: "md5=f0d44474d3adf3c789016cbfae42e4fa"
+    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.06.1+mingw32c2.tar.xz"
+  checksum: "md5=3e45e9bbcc33cbcca5077b8828d3f7db"
 }
