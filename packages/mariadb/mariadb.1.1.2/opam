@@ -23,12 +23,7 @@ depends: [
   "ocamlbuild" {build}
   "ctypes" {>= "0.7.0"}
   "ctypes-foreign" {>= "0.4.0"}
-]
-depexts: [
-  ["libmariadb-dev"] {os-distribution = "debian"}
-  ["libmariadb-dev"] {os-distribution = "ubuntu"}
-  ["mariadb-dev"] {os-distribution = "alpine"}
-  ["mariadb-connector-c"] {os = "win32" & os-distribution = "cygwinports"}
+  "conf-mariadb"
 ]
 flags: light-uninstall
 url {
