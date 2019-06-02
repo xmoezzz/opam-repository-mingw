@@ -23,7 +23,7 @@ remove: [
  ["rm" "-f" "%{prefix}%/bin/labltk.bat" "%{prefix}%/bin/ocamlbrowser.exe"] { os = "win32" }
 ]
 depends: [
-  "ocaml" {>= "4.07"}
+  "ocaml" {>= "4.07" & < "4.08"}
   "ocamlfind"
   "conf-tcl"
   "conf-tk"
