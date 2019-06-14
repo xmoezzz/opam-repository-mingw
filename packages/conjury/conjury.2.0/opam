@@ -1,5 +1,5 @@
 opam-version: "2.0"
-name: "conjury" version: "2.0"
+name: "conjury"
 synopsis: "Conjury library for OMake"
 maintainer: "james woodyatt <jhw@conjury.org>"
 authors: "james woodyatt <jhw@conjury.org>"
@@ -21,3 +21,4 @@ url {
     src: "https://bitbucket.org/jhw/conjury/get/r2.0.tar.gz"
     checksum: "md5=e88b496c0e76260af2ab359fae850e45"
 }
+available: os != "win32"
