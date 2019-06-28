@@ -30,5 +30,6 @@ package installs both the OMD library and the command line tool `omd`."""
 url {
   src:
     "https://github.com/ocaml/omd/archive/2.0.0.alpha4.tar.gz"
-  checksum: "md5=bb90f935188c250c639dbcc6c55b15ec"
+  checksum: "md5=4524008e0c517c7cd4f58421724ed13a"
 }
+available: os != "win32"
