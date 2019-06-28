@@ -32,6 +32,7 @@ conflicts: [
   "deriving" {< "0.6"}
   "tyxml" {< "4.0.0"}
   "ppx_deriving" {< "3.0"}
+  "ppx_deriving" {>= "4.3"}
   "reactiveData" {< "0.2"}
 ]
 patches: "js_of_ocaml-2.8.4.patch" {os = "win32"}
