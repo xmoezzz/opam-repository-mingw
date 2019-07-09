@@ -22,8 +22,7 @@ depends: [
 ]
 depopts: [ "obus" "lablgtk" ]
 depexts: [
-  ["unzip"] {os-distribution = "ubuntu"}
-  ["unzip"] {os-distribution = "debian"}
+  ["unzip"] {os-family = "debian"}
   ["gnupg"] {os = "macos" & os-distribution = "homebrew"}
   ["system:gnupg" "system:unzip"]
     {os = "win32" & os-distribution = "cygwinports"}

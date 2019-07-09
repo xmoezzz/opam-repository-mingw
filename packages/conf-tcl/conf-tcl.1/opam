@@ -8,8 +8,7 @@ build: [
  ["sh" "-ecx" "%{bin}%/cygwin-install list | grep -q '^tcl:'"] {depext-cygwinports:installed}
 ]
 depexts: [
-  ["tcl-dev"] {os-distribution = "debian"}
-  ["tcl-dev"] {os-distribution = "ubuntu"}
+  ["tcl-dev"] {os-family = "debian"}
   ["tcl"] {os-distribution = "nixos"}
   ["tcl"] {os = "win32" & os-distribution = "cygwinports"}
   ["tcl-dev"] {os-family = "alpine"}

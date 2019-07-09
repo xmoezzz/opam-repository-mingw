@@ -16,8 +16,7 @@ authors: [
 homepage: "http://giflib.sourceforge.net/"
 license: "GIFLIB"
 depexts: [
-  ["libgif-dev"] {os-distribution = "debian"}
-  ["libgif-dev"] {os-distribution = "ubuntu"}
+  ["libgif-dev"] {os-family = "debian"}
   ["giflib"] {os = "macos" & os-distribution = "homebrew"}
   ["giflib"] {os = "win32" & os-distribution = "cygwinports"}
 ]

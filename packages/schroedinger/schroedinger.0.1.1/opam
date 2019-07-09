@@ -12,8 +12,7 @@ install: [
 remove: ["ocamlfind" "remove" "schroedinger"]
 depends: ["ocaml" "ocamlfind" "ogg"]
 depexts: [
-  ["libschroedinger-dev"] {os-distribution = "ubuntu"}
-  ["libschroedinger-dev"] {os-distribution = "debian"}
+  ["libschroedinger-dev"] {os-family = "debian"}
   ["schroedinger"] {os = "macos" & os-distribution = "homebrew"}
   ["schroedinger1.0"] {os = "win32" & os-distribution = "cygwinports"}
 ]

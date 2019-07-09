@@ -22,8 +22,7 @@ depends: [
 ]
 depopts: [ "obus" "lablgtk" ]
 depexts: [
-  ["unzip"] {os-distribution = "ubuntu"}
-  ["unzip"] {os-distribution = "debian"}
+  ["unzip"] {os-family = "debian"}
   ["gnupg"] {os = "macos" & os-distribution = "homebrew"}
 ]
 patches: "0install-2.11.patch" {os = "win32"}

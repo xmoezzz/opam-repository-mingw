@@ -3,7 +3,15 @@ maintainer: "Romain Beauxis <toots@rastageeks.org>"
 authors: "The Savonet Team <savonet-users@lists.sourceforge.net>"
 homepage: "https://github.com/savonet/ocaml-speex"
 build: [
-  ["./configure" "--prefix" prefix]
+  ["./configure" "--prefix" prefix] {os != "macos"}
+  [
+    "./configure"
+    "CFLAGS=-I/usr/local/include"
+    "LDFLAGS=-L/usr/local/lib"
+    "OCAMLFLAGS=-ccopt -I/usr/local/include -cclib -L/usr/local/lib"
+    "--prefix"
+    prefix
+  ] {os = "macos"}
   [make]
 ]
 install: [
@@ -16,8 +24,7 @@ depexts: [
   ["speex-devel"] {os-distribution = "centos"}
   ["speex-devel"] {os-distribution = "fedora"}
   ["speex-devel"] {os-family = "suse"}
-  ["libspeex-dev"] {os-distribution = "ubuntu"}
-  ["libspeex-dev"] {os-distribution = "debian"}
+  ["libspeex-dev"] {os-family = "debian"}
   ["speex"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 bug-reports: "https://github.com/savonet/ocaml-speex/issues"

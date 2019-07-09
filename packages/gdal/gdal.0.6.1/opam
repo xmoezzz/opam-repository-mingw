@@ -19,8 +19,7 @@ depends: [
   "ocamlbuild" {build}
 ]
 depexts: [
-  ["libgdal-dev"] {os-distribution = "debian"}
-  ["libgdal-dev"] {os-distribution = "ubuntu"}
+  ["libgdal-dev"] {os-family = "debian"}
 ]
 install: ["ocaml" "setup.ml" "-install"]
 dev-repo: "git://github.com/hcarty/ocaml-gdal"

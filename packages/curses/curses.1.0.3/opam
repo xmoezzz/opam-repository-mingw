@@ -13,8 +13,7 @@ install: [
 remove: [["ocamlfind" "remove" "curses"]]
 depends: ["ocaml" "ocamlfind"]
 depexts: [
-  ["libncurses-dev"] {os-distribution = "ubuntu"}
-  ["libncurses-dev"] {os-distribution = "debian"}
+  ["libncurses-dev"] {os-family = "debian"}
   ["ncurses"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 patches: [

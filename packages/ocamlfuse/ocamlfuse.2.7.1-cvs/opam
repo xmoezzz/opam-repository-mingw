@@ -5,8 +5,7 @@ build: [make "-C" "lib" "INCDIRS=%{lib}%/camlidl"]
 remove: [["ocamlfind" "remove" "Fuse"]]
 depends: ["ocaml" "ocamlfind" "camlidl"]
 depexts: [
-  ["libfuse-dev"] {os-distribution = "debian"}
-  ["libfuse-dev"] {os-distribution = "ubuntu"}
+  ["libfuse-dev"] {os-family = "debian"}
 ]
 install: [make "-C" "lib" "install"]
 available: os != "win32"

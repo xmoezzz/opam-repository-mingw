@@ -18,8 +18,7 @@ depends: [
   "batteries"
 ]
 depexts: [
-  ["funnelweb" "asciidoc"] {os-distribution = "debian"}
-  ["funnelweb" "asciidoc"] {os-distribution = "ubuntu"}
+  ["asciidoc"] {os-family = "debian"}
   ["system:asciidoc"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 post-messages: [
@@ -28,5 +27,6 @@ post-messages: [
 synopsis: "Literate Programming Preprocessor."
 flags: light-uninstall
 url {
-  src: "git://github.com/rixed/portia"
+  src: "https://github.com/rixed/portia/archive/v0.1.3.tar.gz"
+  checksum: "md5=aed551ae3c6d230de1e5fa277362630c"
 }

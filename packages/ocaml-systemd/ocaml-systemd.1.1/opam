@@ -17,8 +17,7 @@ depends: [
   "ocamlbuild" {build}
 ]
 depexts: [
-  ["libsystemd-dev"] {os-distribution = "debian"}
-  ["libsystemd-dev"] {os-distribution = "ubuntu"}
+  ["libsystemd-dev"] {os-family = "debian"}
   ["systemd-devel"] {os-distribution = "centos"}
 ]
 available: os != "win32"

@@ -20,6 +20,15 @@ depends: [
 conflicts: [
   "liquidsoap" {< "1.4.0"}
 ]
+depexts: [
+  ["fdk-aac-dev"] {os-distribution = "alpine"}
+  ["libfdk-aac"] {os-distribution = "arch"}
+  ["fdk-aac-devel"] {os-distribution = "centos"}
+  ["fdk-aac-devel"] {os-distribution = "fedora"}
+  ["fdk-aac-devel"] {os-family = "suse"}
+  ["libfdk-aac-dev"] {os-family = "debian"}
+  ["fdk-aac"] {os = "macos" & os-distribution = "homebrew"}
+]
 synopsis: "Fraunhofer FDK AAC Codec Library"
 description: """
 The FDK AAC Codec Library For Android contains an encoder implementation of the

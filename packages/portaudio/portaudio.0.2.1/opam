@@ -14,9 +14,8 @@ depends: ["ocaml" "ocamlfind" "conf-pkg-config"]
 depexts: [
   ["portaudio-dev"] {os-distribution = "alpine"}
   ["portaudio"] {os = "macos" & os-distribution = "homebrew"}
-  ["portaudio19-dev"] {os-distribution = "debian"}
+  ["portaudio19-dev"] {os-family = "debian"}
   ["portaudio"] {os = "win32" & os-distribution = "cygwinports"}
-  ["portaudio19-dev"] {os-distribution = "ubuntu"}
 ]
 bug-reports: "https://github.com/savonet/ocaml-portaudio/issues"
 dev-repo: "git+https://github.com/savonet/ocaml-portaudio.git"

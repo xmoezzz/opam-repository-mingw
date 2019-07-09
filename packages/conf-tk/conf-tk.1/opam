@@ -8,8 +8,7 @@ build: [
  ["sh" "-ecx" "%{bin}%/cygwin-install list | grep -q '^tk:'"] {depext-cygwinports:installed}
 ]
 depexts: [
-  ["tk-dev"] {os-distribution = "debian"}
-  ["tk-dev"] {os-distribution = "ubuntu"}
+  ["tk-dev"] {os-family = "debian"}
   ["tk"] {os-distribution = "nixos"}
   ["tk"] {os = "win32" & os-distribution = "cygwinports"}
   ["tk"] {os-family = "alpine"}

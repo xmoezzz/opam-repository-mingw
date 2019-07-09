@@ -22,8 +22,7 @@ depends: [
   "oasis"
 ]
 depexts: [
-  ["libmpfr-dev"] {os-distribution = "ubuntu"}
-  ["libmpfr-dev"] {os-distribution = "debian"}
+  ["libmpfr-dev"] {os-family = "debian"}
   ["mpfr"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 post-messages: [

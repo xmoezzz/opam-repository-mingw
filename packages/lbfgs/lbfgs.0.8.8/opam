@@ -42,8 +42,7 @@ depopts: [
   "lacaml"
 ]
 depexts: [
-  ["gfortran"] {os-distribution = "debian"}
-  ["gfortran"] {os-distribution = "ubuntu"}
+  ["gfortran"] {os-family = "debian"}
   ["gcc-fortran"] {os = "win32" & os-distribution = "cygwinports"}
   ["gcc"] {os = "macos" & os-distribution = "homebrew"}
 ]

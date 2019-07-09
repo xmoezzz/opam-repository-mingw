@@ -29,8 +29,7 @@ depends: [
   "yojson"
 ]
 depexts: [
-  ["usbmuxd"] {os-distribution = "debian"}
-  ["usbmuxd"] {os-distribution = "ubuntu"}
+  ["usbmuxd"] {os-family = "debian"}
 ]
 available: os != "win32"
 post-messages: [

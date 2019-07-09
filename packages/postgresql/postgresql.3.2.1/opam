@@ -45,8 +45,7 @@ depopts: [
   "lablgtk"
 ]
 depexts: [
-  ["libpq-dev"] {os-distribution = "debian"}
-  ["libpq-dev"] {os-distribution = "ubuntu"}
+  ["libpq-dev"] {os-family = "debian"}
   ["postgresql-devel"] {os-distribution = "fedora"}
   ["postgresql"] {os = "win32" & os-distribution = "cygwinports"}
   ["postgresql-libs"] {os-distribution = "arch"}

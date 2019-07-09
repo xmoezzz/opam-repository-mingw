@@ -5,8 +5,7 @@ license: "LGPL 2.1"
 build: [["pkg-config" "SDL_image"]]
 depexts: [
   ["sdl_image-dev"] {os-distribution = "alpine"}
-  ["libsdl-image1.2-dev"] {os-distribution = "debian"}
-  ["libsdl-image1.2-dev"] {os-distribution = "ubuntu"}
+  ["libsdl-image1.2-dev"] {os-family = "debian"}
   ["libSDL_image-devel"] {os-distribution = "mageia"}
   ["SDL_image"] {os = "win32" & os-distribution = "cygwinports"}
   ["sdl_image"] {os = "macos" & os-distribution = "homebrew"}

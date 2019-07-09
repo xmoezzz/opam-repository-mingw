@@ -6,8 +6,7 @@ bug-reports: "https://github.com/ocaml/opam-repository/issues"
 license: "LGPL 2.1"
 build: [["pkg-config" "libglade-2.0"]]
 depexts: [
-  ["libglade2-dev"] {os-distribution = "debian"}
-  ["libglade2-dev"] {os-distribution = "ubuntu"}
+  ["libglade2-dev"] {os-family = "debian"}
   ["libglade2.0"] {os = "win32" & os-distribution = "cygwinports"}
   ["libglade2-devel"] {os-distribution = "fedora"}
 ]

@@ -11,9 +11,8 @@ license: "modified BSD"
 build: [["pkg-config" "glew"]]
 depends: ["conf-pkg-config" {build}]
 depexts: [
-  ["libglew-dev"] {os-distribution = "debian"}
+  ["libglew-dev"] {os-family = "debian"}
   ["libglew-devel"] {os-distribution = "mageia"}
-  ["libglew-dev"] {os-distribution = "ubuntu"}
   ["glew"] {os = "win32" & os-distribution = "cygwinports"}
   ["glew-devel"] {os-distribution = "fedora"}
 ]

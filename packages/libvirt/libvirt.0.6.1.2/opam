@@ -15,8 +15,7 @@ depends: [
   "ocamlfind"
 ]
 depexts: [
-  ["libvirt-dev"] {os-distribution = "debian"}
-  ["libvirt-dev"] {os-distribution = "ubuntu"}
+  ["libvirt-dev"] {os-family = "debian"}
 ]
 install: [make "install-opt"]
 synopsis:
