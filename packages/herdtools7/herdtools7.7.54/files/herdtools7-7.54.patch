@@ -1,0 +1,11 @@
+--- ./dune-install.sh
++++ ./dune-install.sh
+@@ -30,7 +30,7 @@
+ cpbin () {
+   for exec
+   do
+-    cp _build/default/$exec $BINDIR/$(basename $exec .exe)7
++    cp _build/default/$exec $BINDIR/$(basename $exec .exe)7.exe
+   done
+ }
+ 
