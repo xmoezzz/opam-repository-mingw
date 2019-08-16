@@ -8,6 +8,7 @@ license: "BSD"
 build: [
   ["cp" "Makefile.config.ex" "Makefile.config"]
   ["cp" "Makefile.config.osx" "Makefile.config"] {os = "macos"}
+  ["cp" "Makefile.config.w32" "Makefile.config"] {os = "win32"}
   ["mkdir" "-p" bin]
   [make "INSTALLDIR=%{lib}%/lablgl" "glut"]
   [make "glutopt"]
@@ -30,6 +31,7 @@ depexts: [
   ["freeglut-devel"] {os-distribution = "centos"}
   ["freeglut-devel"] {os-distribution = "fedora"}
   ["freeglut-devel"] {os-family = "suse"}    
+  ["freeglut"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 synopsis: "Interface to OpenGL"
 description: """
@@ -40,8 +42,11 @@ flags: light-uninstall
 extra-files: [
   ["lablgl.install" "md5=a03d20fcd54d7277982caf03b05354fa"]
   ["META" "md5=49c6f4d534802c35d0faa722dedcea76"]
+  ["Makefile.config.w32" "md5=beacbbbd37490eff51d3b55c610c3e5f"]
+  ["lablgl-1.06.patch" "md5=935b243ca28c286c06dcf66994515347"]
 ]
 url {
   src: "https://github.com/garrigue/lablgl/archive/v1.06.tar.gz"
   checksum: "md5=8ee7a37b016095c4f7cd066f0ebd4436"
 }
+patches: "lablgl-1.06.patch" {os = "win32"}
