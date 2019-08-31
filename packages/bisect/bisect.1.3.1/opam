@@ -19,8 +19,10 @@ depends: [
   "ocamlbuild" {build}
 ]
 patches: "bisect-1.3.1.patch" {os = "win32"}
-synopsis: "Code coverage tool for the OCaml language"
+synopsis: "Code coverage tool for the OCaml language (deprecated)"
 description: """
+Bisect is deprecated in favor of package bisect_ppx.
+
 Bisect is a code coverage tool for the OCaml language. It is a
 camlp4-based tool that allows to instrument your application before
 running tests. After application execution, it is possible to generate
