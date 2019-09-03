@@ -18,6 +18,8 @@ depends: [
   "oasis"
   "re"
   "ocamlbuild" {build}
+  "ounit"
+  "base-unsafe-string"
 ]
 install: [make "install"]
 dev-repo: "git://github.com/rgrinberg/humane-re"
