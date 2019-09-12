@@ -1,13 +1,25 @@
 opam-version: "2.0"
 maintainer: "alessandro.strada@gmail.com"
 authors: ["Vincenzo Ciancia"]
-build: [make "-C" "lib" "INCDIRS=%{lib}%/camlidl"]
+license: "GPL-2.0-only"
+homepage: "http://sourceforge.net/apps/mediawiki/ocamlfuse"
+bug-reports: "http://sourceforge.net/p/ocamlfuse/mailman/ocamlfuse-devel/"
+# dev-repo: "cvs://pserver:anonymous@ocamlfuse.cvs.sourceforge.net/cvsroot/ocamlfuse"
+build: [
+  [make "-C" "lib" "INCDIRS=%{lib}%/camlidl"]
+]
+install: [
+  [make "-C" "lib" "install"]
+]
 remove: [["ocamlfind" "remove" "Fuse"]]
-depends: ["ocaml" "ocamlfind" "camlidl"]
+depends: [
+  "ocaml"
+  "ocamlfind" {build}
+  "camlidl"
+]
 depexts: [
   ["libfuse-dev"] {os-family = "debian"}
 ]
-install: [make "-C" "lib" "install"]
 available: os != "win32"
 synopsis: "OCaml bindings for FUSE (Filesystem in UserSpacE)"
 flags: light-uninstall

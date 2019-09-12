@@ -4,8 +4,8 @@ authors: "Damien Pous <Damien.Pous@ens-lyon.fr>"
 name: "symkat"
 version: "1.3"
 homepage: "http://perso.ens-lyon.fr/damien.pous/symkat/"
-bug-reports: ""
-license: "GNU LGPL v3"
+license: "LGPL-3.0-only"
+build: [make "PREFIX=%{prefix}%"]
 remove: [make "PREFIX=%{prefix}%" "uninstall"]
 depends: [
   "ocaml" {>= "4.02.0"}

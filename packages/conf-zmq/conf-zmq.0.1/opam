@@ -3,7 +3,7 @@ maintainer: "unixjunkie@sdf.org"
 authors: "iMatix"
 homepage: "http://zeromq.org/"
 bug-reports: "https://github.com/ocaml/opam-repository/issues"
-license: "LGPL"
+license: "LGPL-2.0-or-later"
 build: [
   ["cc" "test.c" "-I/usr/local/include" "-L/usr/local/lib" "-lzmq"] { os != "win32" }
   ["dash" "-ecx" "cc=$(ocamlc -config | awk -F '[\r\t ]+' '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf \"%s \" ,$i}') ; $cc test.c -lzmq" ] { os = "win32" }

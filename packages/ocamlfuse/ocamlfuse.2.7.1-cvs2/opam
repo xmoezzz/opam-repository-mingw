@@ -1,7 +1,7 @@
 opam-version: "2.0"
 maintainer: "alessandro.strada@gmail.com"
 authors: [ "Vincenzo Ciancia" ]
-license: "GPL-2"
+license: "GPL-2.0-only"
 homepage: "http://sourceforge.net/apps/mediawiki/ocamlfuse"
 build: [make "-C" "lib" "INCDIRS=%{lib}%/camlidl"]
 remove: [
