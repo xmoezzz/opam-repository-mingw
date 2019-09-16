@@ -39,7 +39,7 @@ depends: [
 ]
 depopts: [
   "gperftools"
-  "jemalloc"
+  "jemalloc" {<= "0.1"}
 ]
 available: os != "win32"
 synopsis: "development kit - general purpose library"
