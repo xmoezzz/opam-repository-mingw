@@ -17,7 +17,7 @@ doc: "https://ocaml.github.io/graphics/"
 bug-reports: "https://github.com/ocaml/graphics/issues"
 depends: [
   "dune" {>= "1.11"}
-  "conf-libX11"
+  "conf-libX11" {os != "win32"}
   "ocaml" {>= "4.09.0~~"}
 ]
 build: [
