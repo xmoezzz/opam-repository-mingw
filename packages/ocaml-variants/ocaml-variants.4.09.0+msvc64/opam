@@ -1,0 +1,40 @@
+opam-version: "2.0"
+synopsis: "OCaml 4.09.0 (msvc64)"
+maintainer: "platform@lists.ocaml.org"
+depends: [
+  "ocaml" {= "4.09.0" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "cl.exe"]
+]
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--host=x86_64-pc-windows"]
+  [make "SHELL=/bin/dash" "flexdll"]
+  [make "SHELL=/bin/dash" "-j%{jobs}%" "world.opt"]
+  [make "SHELL=/bin/dash" "flexlink.opt"]
+]
+install: [
+  [make "SHELL=/bin/dash" "install"]
+  ["dash" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""]
+]
+patches: ["ocaml-4.09.0+beta2.patch" "inline-flexdll.patch"]
+url {
+  src: "https://github.com/ocaml/ocaml/archive/4.09.0.tar.gz"
+  checksum: "md5=76ac39570fc88b16fda2a94db7cd5cf3"
+}
+extra-source "ocaml-4.09.0+beta2.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/ab48017351b250df526599fcfd3065a8/raw/636ba905b9fecc95a2d3f5f87f01b35efe27c22c/ocaml-4.09.0+beta2.patch"
+  checksum: "md5=b88064a0f98e4ca1f720d587937c637c"
+}
+extra-source "inline-flexdll.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/e9b6169663194ec07c9d3fd07ba29e2f/raw/ae5875f1882b6ee2fef72633f4eec94dea253e49/inline-flexdll.patch"
+  checksum: "md5=f4e9a3cff99e15e7efe4b59bc0e190dc"
+}
