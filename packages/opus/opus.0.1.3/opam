@@ -25,6 +25,7 @@ depexts: [
   ["libopus-devel"] {os-family = "suse"}
   ["libopus"] {os-distribution = "nixos"}
   ["opus"] {os = "macos" & os-distribution = "homebrew"}
+  ["opus"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 bug-reports: "https://github.com/savonet/ocaml-opus/issues"
 dev-repo: "git+https://github.com/savonet/ocaml-opus.git"
@@ -38,3 +39,7 @@ url {
     "sha512=6f3ce5de1366e8f23e5d43f77806eb6dec9689d3c7e0a4c55776027c10695e7e792147c2ac44a2618d6f058af1660f3e85493ef99369bcfadf1a716426d37138"
   ]
 }
+patches: [
+  "ocaml-opus-0.1.3.patch" {os = "win32"}
+  "patch-ocamlmakefile-opus.0.1.3" {os = "win32"}
+]
