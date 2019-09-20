@@ -15,6 +15,7 @@ depends: [
   "base-unix"
   "camlidl"
   "dune"
+  "dune-configurator"
 ]
 depexts: [
   ["libfuse-dev"] {os-family = "debian"}
@@ -32,7 +33,6 @@ been designed with simplicity as a goal, as you can see by looking at
 example/fusexmp.ml. Efficiency has also been a separate goal. The
 Bigarray library is used for read and writes, allowing the library to
 do zero-copy in OCaml land."""
-flags: light-uninstall
 url {
   src: "https://github.com/astrada/ocamlfuse/archive/v2.7.1_cvs6.tar.gz"
   checksum: "md5=e01b1a61338596c34f93d5cc5defe2ad"
