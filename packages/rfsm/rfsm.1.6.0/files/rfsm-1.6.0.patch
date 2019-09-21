@@ -1,0 +1,15 @@
+--- ./src/bin/dune
++++ ./src/bin/dune
+@@ -6,9 +6,9 @@
+ 
+ (rule
+  (target options_spec.ml)
+- (deps   options_spec.txt)
+- (action (run ./build_options_spec %{deps} %{target})))
+-  
++ (deps   (:script build_options_spec) (:spec options_spec.txt))
++ (action (run bash %{script} %{spec} %{target})))
++
+ (executable 
+   (name rfsmc)
+   (public_name rfsmc)
