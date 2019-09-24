@@ -6,21 +6,24 @@ bug-reports: "https://github.com/garrigue/labltk/issues"
 dev-repo: "git+https://github.com/garrigue/labltk.git"
 license: "LGPL-2.1-or-later with OCaml-LGPL-linking-exception"
 build: [
-  ["./configure" "-use-findlib" "-verbose" "-installbindir" bin]
-  [make "library" "opt"]
+  ["./configure" "-use-findlib" "-verbose" "-installbindir" bin] { os != "win32" }
+  [make "library" "opt"] { os != "win32" }
+  ["bash" "build.sh" prefix ] { os = "win32" }
 ]
 install: [
-  [make "install"]
+  [make "install"] { os != "win32" }
+  ["bash" "install.sh" prefix ] { os = "win32" }
 ]
 remove: [["ocamlfind" "remove" "labltk"]]
 depends: [
-  "ocaml" {>= "4.07"}
+  "ocaml" {(>= "4.07" & os != "win32") | >= "4.08"}
   "ocamlfind" {build}
   "conf-tcl"
   "conf-tk"
 ]
 post-messages: [
   "This package requires Tcl/Tk with its development packages installed on your system" {failure}
+  "You must either set the environment variable TK_LIBRARY manually (e.g. to C:\\cygwin\\usr\\x86_64-w64-mingw32\\sys-root\\mingw\\lib\\tk8.6) or copy the tcl-tk-files relative to your executable in a appropriate order" { success & os = "win32"}
 ]
 synopsis: "OCaml interface to Tcl/Tk"
 description: "ocamlbrowser is now a separate package.\n\
@@ -30,3 +33,4 @@ url {
   src: "https://github.com/garrigue/labltk/archive/8.06.7.tar.gz"
   checksum: "md5=bb0d6ffd49b7f08eda045fdf6c4964b8"
 }
+patches: "labltk-8.06.7.patch" {os = "win32"}
