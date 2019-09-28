@@ -8,13 +8,15 @@ dev-repo: "git+https://github.com/rgrinberg/ocaml-hamt.git"
 build: [
   [make "configure"]
   [make "build"]
-  [make "configure-test"] {with-test}
-  [make "build"] {with-test}
-  [make "test"] {with-test}
   [make "doc"] {with-doc}
 ]
 install: [make "install"]
 remove: ["ocamlfind" "remove" "hamt"]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+]
 synopsis: "Hash Array Mapped Tries"
 description: """
 HAMT data structure implemented in OCaml
