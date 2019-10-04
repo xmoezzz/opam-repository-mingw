@@ -12,6 +12,7 @@ build: [
 ]
 patches: [
   "disable-fatal-warn-31.diff" {ocaml:version >= "4.03"}
+  "camlidl-camlidl107.patch" {os = "win32"}
 ]
 synopsis: "Stub code generator for OCaml"
 description: """
@@ -26,6 +27,7 @@ extra-files: [
   ["disable-fatal-warn-31.diff" "md5=750eef544a6a4f4835b819ca8d740924"]
   ["camlidl.install" "md5=cf56e14faed046880b7c9d0f4cd737f1"]
   ["META" "md5=df2fdae08d486c43311b0a7b8a9ca38c"]
+  ["camlidl-camlidl107.patch" "md5=1f0688ca687b7c615b012d6b6476a72b"]
 ]
 url {
   src:
