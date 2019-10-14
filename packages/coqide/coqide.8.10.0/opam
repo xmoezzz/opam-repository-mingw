@@ -32,9 +32,13 @@ install: [
   "install-ide-info"
   "install-ide-devfiles"
 ]
-extra-files: ["coqide.install" "md5=d005cda8cb7888fbea94c5416dcb31bc"]
+extra-files: [
+  ["coqide.install" "md5=d005cda8cb7888fbea94c5416dcb31bc"]
+  ["coq-8.10.0.patch" "md5=f6673fc2a4b899d57b934f6a19b8ffd4"]
+]
 
 url {
   src: "https://github.com/coq/coq/archive/V8.10.0.tar.gz"
   checksum: "sha512=f3da7f77f5ec760d6339233f5fcb3d743092d05baa33f3f0781e6729bcb996b14c2cfc45f5000a6fc4cee10b9e7532682bddda25c5dc2616d9e7ca70306b4724"
 }
+patches: "coq-8.10.0.patch" {os = "win32"}
