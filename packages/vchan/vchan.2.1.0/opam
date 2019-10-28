@@ -42,10 +42,8 @@ conflicts: [
   "xen-gnt"    {>= "2.0.0"}
   "mirage-xen" {>= "4.0.0"}
 ]
-available: os != "win32"
 depexts: [
-  ["libxen-dev" "uuid-dev"] {os-distribution = "debian"}
-  ["libxen-dev" "uuid-dev"] {os-distribution = "ubuntu"}
+  ["libxen-dev" "uuid-dev"] {os-family = "debian"}
 ]
 synopsis: "Xen Vchan implementation"
 description: """

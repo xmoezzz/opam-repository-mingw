@@ -12,8 +12,7 @@ install: [
 remove: ["ocamlfind" "remove" "opus"]
 depends: ["ocaml" "ocamlfind" "ogg"]
 depexts: [
-  ["libavutil-dev" "libopus-dev"] {os-distribution = "debian"}
-  ["libavutil-dev" "libopus-dev"] {os-distribution = "ubuntu"}
+  ["libavutil-dev" "libopus-dev"] {os-family = "debian"}
   ["opus"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 bug-reports: "https://github.com/savonet/ocaml-opus/issues"
