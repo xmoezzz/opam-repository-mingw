@@ -11,7 +11,7 @@ build: [
 ]
 depends: [
   "ocaml"
-  "jbuilder" {build}
+  "jbuilder"
   "result"
 ]
 available: os != "win32"
