@@ -17,6 +17,7 @@ depends: [
   "camlp5"
   "ocamlbuild" {build}
   "num"
+  "conf-findutils" {build}
 ]
 depopts: ["lablgtk"]
 patches: ["configure.patch"]

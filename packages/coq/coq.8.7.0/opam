@@ -57,6 +57,7 @@ depends: [
   "ocamlfind"
   "camlp5"
   "num"
+  "conf-findutils" {build}
 ]
 synopsis: "Formal proof management system."
 flags: light-uninstall

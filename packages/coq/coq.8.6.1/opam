@@ -35,6 +35,7 @@ depends: [
   "ocamlfind"
   "camlp5"
   "num"
+  "conf-findutils" {build}
 ]
 install: [make "install"]
 synopsis: "Formal proof management system."
