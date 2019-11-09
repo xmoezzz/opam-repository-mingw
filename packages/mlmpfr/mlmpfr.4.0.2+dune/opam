@@ -8,8 +8,8 @@ bug-reports:  "https://github.com/thvnx/mlmpfr/issues"
 license:      "LGPL-3.0"
 dev-repo:     "git+https://github.com/thvnx/mlmpfr.git"
 build: [
-  ["cc" "mlmpfr_compatibility_test.c" "-lmpfr" "-o" "mlmpfr_compatibility_test"]
-  ["./mlmpfr_compatibility_test"]
+  ["cc" "mlmpfr_compatibility_test.c" "-lmpfr" "-o" "mlmpfr_compatibility_test"] {os != win32}
+  ["./mlmpfr_compatibility_test"] {os != win32}
   ["dune" "subst"] {pinned}
   ["dune" "build" "-p" name "-j" jobs]
 ]
@@ -19,6 +19,7 @@ depends: [
 ]
 depexts: [
   ["libmpfr-dev"] {os-family = "debian"}
+  ["mpfr"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 post-messages: [
   "Make sure you had MPFR version 4.0.2 installed on your system." {failure}
