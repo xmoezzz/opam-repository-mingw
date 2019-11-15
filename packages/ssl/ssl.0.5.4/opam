@@ -18,7 +18,7 @@ depends: [
   "ocaml"
   "ocamlfind" {build}
   "conf-which" {build}
-  "conf-openssl"
+  "conf-libssl"
   "base-bytes"
 ]
 patches: "patch-ocamlmakefile-ssl.0.5.4" {os = "win32"}
