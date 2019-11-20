@@ -21,3 +21,4 @@ url {
   src: "https://github.com/janestreet/re2/archive/v0.12.1.tar.gz"
   checksum: "md5=6fcc8aa488f7888d358c773c359e7345"
 }
+available: os != "win32"
