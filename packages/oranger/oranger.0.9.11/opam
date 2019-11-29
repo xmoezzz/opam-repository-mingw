@@ -39,3 +39,4 @@ extra-source "0.9.11.tar.gz" {
   src: "https://github.com/imbs-hl/ranger/archive/0.9.11.tar.gz"
   checksum: "md5=91e80fd65f21cf68fcdedd442ffdc901"
 }
+available: os != "win32"
