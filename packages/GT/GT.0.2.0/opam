@@ -38,3 +38,4 @@ dev-repo: "git+https://github.com/JetBrains-Research/GT.git"
 url {
   src: "git+https://github.com/JetBrains-Research/GT.git"
 }
+available: os != "win32"
