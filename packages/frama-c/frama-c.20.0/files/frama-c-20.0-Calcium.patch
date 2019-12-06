@@ -1,0 +1,17 @@
+--- ./Makefile
++++ ./Makefile
+@@ -1872,11 +1872,13 @@
+ 	$(PRINT_RM) "Installation directory"
+ 	$(RM) -r $(FRAMAC_LIBDIR)
+ 
++EXT_DLL:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^ext_dll:/ {print $$2}')
++
+ install-lib-byte: clean-install
+ 	$(PRINT_INSTALL) kernel API
+ 	$(MKDIR) $(FRAMAC_LIBDIR)
+ 	$(CP) $(LIB_BYTE_TO_INSTALL) $(FRAMAC_LIBDIR)
+-	$(CP) $(addprefix lib/fc/,dllframa-c.so libframa-c.a frama-c.cma META.frama-c) $(FRAMAC_LIBDIR)
++	$(CP) $(addprefix lib/fc/,dllframa-c$(EXT_DLL) libframa-c.a frama-c.cma META.frama-c) $(FRAMAC_LIBDIR)
+ 
+ install-lib-opt: install-lib-byte
+ 	$(CP) $(LIB_OPT_TO_INSTALL) $(FRAMAC_LIBDIR)
