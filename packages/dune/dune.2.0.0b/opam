@@ -43,6 +43,6 @@ available: os = "win32"
 url {
   src: "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/dune.2.0.0.tar.xz"
   checksum: [
-    "sha512=f2970d9d65f308620541f3b41bb9de6f3c607cf3010aedf25bc25c8f945f661aa0772ca32c6bbb6a2591216aba79a0ccb250c81514872ef5a9bc57aeccf589e9"
+    "sha512=f6fc404f55889c4d29b2d25fd6cd7b0de81de052bb9f01a6acce30e787134cbe5e3329a546635de087dfda045ed1d2d80573b970b5c2a3a11586d1cc4773bd87"
   ]
 }
