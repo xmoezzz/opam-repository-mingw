@@ -7,7 +7,10 @@ dev-repo: "git://github.com/johnwhitington/camlpdf"
 build: [[make]]
 install: [[make "install"]]
 remove: [["ocamlfind" "remove" "camlpdf"]]
-depends: ["ocaml" "ocamlfind"]
+depends: [
+  "ocaml" {< "4.10"}
+  "ocamlfind"
+]
 patches: [
   "patch-ocamlmakefile-camlpdf.2.2.1" {os = "win32"}
   "unsafe_string.patch" {ocaml:version >= "4.06"}
