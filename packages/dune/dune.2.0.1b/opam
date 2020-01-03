@@ -39,11 +39,10 @@ dev-repo: "git+https://github.com/ocaml/dune.git"
 build: [
  ["sh" "build.sh"]
 ]
-available: false
+available: os = "win32"
 url {
-  src: "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/dune.2.0.0.tar.xz"
+  src: "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/dune.2.0.1.tar.xz"
   checksum: [
-    "sha512=f6fc404f55889c4d29b2d25fd6cd7b0de81de052bb9f01a6acce30e787134cbe5e3329a546635de087dfda045ed1d2d80573b970b5c2a3a11586d1cc4773bd87"
+    "sha512=361e96ba82b17e0922165f95a917e41aaef9b3633415c59b9d5ef2dcdf02d4d4c1c402608d124555d0c9a44d4ce9b1385a5e0ace7f3c5c682017dba06a5a336b"
   ]
 }
-
