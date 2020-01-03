@@ -26,8 +26,6 @@ depends: [
   "dune" {>= "1.11"}
   "dune-configurator"
   "conf-sqlite3" {build}
-  "base" {build}
-  "stdio" {build}
   "ppx_inline_test" {with-test}
 ]
 url {
