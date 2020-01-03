@@ -36,6 +36,9 @@ depends: [
   "fileutils" {with-test}
 ]
 depopts: ["lwt"]
+conflicts: [
+  "lwt" {with-test & >= "5.0.0"}
+]
 available: os = "linux" | os = "macos"
 synopsis: "Inotify bindings for ocaml."
 flags: light-uninstall
