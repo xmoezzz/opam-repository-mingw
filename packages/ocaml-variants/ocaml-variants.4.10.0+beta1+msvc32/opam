@@ -1,0 +1,40 @@
+opam-version: "2.0"
+synopsis: "first beta of OCaml 4.10.0 (msvc32)"
+maintainer: "platform@lists.ocaml.org"
+depends: [
+  "ocaml" {= "4.10.0" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "cl.exe"]
+]
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--host=i686-pc-windows"]
+  [make "SHELL=/bin/dash" "flexdll"]
+  [make "SHELL=/bin/dash" "-j%{jobs}%" "world.opt"]
+  [make "SHELL=/bin/dash" "flexlink.opt"]
+]
+install: [
+  [make "SHELL=/bin/dash" "install"]
+  ["dash" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""]
+]
+patches: ["ocaml-4.10.0+beta1.patch" "inline-flexdll.patch"]
+url {
+  src: "https://github.com/ocaml/ocaml/archive/4.10.0+beta1.tar.gz"
+  checksum: "sha512=71831bf00e66498219ff0224adff33bbe9c711b8c1d8212e07741aa944ad114c1f2b56b8cf0f18804102ec64593bb0ab6b1c206e9f426d4b6cfe1693ac720a99"
+}
+extra-source "ocaml-4.10.0+beta1.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/424e7215b33e8fcce3dfa7d7a7b25b2f/raw/7080b470ee153f20a204edd4af6d57d9286745be/ocaml-4.10.0+beta1.patch"
+  checksum: "sha512=43247a500253b101548a4577b48a04e08184aa31ec4032e206d0504229d0feabf797177c9f473bf7b8ab278af0cbaf63fbb044f29b901a4674fda706a1c4ee93"
+}
+extra-source "inline-flexdll.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/e9b6169663194ec07c9d3fd07ba29e2f/raw/ae5875f1882b6ee2fef72633f4eec94dea253e49/inline-flexdll.patch"
+  checksum: "md5=fc3a7c7d9bbd49f566dc01aaacf038eff2e4f824c4c6c37eed0b178b0e790f0370315bcc5fa249a8b45d9de016331d9dcad74477a74a7120fd814103ca8c8619"
+}

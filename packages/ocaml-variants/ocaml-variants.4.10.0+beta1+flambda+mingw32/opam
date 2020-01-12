@@ -1,8 +1,8 @@
 opam-version: "2.0"
-synopsis: "second beta of OCaml 4.09.0 with flambda activated (mingw32)"
+synopsis: "first beta of OCaml 4.10.0 with flambda activated (mingw32)"
 maintainer: "platform@lists.ocaml.org"
 depends: [
-  "ocaml" {= "4.09.0" & post}
+  "ocaml" {= "4.10.0" & post}
   "base-unix" {post}
   "base-bigarray" {post}
   "base-threads" {post}
@@ -24,18 +24,18 @@ install: [
   [make "SHELL=/bin/dash" "install"]
   ["dash" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""]
 ]
-patches: ["ocaml-4.09.0+beta2.patch" "inline-flexdll.patch"]
+patches: ["ocaml-4.10.0+beta1.patch" "inline-flexdll.patch"]
 url {
-  src: "https://github.com/ocaml/ocaml/archive/4.09.0+beta2.tar.gz"
-  checksum: "md5=ed2f8585f0b1a5bee6c1feb1fe23bff9"
+  src: "https://github.com/ocaml/ocaml/archive/4.10.0+beta1.tar.gz"
+  checksum: "sha512=71831bf00e66498219ff0224adff33bbe9c711b8c1d8212e07741aa944ad114c1f2b56b8cf0f18804102ec64593bb0ab6b1c206e9f426d4b6cfe1693ac720a99"
 }
-extra-source "ocaml-4.09.0+beta2.patch" {
+extra-source "ocaml-4.10.0+beta1.patch" {
   src:
-    "https://gist.githubusercontent.com/fdopen/ab48017351b250df526599fcfd3065a8/raw/636ba905b9fecc95a2d3f5f87f01b35efe27c22c/ocaml-4.09.0+beta2.patch"
-  checksum: "md5=b88064a0f98e4ca1f720d587937c637c"
+    "https://gist.githubusercontent.com/fdopen/424e7215b33e8fcce3dfa7d7a7b25b2f/raw/7080b470ee153f20a204edd4af6d57d9286745be/ocaml-4.10.0+beta1.patch"
+  checksum: "sha512=43247a500253b101548a4577b48a04e08184aa31ec4032e206d0504229d0feabf797177c9f473bf7b8ab278af0cbaf63fbb044f29b901a4674fda706a1c4ee93"
 }
 extra-source "inline-flexdll.patch" {
   src:
     "https://gist.githubusercontent.com/fdopen/2f6c99b563c293f4b0b2b5ae48e39455/raw/00769c96f8e6b48ecb4f61ab429c5fa96748c1fa/inline-flexdll.patch"
-  checksum: "md5=5df879b6d65dc1e44d536b3cf23e521c"
+  checksum: "sha512=62c95227e37862f577b4f2dcc14755c1968369e08439e0334f80c8a9d871b3807dbbd2422bec9edd87bb280fff53c33e69e9ee93bae7a21fc623318e7e15c74d"
 }
