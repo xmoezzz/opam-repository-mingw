@@ -27,6 +27,7 @@ depexts: [
   ["gnupg" "unzip"] {os-family = "debian"}
   ["gnupg" "unzip"] {os-distribution = "alpine"}
   ["gnupg"] {os = "macos" & os-distribution = "homebrew"}
+  ["system:gnupg" "system:unzip"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 synopsis: "The antidote to app-stores"
 description: """
