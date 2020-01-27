@@ -41,6 +41,9 @@ depopts: [
   "sqlite3"
 ]
 patches: "patch-oasis-sqlgg.0.4.4" {os = "win32"}
+conflicts: [
+  "sqlite3" {>= "5.0.0"}
+]
 synopsis: "SQL Guided (code) Generator"
 description: """
 sqlgg is an SQL query parser and binding code generator for C#, C++, Java, OCaml.
