@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "zarith"
-version: "1.7"
+version: "1.7-1"
 maintainer: "Xavier Leroy <xavier.leroy@inria.fr>"
 authors: [
   "Antoine Miné"
@@ -48,3 +48,4 @@ url {
   src: "https://github.com/ocaml/Zarith/archive/release-1.7.tar.gz"
   checksum: "md5=80944e2755ebb848451a77dc2ad0651b"
 }
+available: os != "win32"
