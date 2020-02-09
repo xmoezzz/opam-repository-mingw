@@ -4,7 +4,7 @@ authors: ["Francois Berenger" "Francois Bobot"]
 homepage: "https://github.com/ocaml/opam-repository"
 bug-reports: "https://github.com/ocaml/opam-repository/issues"
 license: "GPL-2+"
-build: [["gcc" "--version"]]
+build: [["gcc" "--version"] {os != "win32"}]
 depexts: [
   ["gcc"] {os-distribution = "centos"}
   ["gcc"] {os-distribution = "fedora"}
@@ -14,6 +14,7 @@ depexts: [
   ["gcc"] {os-distribution = "nixos"}
   ["gcc"] {os-distribution = "archlinux"}
   ["gcc"] {os = "macos" & os-distribution = "homebrew"}
+  ["gcc-core"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 synopsis: "Virtual package relying on the gcc compiler (for C)"
 description:
