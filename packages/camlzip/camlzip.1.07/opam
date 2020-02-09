@@ -23,6 +23,7 @@ depexts: [
   ["zlib-devel"] {os-distribution = "fedora"}
   ["zlib-dev"] {os-distribution = "alpine"}
   ["zlib"] {os = "win32" & os-distribution = "cygwinports"}
+  ["zlib"] {os-distribution = "nixos"}
 ]
 install: [make "install-findlib"]
 patches: "camlzip-rel107.patch" {os = "win32"}
