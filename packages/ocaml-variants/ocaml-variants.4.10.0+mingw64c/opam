@@ -1,0 +1,27 @@
+opam-version: "2.0"
+synopsis: "pre-compiled 4.10.0 release (mingw64)"
+maintainer: "platform@lists.ocaml.org"
+depends: [
+  "ocaml" {= "4.10.0" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "x86_64-w64-mingw32-gcc.exe"]
+  [CPP = "x86_64-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/ld.conf"]
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/Makefile.config"]
+]
+install: ["dash.exe" "install.sh" prefix]
+url {
+  src:
+    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.10.0+mingw64c.tar.xz"
+  checksum: "sha512=9c65eb3b0dfd34e561eb99311997e5c52270fe31f6eb04c58914ca2f426e61a0ecb99e3cca8ddff5863e3d85109ddac6cf3d1f4786bd8252fde50360e4c71634"
+}
