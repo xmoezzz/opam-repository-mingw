@@ -41,4 +41,4 @@ url {
   src: "https://github.com/mgree/libdash/archive/v0.1.tar.gz"
   checksum: "md5=ea26777aa9a7776c1b2f940110cc354b"
 }
-
+available: os != "win32"
