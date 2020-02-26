@@ -30,9 +30,9 @@ conflicts: [
   "ocaml-freestanding" {< "0.4.1"}
 ]
 tags: [ "org:mirage"]
-available: [
-  arch = "arm" | arch = "x86_32" | arch = "x86_64" | arch = "arm64"
-]
+available:
+  (arch = "arm" | arch = "x86_32" | arch = "x86_64" | arch = "arm64") &
+  os != "win32"
 synopsis: "Entropy source for MirageOS unikernels"
 description: """
 mirage-entropy implements various entropy sources for MirageOS unikernels:
