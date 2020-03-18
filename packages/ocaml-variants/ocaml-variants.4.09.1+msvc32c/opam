@@ -1,0 +1,30 @@
+opam-version: "2.0"
+synopsis: "pre-compiled 4.09.1 release for AppVeyor (msvc32)"
+maintainer: "platform@lists.ocaml.org"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://ocaml.org"
+bug-reports: "https://github.com/ocaml/ocaml/issues"
+dev-repo: "git://github.com/ocaml/ocaml"
+depends: [
+  "ocaml" {= "4.09.1" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "cl.exe"]
+]
+build: [
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/ld.conf"]
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/Makefile.config"]
+]
+install: ["dash.exe" "install.sh" prefix]
+url {
+  src:
+    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.09.1+msvc32c.tar.xz"
+  checksum: "sha512=fb02f1b4fb232ea1fc7159514cbae89c6442fef1d94b51ffd4570a8a325d5e831efd0ebd63eb993a5d7f46b45086c9918012ff8275ef1e31e9ccab08e9ccfa31"
+}
