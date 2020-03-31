@@ -1,7 +1,7 @@
 opam-version: "2.0"
 maintainer: "ygrek@autistici.org"
 authors: ["ygrek"]
-homepage: "http://ygrek.org.ua/p/sqlgg/"
+homepage: "https://ygrek.org/p/sqlgg/"
 dev-repo: "git+https://github.com/ygrek/sqlgg.git"
 bug-reports: "https://github.com/ygrek/sqlgg/issues"
 build: [
@@ -58,7 +58,7 @@ extra-files: [
   "patch-oasis-sqlgg.0.4.3" "md5=464afb032e801d5b35b967f23e8d4e0a"
 ]
 url {
-  src: "http://ygrek.org.ua/p/release/sqlgg/sqlgg-0.4.3.tar.gz"
+  src: "https://ygrek.org/p/release/sqlgg/sqlgg-0.4.3.tar.gz"
   checksum: "md5=31c14531a1b6e61dc0e9be32a38c8fd3"
   mirrors:
     "https://github.com/ygrek/sqlgg/releases/download/0.4.3/sqlgg-0.4.3.tar.gz"

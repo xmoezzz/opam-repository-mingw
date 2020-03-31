@@ -42,6 +42,6 @@ extra-files: [
 ]
 url {
   src:
-    "http://ygrek.org.ua/p/release/ocaml-libevent/ocaml-libevent-0.7.0.tar.gz"
+    "https://ygrek.org/p/release/ocaml-libevent/ocaml-libevent-0.7.0.tar.gz"
   checksum: "md5=ae5fcfcee0b9793d082a94505a34e611"
 }
