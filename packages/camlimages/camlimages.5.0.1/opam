@@ -36,6 +36,6 @@ extra-files: [
   "md5=e9b132c39d013e7e4a3d4f8124cbd8b0"
 ]
 url {
-  src: "https://bitbucket.org/camlspotter/camlimages/get/5.0.1.tar.gz"
-  checksum: "md5=f029ac0bea1bf4462a41ede1db039110"
+  src: "https://gitlab.com/camlspotter/camlimages/-/archive/5.0.1/camlimages-5.0.1.tar.bz2"
+  checksum: "md5=c06eec6b0e12a993d4677203e733512a"
 }
