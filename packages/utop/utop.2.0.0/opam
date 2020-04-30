@@ -2,9 +2,9 @@ opam-version: "2.0"
 maintainer: "jeremie@dimino.org"
 authors: ["Jérémie Dimino"]
 license: "BSD-3-Clause"
-homepage: "https://github.com/diml/utop"
-bug-reports: "https://github.com/diml/utop/issues"
-dev-repo: "git://github.com/diml/utop.git"
+homepage: "https://github.com/ocaml-community/utop"
+bug-reports: "https://github.com/ocaml-community/utop/issues"
+dev-repo: "git://github.com/ocaml-community/utop.git"
 build: [
   ["jbuilder" "subst" "-p" name] {pinned}
   ["jbuilder" "build" "-p" name "-j" jobs]
@@ -35,6 +35,6 @@ sensitive completion, colors, and more.
 It integrates with the tuareg mode in Emacs."""
 extra-files: ["utop-2.0.0.patch" "md5=b51b224992e3be02a5f0d310520bbe4d"]
 url {
-  src: "https://github.com/diml/utop/releases/download/2.0.0/utop-2.0.0.tbz"
+  src: "https://github.com/ocaml-community/utop/releases/download/2.0.0/utop-2.0.0.tbz"
   checksum: "md5=3b7c56ac3aaea9f79947f98d43487707"
 }

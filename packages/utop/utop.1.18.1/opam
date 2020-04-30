@@ -2,9 +2,9 @@ opam-version: "2.0"
 maintainer: "jeremie@dimino.org"
 authors: ["Jérémie Dimino"]
 license: "BSD-3-Clause"
-homepage: "https://github.com/diml/utop"
-bug-reports: "https://github.com/diml/utop/issues"
-dev-repo: "git://github.com/diml/utop.git"
+homepage: "https://github.com/ocaml-community/utop"
+bug-reports: "https://github.com/ocaml-community/utop/issues"
+dev-repo: "git://github.com/ocaml-community/utop.git"
 build: [
   ["./configure" "--prefix" prefix "--%{camlp4:enable}%-camlp4"]
   [make]
@@ -50,6 +50,6 @@ extra-files: [
   ["patch-aa" "md5=c146af1e01bd914f8399c59925d02933"]
 ]
 url {
-  src: "https://github.com/diml/utop/archive/1.18.1.tar.gz"
+  src: "https://github.com/ocaml-community/utop/archive/1.18.1.tar.gz"
   checksum: "md5=d943512656806c06ecf327c37c9aa831"
 }
