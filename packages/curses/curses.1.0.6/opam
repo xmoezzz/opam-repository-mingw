@@ -6,6 +6,8 @@ bug-reports: "http://github.com/mbacarella/curses/issues"
 dev-repo: "git+https://github.com/mbacarella/curses"
 build: [
   ["./configure" "--enable-widec"]
+  ["mv" "curses.ml" "curses.ml.in"] {os = "win32"}
+  [make "curses.ml"] {os = "win32"}
   [make "OCAMLMAKEFILE=OCamlMakefile" "byte"]
   [make "OCAMLMAKEFILE=OCamlMakefile" "opt"]
 ]
@@ -24,3 +26,7 @@ url {
     "sha512=b9040ee7a75f6430f5af20b8a7029c18da1d7cc4e39b02e0c2c1848c646f18cae7eed16830be37cd429e228b4fa38b3ce91432ac6d21a7df238cbb1e7cc54f78"
   ]
 }
+patches: [
+  "curses-1.0.6.patch" {os = "win32"}
+  "patch-ocamlmakefile-curses.1.0.6" {os = "win32"}
+]
