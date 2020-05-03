@@ -11,6 +11,12 @@ information: https://fdopen.github.io/opam-repository-mingw/ - and a
 [graphical installer](https://fdopen.github.io/opam-repository-mingw/installation/) that
 automates the steps listed below.
 
+## Esy
+
+[Esy](https://esy.sh/) also supports Windows. If you are not already
+familar with opam from Linux / OS X and don't want to change your
+habits, give it a try first.
+
 ## Summary
 
 ### Download
