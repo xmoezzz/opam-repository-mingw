@@ -34,6 +34,7 @@ depexts: [
   ["flac"] {os-distribution = "nixos"}
   ["flac"] {os = "macos" & os-distribution = "homebrew"}
   ["flac"] {os = "freebsd"}
+  ["flac"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 bug-reports: "https://github.com/savonet/ocaml-flac/issues"
 dev-repo: "git+https://github.com/savonet/ocaml-flac.git"
@@ -47,3 +48,7 @@ url {
     "sha512=b49dd9b9c3851d4720e6832773564a53802814b71106a41647a06bcad8414382a9d739b0440fb9e7d8caf24ffaccfacfe727d1a8bf4be22d8532b40264fe05e6"
   ]
 }
+patches: [
+  "ocaml-flac-0.1.7.patch" {os = "win32"}
+  "patch-ocamlmakefile-flac.0.1.7" {os = "win32"}
+]
