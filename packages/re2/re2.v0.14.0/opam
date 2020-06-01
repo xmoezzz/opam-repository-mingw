@@ -17,9 +17,8 @@ depends: [
   "dune"        {>= "2.0.0"}
 ]
 synopsis: "OCaml bindings for RE2, Google's regular expression library"
-description: "
-"
 url {
   src: "https://ocaml.janestreet.com/ocaml-core/v0.14/files/re2-v0.14.0.tar.gz"
   checksum: "md5=1ba423969e51a6a226d19f4cbb898719"
 }
+available: os != "win32"
