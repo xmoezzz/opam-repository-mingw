@@ -8,6 +8,7 @@ depends: [
   "ocaml-makefile"
   "ocamlbuild" {build}
 ]
+x-ci-accept-failures: ["debian-unstable"]
 install: [make "install"]
 dev-repo: "git://github.com/vbmithr/ocaml-crypt"
 synopsis: "Tiny binding for the unix crypt function"
