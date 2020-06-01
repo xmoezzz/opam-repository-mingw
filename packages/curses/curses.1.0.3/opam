@@ -23,6 +23,7 @@ patches: [
 synopsis: "Bindings to curses/ncurses"
 description: "Tools for building terminal-based user interfaces"
 flags: light-uninstall
+x-ci-accept-failures: ["debian-unstable"]
 extra-files: [
   ["patch-ocamlmakefile-curses.1.0.3" "md5=fbcfff6c33f6ef21c53b1cc02cc67315"]
   ["ocaml-curses-1.0.3.patch" "md5=f6841432585ca605f4fd682330b3c036"]
