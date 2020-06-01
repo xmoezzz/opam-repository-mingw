@@ -1,0 +1,136 @@
+--- ./Makefile
++++ ./Makefile
+@@ -3,6 +3,16 @@
+ INSTALL := install
+ INSTALL_PROGRAM := $(INSTALL)
+ bindir := $(PREFIX)/bin
++EXT_DLL:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^ext_dll:/ {print $$2}')
++EXT_LIB:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^ext_lib:/ {print $$2}')
++EXT_OBJ:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^ext_obj:/ {print $$2}')
++OS_TYPE:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^os_type:/ {print $$2}')
++ifeq ($(OS_TYPE),$(filter $(OS_TYPE),Win32 Cygwin))
++EXT_EXE=.exe
++else
++EXT_EXE=
++endif
++
+ 
+ HAVE_OCAMLFIND := $(shell \
+ 	if $(OCAMLFIND) query -help >/dev/null 2>&1; then \
+@@ -136,11 +146,11 @@
+ INSTALL_FILES := \
+ 	py.mli numpy.mli $(MODULES:=.cmi) $(MODULES:=.cmx) \
+ 	numpy.cmi \
+-	pyml.cma pyml.cmxa pyml.cmxs pyml.a \
+-	numpy.cma numpy.cmxa numpy.cmxs numpy.a \
++	pyml.cma pyml.cmxa pyml.cmxs pyml$(EXT_LIB) \
++	numpy.cma numpy.cmxa numpy.cmxs numpy$(EXT_LIB) \
+ 	$(MODULES:=.cmx) numpy.cmx \
+-	libpyml_stubs.a dllpyml_stubs.so \
+-	libnumpy_stubs.a dllnumpy_stubs.so \
++	libpyml_stubs$(EXT_LIB) dllpyml_stubs$(EXT_DLL) \
++	libnumpy_stubs$(EXT_LIB) dllnumpy_stubs$(EXT_DLL) \
+ 	META
+ 
+ .PHONY : all
+@@ -209,34 +219,34 @@
+ 	$(error ocamlfind is needed for 'make install')
+ endif
+ 	$(OCAMLFIND) install pyml $(INSTALL_FILES)
+-	[ ! -f pymltop ] || $(INSTALL_PROGRAM) pymltop $(bindir)/pymltop
+-	[ ! -f pymlutop ] || $(INSTALL_PROGRAM) pymlutop $(bindir)/pymlutop
++	[ ! -f pymltop$(EXT_EXE) ] || $(INSTALL_PROGRAM) pymltop$(EXT_EXE) $(bindir)/pymltop$(EXT_EXE)
++	[ ! -f pymlutop$(EXT_EXE) ] || $(INSTALL_PROGRAM) pymlutop$(EXT_EXE) $(bindir)/pymlutop$(EXT_EXE)
+ 
+ .PHONY : uninstall
+ uninstall :
+ 	$(OCAMLFIND) remove pyml
+-	- rm $(bindir)/pymltop
+-	- rm $(bindir)/pymlutop
++	- rm $(bindir)/pymltop$(EXT_EXE)
++	- rm $(bindir)/pymlutop$(EXT_EXE)
+ 
+ .PHONY : clean
+ clean :
+ 	for module in $(MODULES) numpy generate pyml_tests_common pyml_tests \
+ 		numpy_tests; do \
+-		rm -f $$module.cmi $$module.cmo $$module.cmx $$module.a \
+-			$$module.o; \
++		rm -f $$module.cmi $$module.cmo $$module.cmx $$module$(EXT_LIB) \
++			$$module$(EXT_OBJ); \
+ 	done
+-	rm -f pyml.cma pyml.cmxa pyml.cmxs pyml.a
+-	rm -f numpy.cma numpy.cmxa numpy.cmxs numpy.a
++	rm -f pyml.cma pyml.cmxa pyml.cmxs pyml$(EXT_LIB)
++	rm -f numpy.cma numpy.cmxa numpy.cmxs numpy$(EXT_LIB)
+ 	rm -f pywrappers.mli pywrappers.ml pyml_dlsyms.inc pyml_wrappers.inc
+ 	rm -f pyml.h
+-	rm -f pyml_stubs.o dllpyml_stubs.so libpyml_stubs.a
+-	rm -f numpy_stubs.o dllnumpy_stubs.so libnumpy_stubs.a
++	rm -f pyml_stubs$(EXT_OBJ) dllpyml_stubs$(EXT_DLL) libpyml_stubs$(EXT_LIB)
++	rm -f numpy_stubs$(EXT_OBJ) dllnumpy_stubs$(EXT_DLL) libnumpy_stubs$(EXT_LIB)
+ 	rm -f pyml_arch.ml
+ 	rm -f generate pyml_tests.native pyml_tests.bytecode
+ 	rm -f numpy_tests.native numpy_tests.bytecode
+ 	rm -f .depend
+ 	rm -rf doc
+-	rm -f pymltop pytop.cmo pymlutop pyutop.cmo
++	rm -f pymltop$(EXT_EXE) pytop.cmo pymlutop$(EXT_EXE) pyutop.cmo
+ 	rm -f pymltop_libdir.ml pymltop_libdir.cmo
+ 
+ .PHONY : tarball
+@@ -307,30 +317,30 @@
+ %.cmx : %.ml
+ 	$(OCAMLOPT) $(OCAMLCFLAGS) -c $< -o $@
+ 
+-%.o : %.c
++%$(EXT_OBJ) : %.c
+ 	$(OCAMLC) -package stdcompat -c $< -o $@
+ 
+-pyml_stubs.o : pyml_wrappers.inc
++pyml_stubs$(EXT_OBJ) : pyml_wrappers.inc
+ 
+-pyml.cma : $(MODULES:=.cmo) libpyml_stubs.a
++pyml.cma : $(MODULES:=.cmo) libpyml_stubs$(EXT_LIB)
+ 	$(OCAMLC) $(OCAMLLIBFLAGSBYTECODE) -a -dllib -lpyml_stubs $(MODULES:=.cmo) -o $@
+ 
+-pyml.cmxa : $(MODULES:=.cmx) libpyml_stubs.a
++pyml.cmxa : $(MODULES:=.cmx) libpyml_stubs$(EXT_LIB)
+ 	$(OCAMLOPT) $(OCAMLLIBFLAGSNATIVE) -a $(MODULES:=.cmx) -o $@
+ 
+-pyml.cmxs : $(MODULES:=.cmx) libpyml_stubs.a
++pyml.cmxs : $(MODULES:=.cmx) libpyml_stubs$(EXT_LIB)
+ 	$(OCAMLOPT) $(OCAMLLIBFLAGSNATIVE) -shared $(MODULES:=.cmx) -o $@
+ 
+-lib%.a : %.o
++lib%$(EXT_LIB) : %$(EXT_OBJ)
+ 	$(OCAMLMKLIB) -o $(basename $<) $<
+ 
+-numpy.cma : numpy.cmo libnumpy_stubs.a
++numpy.cma : numpy.cmo libnumpy_stubs$(EXT_LIB)
+ 	$(OCAMLC) $(OCAMLLIBNUMPYFLAGS) -a -dllib -lnumpy_stubs numpy.cmo -o $@
+ 
+-numpy.cmxa : numpy.cmx libnumpy_stubs.a
++numpy.cmxa : numpy.cmx libnumpy_stubs$(EXT_LIB)
+ 	$(OCAMLOPT) $(OCAMLLIBNUMPYFLAGS) -a numpy.cmx -o $@
+ 
+-numpy.cmxs : numpy.cmx libnumpy_stubs.a
++numpy.cmxs : numpy.cmx libnumpy_stubs$(EXT_LIB)
+ 	$(OCAMLOPT) $(OCAMLLIBNUMPYFLAGS) -shared numpy.cmx -o $@
+ 
+ pytop.cmo : pytop.ml pymltop_libdir.cmi
+@@ -344,7 +354,7 @@
+ 	fi >$@
+ 
+ pymltop : pyml.cma numpy.cma pymltop_libdir.cmo pytop.cmo
+-	$(OCAMLMKTOP) $(OCAMLLDFLAGS) $(OCAMLLIBNUMPYFLAGS) $(OCAMLBYTECODELIBSNUMPY) $^ -o $@
++	$(OCAMLMKTOP) $(OCAMLLDFLAGS) $(OCAMLLIBNUMPYFLAGS) $(OCAMLBYTECODELIBSNUMPY) $^ -o $@$(EXT_EXE)
+ 
+ pyutop.cmo : pyutop.ml
+ ifeq ($(HAVE_OCAMLFIND),no)
+@@ -359,4 +369,4 @@
+ #	ocamlmktop raises "Warning 31". See https://github.com/diml/utop/issues/212
+ #	$(OCAMLMKTOP) -o $@ -thread -linkpkg -package utop -dontlink compiler-libs $^
+ 	ocamlfind ocamlc -thread -linkpkg -linkall -predicates create_toploop \
+-		-package compiler-libs.toplevel,utop,stdcompat $^ -o $@
++		-package compiler-libs.toplevel,utop,stdcompat $^ -o $@$(EXT_EXE)
