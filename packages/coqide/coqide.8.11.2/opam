@@ -39,12 +39,17 @@ install: [
   "install-ide-info"
   "install-ide-devfiles"
 ]
+conflicts: [
+  "lablgtk3" {>= "3.0.beta7" & os = "win32"}
+]
 
 extra-files: [
   ["coqide.install" "sha512=0c59f0c3cf3453e92c02b29aceb31090020410d2b0dd2856172cd19b1b2b58b2a1d46047fb08a9c1d4767d87934c73ae6adfcb4204b1ea6a55a85ba75b2b812d"]
+  ["coq-8.11.2.patch" "sha512=d142b12a3da012544a64d24f714bfa385a9d68677108152b9c87c226bbe9c4f2ddc6c5ac30ec83bcd0bcbea9a371be09a3d86a74e665e14c6125739205f1147f"]
 ]
 
 url {
   src: "https://github.com/coq/coq/archive/V8.11.2.tar.gz"
   checksum: "sha512=f8ab307b8e39ffda5f6984e187c1f8de1cb6dec5c322726dbbe535ee611683cfeeb9cee3e11ad83f5e44e843fc51e7e2d50b4ea69ab42fde38aaf3d0cf2dea3c"
 }
+patches: "coq-8.11.2.patch" {os = "win32"}
