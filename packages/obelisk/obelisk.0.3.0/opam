@@ -16,6 +16,7 @@ depends: [
   "ocamlfind" {build}
   "ocamlbuild" {build}
   "menhir" {build}
+  "conf-texlive" {with-test}
 ]
 patches: "Obelisk-0.3.0.patch" {os = "win32"}
 synopsis:
