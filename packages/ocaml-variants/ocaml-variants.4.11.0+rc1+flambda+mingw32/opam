@@ -1,0 +1,46 @@
+opam-version: "2.0"
+synopsis: "First release candidate of OCaml 4.11.0 with flambda activated (mingw32)"
+maintainer: "platform@lists.ocaml.org"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://ocaml.org"
+bug-reports: "https://github.com/ocaml/ocaml/issues"
+dev-repo: "git://github.com/ocaml/ocaml"
+depends: [
+  "ocaml" {= "4.11.0" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "i686-w64-mingw32-gcc.exe"]
+  [CPP = "i686-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--enable-flambda" "--host=i686-w64-mingw32" "CC=i686-w64-mingw32-gcc" "CPP=i686-w64-mingw32-cpp"]
+  [make "SHELL=/bin/dash" "flexdll"]
+  [make "SHELL=/bin/dash" "-j%{jobs}%" "world.opt"]
+  [make "SHELL=/bin/dash" "flexlink.opt"]
+]
+install: [
+  [make "SHELL=/bin/dash" "install"]
+  ["dash" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""]
+]
+patches: ["ocaml-4.11.0+beta2.patch" "inline-flexdll.patch"]
+url {
+  src: "https://github.com/ocaml/ocaml/archive/4.11.0+rc1.tar.gz"
+  checksum: "sha512=c6b068ec42da6ed018271fd4aafd42266045493c76e3881367a9afdd5afcc63e2d985c53310d5a1070b80a817719172cf8b0ab37e2718c81c6affdb5e4166beb"
+}
+extra-source "ocaml-4.11.0+beta2.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/fad3db9fe2117d807b56bd915fe8463b/raw/74d63bb425212c997a5bf161798cfbe8671fc1ec/ocaml-4.11.0+beta2.patch"
+  checksum: "sha512=1696c02c7d93f8a3e577fa14226daf82027fb8378e2de62a666020eda24710870da9e516cc6c15a63cbd592a2afaecf50dea2ae8204ada8b3fa00d42876cc4e3"
+}
+extra-source "inline-flexdll.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/ae5f9fda488146f6698c17735cd3b738/raw/f310ccd325a57026e60ecbe67808a94e26d90197/inline-flexdll.patch"
+  checksum: "sha512=1ddcc1935158d5f2b1bef88350c61fd07098c4434a87261bbb3f7330abf337efe3b2278d17d2a59c5fc216e861dffe5cd199b4e9612e1739288fcb752b7c8a7d"
+}
