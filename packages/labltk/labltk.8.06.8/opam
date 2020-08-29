@@ -27,8 +27,19 @@ post-messages: [
 synopsis: "OCaml interface to Tcl/Tk"
 description: "ocamlbrowser is now a separate package.\n\
              For details, see https://garrigue.github.io/labltk/"
+patches: [
+  "configure.patch"
+  "hasgot.patch"
+  "labltk-8.06.8.patch" {os = "win32"}
+]
+extra-files: [
+  ["configure.patch" "md5=9cdd0d2152f177899c37da0a56007079"]
+  ["hasgot.patch" "md5=1e4bf6b5aa4740e7fbffff97d18bfc30"]
+  ["labltk-8.06.8.patch" "md5=33539484e0f4a9fd3533fe56c853288b"]
+  ["build.sh" "md5=7b8abd676eb66472f8cfc111c6493caf"]
+  ["install.sh" "md5=ed7f4214bc5eb16afba3c3ec7840c3b3"]
+]
 url {
   src: "https://github.com/garrigue/labltk/archive/8.06.8.tar.gz"
   checksum: "md5=ec4e7ed25f0938a9b6f9207d15e1f982"
 }
-patches: "labltk-8.06.8.patch" {os = "win32"}
