@@ -38,29 +38,6 @@ build: [
   [make "world.opt"]
 ]
 install: [make "install"]
-depexts: [
-  [
-    "libstring-shellquote-perl"
-    "libipc-system-simple-perl"
-  ] {os-family = "debian"}
-  [
-    "perl-string-shellquote"
-    "perl-ipc-system-simple"
-  ] {os-distribution = "alpine"}
-  [
-    "perl-String-ShellQuote"
-    "perl-IPC-System-Simple"
-  ] {os-distribution = "centos"}
-  [
-    "perl-String-ShellQuote"
-    "perl-IPC-System-Simple"
-  ] {os-family = "suse"}
-  [
-    "perl-String-ShellQuote"
-    "perl-IPC-System-Simple"
-  ] {os-family = "fedora"}
-]
-
 dev-repo: "git+https://github.com/camlp5/camlp5.git"
 url {
   src: "https://github.com/camlp5/camlp5/archive/rel8.00+alpha04.tar.gz"
@@ -68,3 +45,4 @@ url {
     "md5=ebcb8fe96832dfc1402b51bb1b62b215"
   ]
 }
+patches: "camlp5-rel8.00-alpha04.patch" {os = "win32"}
