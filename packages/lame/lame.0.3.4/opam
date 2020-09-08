@@ -33,6 +33,7 @@ depexts: [
   ["lame-devel"] {os-family = "suse"}
   ["libmp3lame-dev"] {os-family = "debian"}
   ["lame"] {os = "macos" & os-distribution = "homebrew"}
+  ["lame"] {os = "win32" & os-distribution = "cygwinports"}
   ["lame"] {os = "freebsd"}
 ]
 url {
