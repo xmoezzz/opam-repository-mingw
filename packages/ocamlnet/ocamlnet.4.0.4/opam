@@ -44,6 +44,9 @@ depends: [
   "ocamlbuild" {build}
 ]
 patches: "ocamlnet-4.0.4.patch" {os = "win32"}
+conflicts: [
+  "shell"
+]
 synopsis:
   "Internet protocols (http, cgi, email etc.) and helper data structures (mail messages, character sets, etc.)"
 description: """

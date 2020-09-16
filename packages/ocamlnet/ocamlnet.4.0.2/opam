@@ -56,6 +56,9 @@ depopts: [
   "pcre"
   "camlzip"
 ]
+conflicts: [
+  "shell"
+]
 install: [make "install"]
 patches: "ocamlnet-4.0.2.patch" {os = "win32"}
 synopsis:

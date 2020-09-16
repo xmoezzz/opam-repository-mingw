@@ -64,17 +64,15 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
-depends: [
-  "ocaml" {< "4.03.0"}
-  "ocamlfind"
-  "ocamlbuild" {build}
-]
 depopts: [
   "lablgtk"
   "pcre"
   "ssl"
   "camlzip"
   "cryptokit"
+]
+conflicts: [
+  "shell"
 ]
 patches: [
   "ocamlnet-3.7.7.patch" {os = "win32"}
@@ -91,6 +89,7 @@ management of multiple worker processes, and the interaction with
 other programs running on the same machine. You can also view Ocamlnet
 as an extension of the system interface as provided by the Unix module
 of the standard library."""
+flags: light-uninstall
 extra-files: [
   ["robust-host.patch" "md5=990dd1931da1a4f906df60f4925ebe8c"]
   ["ocamlnet.install" "md5=ed54a9f3d6382ccc01ea1cf1af8f2c38"]
