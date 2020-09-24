@@ -41,15 +41,15 @@ build: [
 install: [
   "sh" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""
 ]
-patches: ["ocaml-4.06.0.patch" "inline-flexdll.patch"]
+patches: ["ocaml-4.06.1.patch" "inline-flexdll.patch"]
 url {
   src: "https://github.com/ocaml/ocaml/archive/4.06.0.tar.gz"
   checksum: "md5=4f3906e581181c5435078ffe3e485e3f"
 }
-extra-source "ocaml-4.06.0.patch" {
+extra-source "ocaml-4.06.1.patch" {
   src:
-    "https://gist.githubusercontent.com/fdopen/feae8877fdc793a9560dc90fa4698ddc/raw/6eec1588dedbb1d74d940864410aae67af0a4c4a/ocaml-4.06.0.patch"
-  checksum: "md5=abcb9bf9b3f2a9b369325dc0866c4459"
+    "https://gist.githubusercontent.com/fdopen/6d47dba8998b1184830f27ac9c414761/raw/ae4504d88ffd7f64433de1e6845ba782325fe033/ocaml-4.06.1.patch"
+  checksum: "sha512=6bd5649c8da7e9f953f3cbdf6e61619a2a46342649509b469f3ba684f195ca0ccea5744e8e78979b9e7be61c4346b26876ef3a1c7ac1b20e8e8f00a12639f7ab"
 }
 extra-source "inline-flexdll.patch" {
   src:
