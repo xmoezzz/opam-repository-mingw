@@ -25,6 +25,7 @@ build: [
   ["cp" "config/s-nt.h" "config/s.h"]
   ["cp" "config/Makefile.mingw64" "config/Makefile"]
   ["sed" "-i" "s#@PREFIX@#%{prefix}%#" "config/Makefile"]
+  ["rm" "-f" "byterun/io.h"]
   [make "-f" "Makefile.nt" "world.opt" "PREFIX=%{prefix}%"]
 ]
 install: [make "-f" "Makefile.nt" "install" "PREFIX=%{prefix}%"]
@@ -35,6 +36,6 @@ url {
 }
 extra-source "ocaml-4.00.1.patch" {
   src:
-    "https://gist.githubusercontent.com/fdopen/159a1bd5577ef1f6da16efcc1cfc7f86/raw/96088ef139a3f5da159084dd28ac84a74abb5aa3/ocaml-4.00.1.patch"
-  checksum: "md5=88e907ce3a408319efcdb2ee33a0ddf2"
+    "https://gist.githubusercontent.com/fdopen/425f2a6cf50225c2fcac8c83709902e1/raw/5b054bf6a65cea3ff01d26524e2b1cf0f61846cc/ocaml-4.00.1.patch"
+  checksum: "sha512=b6c93ca45e5e6a745725f1483eaf14e256ee5aa3d4540acfadb4c263367af261a8e193050687919102de3d9f14cda778ef0e29f67480c1e6a9a4071d40bee56e"
 }

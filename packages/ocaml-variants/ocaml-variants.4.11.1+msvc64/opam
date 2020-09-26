@@ -28,15 +28,15 @@ install: [
   [make "SHELL=/bin/dash" "install"]
   ["dash" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""]
 ]
-patches: ["ocaml-4.11.1+beta2.patch" "inline-flexdll.patch"]
+patches: ["ocaml-4.11.0+beta2.patch" "inline-flexdll.patch"]
 url {
   src: "https://github.com/ocaml/ocaml/archive/4.11.1.tar.gz"
   checksum: "sha512=93fa8b2ff71d5f645e3ed72913205e7d35aa523cfa87d1939d77e796495b94c2fdb4a429ea65330cdeecfb0a36f7ab053b15090d9baa151b58e5331148dc8150"
 }
-extra-source "ocaml-4.11.1+beta2.patch" {
+extra-source "ocaml-4.11.0+beta2.patch" {
   src:
-    "https://gist.githubusercontent.com/fdopen/fad3db9fe2117d807b56bd915fe8463b/raw/74d63bb425212c997a5bf161798cfbe8671fc1ec/ocaml-4.11.1+beta2.patch"
-  checksum: "sha512=1696c02c7d93f8a3e577fa14226daf82027fb8378e2de62a666020eda24710870da9e516cc6c15a63cbd592a2afaecf50dea2ae8204ada8b3fa00d42876cc4e3"
+    "https://gist.githubusercontent.com/fdopen/b2803d09255c85535bcd9a4c8c2e6e52/raw/74297374d064927e3596a07fad27f2187183c572/ocaml-4.11.0+beta2.patch"
+  checksum: "sha512=561b8f9a48e12d60ada298dea0b25923b5ab7d5ca72087aadeb54132b6e485f5b2346e34cc418e1c946f4f46534e7e4b5b607c6266fc0ae8f6f9b82fee6c1cea"
 }
 extra-source "inline-flexdll.patch" {
   src:
