@@ -33,6 +33,9 @@ build: [
   [make "-j%{jobs}%" "coqide-files"]
   [make "-j%{jobs}%" "coqide-opt"]
 ]
+conflicts: [
+  "lablgtk3" {>= "3.0.beta7" & os = "win32"}
+]
 install: [
   make
   "install-ide-bin"
