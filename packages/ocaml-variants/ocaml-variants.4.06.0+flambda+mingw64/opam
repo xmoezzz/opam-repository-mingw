@@ -48,6 +48,6 @@ extra-source "ocaml-4.06.1.patch" {
 }
 extra-source "inline-flexdll.patch" {
   src:
-    "https://gist.githubusercontent.com/fdopen/0fccced2134d76710ea27416ba6a4290/raw/f27bbe2771a0bb8a7fd8c1c1e3fd2a5530305ce8/inline-flexdll.patch"
-  checksum: "md5=00369637b24d803465aa523c2afc1a16"
+    "https://gist.githubusercontent.com/fdopen/ae5f9fda488146f6698c17735cd3b738/raw/f310ccd325a57026e60ecbe67808a94e26d90197/inline-flexdll.patch"
+  checksum: "sha512=1ddcc1935158d5f2b1bef88350c61fd07098c4434a87261bbb3f7330abf337efe3b2278d17d2a59c5fc216e861dffe5cd199b4e9612e1739288fcb752b7c8a7d"
 }
