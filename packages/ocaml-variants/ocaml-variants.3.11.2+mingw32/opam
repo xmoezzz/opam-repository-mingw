@@ -1,0 +1,45 @@
+opam-version: "2.0"
+synopsis: "3.11.2 release (mingw32)"
+maintainer: "platform@lists.ocaml.org"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://ocaml.org"
+bug-reports: "https://github.com/ocaml/ocaml/issues"
+dev-repo: "git://github.com/ocaml/ocaml"
+depends: [
+  "ocaml" {= "3.11.2" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+  "base-ocamlbuild" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "i686-w64-mingw32-gcc.exe"]
+  [CPP = "i686-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["cp" "config/m-nt.h" "config/m.h"]
+  ["cp" "config/s-nt.h" "config/s.h"]
+  ["cp" "config/Makefile.mingw" "config/Makefile"]
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#" "config/Makefile"]
+  ["rm" "-f" "byterun/io.h"]
+  [make "-f" "Makefile.nt" "world" "bootstrap" "opt" "opt.opt"]
+]
+install: [
+  [make "-f" "Makefile.nt" "install"]
+  ["mkdir" "-p" "%{prefix}%/lib/ocaml/compiler-libs"]
+  ["cp" "-r" "typing" "parsing" "utils" "%{prefix}%/lib/ocaml/compiler-libs/"]
+]
+patches: "ocaml-3.11.2.patch"
+url {
+  src: "https://github.com/ocaml/ocaml/archive/3.11.2.tar.gz"
+  checksum: "sha512=58730b750fc4b86468087b231be1e208393c1b784b7b8960f05097c204733cd2d294ae9e3d5413031e7cc9d746369d35bcda37dde76cc9b2f6883f5a500abaa4"
+}
+extra-source "ocaml-3.11.2.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/47c2e387a9e921380bf882bd242f36d1/raw/c92a640eb56ba9b270b55e97188a12aedf7e87d6/ocaml-3.11.2.patch"
+  checksum: "sha512=5277b3edf08e05808f6dcea69963c0fe88e414115849c4a5b7aa4bcd11454f4bee3eeed82bf14cce8ece04bf11655432ab970fc013b00648bac704811b958209"
+}
