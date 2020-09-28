@@ -26,6 +26,6 @@ build: [
 install: ["dash.exe" "install.sh" prefix]
 url {
   src:
-    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.11.1+flambda+mingw32c.tar.xz"
-  checksum: "sha512=91378d58321dbb17a4e35b9903304ae8d3543bd2552d55acd5682d397dbc61f71aadaae7df46e3effd967160a1234db7202e28eb86fba3c655e6c29a44e3736c"
+    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.11.1+flambda+mingw32c2.tar.xz"
+  checksum: "sha512=4e95ca01ee967e7ec02c7196728af3639e7cd3d5fcab394d2fe953a1625ffcda48cfcd3d716071a65ae2e856796e3ec467e64f9153bbc43f2305639ccdaec138"
 }
