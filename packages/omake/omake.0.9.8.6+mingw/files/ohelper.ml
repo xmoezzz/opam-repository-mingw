@@ -8,10 +8,12 @@ let input_line ch =
   else
     String.sub str 0 (len - 1)
 
+let re = Str.regexp "^\\([a-z]\\)\\\\[:]\\([/\\\\]\\)"
+
 let process_entry str =
   (* non-zero length because of Str.split *)
   if str.[0] <> '\\' then
-    CygwinPath.to_native str
+    CygwinPath.to_native (Str.replace_first re "\\1:\\2" str)
   else
     str
 

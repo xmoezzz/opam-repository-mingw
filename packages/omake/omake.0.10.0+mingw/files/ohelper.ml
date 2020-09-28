@@ -1,7 +1,3 @@
-external (^$) : ('a -> 'b) -> 'a -> 'b = "%apply"
-external (|>) : 'a -> ('a -> 'b) -> 'b = "%revapply"
-
-
 let max_buf_len = 8192
 
 let input_line ch =
@@ -12,29 +8,29 @@ let input_line ch =
   else
     String.sub str 0 (len - 1)
 
+let re = Str.regexp "^\\([a-z]\\)\\\\[:]\\([/\\\\]\\)"
 
 let process_entry str =
   (* non-zero length because of Str.split *)
   if str.[0] <> '\\' then
-    CygwinPath.to_native str
+    CygwinPath.to_native (Str.replace_first re "\\1:\\2" str)
   else
     str
 
 let rec handle_entry buf = function
 | [] -> Buffer.add_char buf '\n'
 | hd::tl ->
-  process_entry hd |> Buffer.add_string buf ;
+  Buffer.add_string buf (process_entry hd);
   if tl <> [] then
     Buffer.add_char buf ' ';
   handle_entry buf tl
 
-
-let rex = Str.regexp "[ \t]+" ;;
+let rex = Str.regexp "[ \t]+"
 
 let rec cat buf =
   let further =
     try
-      input_line stdin |> Str.split rex |> handle_entry buf ;
+      handle_entry buf (Str.split rex (input_line stdin));
       true
     with
     | End_of_file -> false
@@ -49,5 +45,5 @@ let rec cat buf =
 
 let () =
   set_binary_mode_out stdout true;
-  cat ^$ Buffer.create max_buf_len ;
+  cat (Buffer.create max_buf_len);
   exit 0
