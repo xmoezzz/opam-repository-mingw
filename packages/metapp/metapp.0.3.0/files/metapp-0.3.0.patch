@@ -1,0 +1,25 @@
+--- ./dyncompile/dyncompile.ml
++++ ./dyncompile/dyncompile.ml
+@@ -85,7 +85,7 @@
+ 
+ let compile_and_load (options : Options.t) (structure : Parsetree.structure)
+   : unit =
+-  let (source_filename, channel) = Filename.open_temp_file "metapp" ".ml" in
++  let (source_filename, channel) = Filename.open_temp_file ~mode:[Open_binary] "metapp" ".ml" in
+   Fun.protect (fun () ->
+     Fun.protect (fun () ->
+       write_ast options.plainsource channel structure)
+@@ -95,5 +95,12 @@
+       compiler.archive_suffix in
+     compile options source_filename object_filename;
+     Fun.protect (fun () -> Dynlink.loadfile object_filename)
+-      ~finally:(fun () -> Sys.remove object_filename))
++      ~finally:(fun () ->
++        try
++          Sys.remove object_filename
++        with
++        | (Sys_error _) when Sys.win32 ->
++           (* ignore it, the other garbage (.o,...) isn't removed, too *)
++           ()
++    ))
+     ~finally:(fun () -> Sys.remove source_filename)
