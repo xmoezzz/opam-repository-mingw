@@ -1,0 +1,20 @@
+--- ./src/Makefile.in
++++ ./src/Makefile.in
+@@ -24,13 +24,15 @@
+ SOURCES = flac_stubs.c flac.ml flac.mli @OCAMLOGG_FILES@
+ RESULT = flac
+ OCAMLDOCFLAGS = -stars
+-LIBINSTALL_FILES = $(wildcard *.mli *.cmi *.cma *.cmxa *.cmx *.a *.so)
++EXT_DLL:=$(shell $(OCAMLFIND) ocamlc -config | awk -F '[\t\r ]+' '/^ext_dll:/ {print $$2}')
++EXT_LIB:=$(shell $(OCAMLFIND) ocamlc -config | awk -F '[\t\r ]+' '/^ext_lib:/ {print $$2}' | tr -d '.')
++LIBINSTALL_FILES = $(wildcard *.mli *.cmti *.cmi *.cma *.cmx *.cmxa *.$(EXT_LIB) *$(EXT_DLL))
+ ACLIBS = @LIBS@ @OCAMLOGG_LIBS@
+ LDFLAGS = @LDFLAGS@
+ CLIBS = $(ACLIBS:-l%=%)
+ LIBDIRS = $(LDFLAGS:-L%=%)
+ CC = @CC@
+-AR = @AR@
++AR:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^ranlib:/ {print $$2}' | sed 's|ranlib|ar|g')
+ CFLAGS = @CFLAGS@ -Wall -DCAML_NAME_SPACE
+ CPPFLAGS = @CPPFLAGS@
+ INCDIRS = @INC@ @OCAMLOGG_INC@
