@@ -18,6 +18,7 @@ depends: [
 depexts: [
   ["libgmp-dev"] {os-family = "debian"}
   ["gmp"] {os = "macos" & os-distribution = "homebrew"}
+  ["gmp"] {os-distribution = "macports" & os = "macos"}
   ["gmp" "gmp-devel"] {os-distribution = "centos"}
   ["gmp" "gmp-devel"] {os-distribution = "fedora"}
   ["gmp"] {os = "openbsd"}
