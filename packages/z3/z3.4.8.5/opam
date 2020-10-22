@@ -30,3 +30,4 @@ extra-files: [
 url {
   src: "https://github.com/Z3Prover/z3/archive/Z3-4.8.5.tar.gz"
 }
+available: os != "win32"
