@@ -16,7 +16,7 @@ build: [
     {os-distribution = "arch"}
   ["sh" "-exc" "cc $CFLAGS -I/usr/local/include -L/usr/local/lib test.c -lopenblas"]
     {os = "freebsd"}
-  ["sh" "-exc" "x86_64-w64-mingw32-gcc $CFLAGS test.c -lopenblas"]
+  ["sh" "-exc" "$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}') $CFLAGS test.c -lopenblas"]
     {os = "win32" & os-distribution = "cygwinports"}
   ["sh" "-exc" "cc $CFLAGS test.c -lopenblas"]
     {os-distribution != "fedora" & os-distribution != "centos" & os-family != "suse" & os != "macos" & os-distribution != "arch" & os != "freebsd" & os != "win32"}
@@ -31,6 +31,7 @@ depexts: [
   ["openblas"] {os = "macos" & os-distribution = "homebrew"}
   ["openblas"] {os = "freebsd"}
 ]
+depends: ["ocaml" { build & os = "win32"} ]
 synopsis: "Virtual package to install OpenBLAS and LAPACKE"
 description:
   "The package prepares OpenBLAS (CBLAS) and LAPACKE backend for Owl (OCaml numerical library). It can only be installed if OpenBLAS and LAPACKE are installed on the system."
