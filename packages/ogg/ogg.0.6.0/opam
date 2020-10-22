@@ -33,7 +33,7 @@ depexts: [
   ["libogg-devel"] {os-family = "suse"}
   ["libogg"] {os-distribution = "nixos"}
   ["libogg"] {os = "macos" & os-distribution = "homebrew"}
-  ["libmad"] {os = "win32" & os-distribution = "cygwinports"}
+  ["libogg"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 url {
   src: "https://github.com/savonet/ocaml-ogg/archive/v0.6.0.tar.gz"
