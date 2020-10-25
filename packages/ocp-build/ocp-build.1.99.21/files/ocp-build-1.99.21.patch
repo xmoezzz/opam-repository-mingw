@@ -1,0 +1,216 @@
+--- ./Makefile
++++ ./Makefile
+@@ -36,7 +36,7 @@
+   ${CMDLINER_DIR}/cmdliner.cmxa \
+   ${SEQ_DEP} ${RE_DIR}/re.cmxa
+ 
+-INCLUDES=$(foreach lib, $(OCPLIB_NAMES), -I $($(lib)_SRCDIR)) \
++XINCLUDES=$(foreach lib, $(OCPLIB_NAMES), -I $($(lib)_SRCDIR)) \
+     -I $(OCP_BUILD_SRCDIR) \
+     -I libs/ezcmd \
+     -I $(OCP_BUILD_SRCDIR)/misc \
+@@ -209,7 +209,7 @@
+ 	$(OCP_BUILD_BOOTER)
+ 
+ depend: $(OCP_BUILD_MLS) $(OCP_BUILD_TMPS)
+-	$(OCAMLDEP) $(INCLUDES) $(OCP_BUILD_MLS) $(OCP_BUILD_MLIS) > .depend
++	$(OCAMLDEP) $(XINCLUDES) $(OCP_BUILD_MLS) $(OCP_BUILD_MLIS) > .depend
+ 
+ $(OCP_BUILD_BOOTER): $(MAKE_CONFIG)
+ 	$(MAKE) create-booter
+@@ -237,10 +237,10 @@
+ 	echo "let version=\"$(PACKAGE_VERSION)\"" > $(OCP_BUILD_SRCDIR)/buildVersion.ml
+ 
+ $(OCP_BUILD_SRCDIR)/lang-ocp/buildOCPParser.cmi: $(OCP_BUILD_SRCDIR)/lang-ocp/buildOCPParser.mli
+-	$(OCAMLC) -c -o $(OCP_BUILD_SRCDIR)/lang-ocp/buildOCPParser.cmi $(EXTERNAL_INCLUDES) $(INCLUDES) $(OCP_BUILD_SRCDIR)/lang-ocp/buildOCPParser.mli
++	$(OCAMLC) -c -o $(OCP_BUILD_SRCDIR)/lang-ocp/buildOCPParser.cmi $(EXTERNAL_INCLUDES) $(XINCLUDES) $(OCP_BUILD_SRCDIR)/lang-ocp/buildOCPParser.mli
+ 
+ $(OCP_BUILD_SRCDIR)/lang-ocp2/buildOCP2Parser.cmi: $(OCP_BUILD_SRCDIR)/lang-ocp2/buildOCP2Parser.mli
+-	$(OCAMLC) -c -o $(OCP_BUILD_SRCDIR)/lang-ocp2/buildOCP2Parser.cmi $(EXTERNAL_INCLUDES) $(INCLUDES) $(OCP_BUILD_SRCDIR)/lang-ocp2/buildOCP2Parser.mli
++	$(OCAMLC) -c -o $(OCP_BUILD_SRCDIR)/lang-ocp2/buildOCP2Parser.cmi $(EXTERNAL_INCLUDES) $(XINCLUDES) $(OCP_BUILD_SRCDIR)/lang-ocp2/buildOCP2Parser.mli
+ 
+ doc:
+ 	cd docs/user-manual; $(MAKE)
+@@ -346,16 +346,16 @@
+ 	$(OCAMLYACC) $<
+ 
+ .ml.cmx:
+-	$(OCAMLOPT) -c -o $*.cmx $(EXTERNAL_INCLUDES) $(INCLUDES) $<
++	$(OCAMLOPT) -c -o $*.cmx $(EXTERNAL_INCLUDES) $(XINCLUDES) $<
+ 
+ .mli.cmi:
+-	$(OCAMLC) -c -o $*.cmi $(EXTERNAL_INCLUDES) $(INCLUDES) $<
++	$(OCAMLC) -c -o $*.cmi $(EXTERNAL_INCLUDES) $(XINCLUDES) $<
+ 
+ .ml.cmo:
+-	$(OCAMLC) -c -o $*.cmo $(EXTERNAL_INCLUDES) $(INCLUDES) $<
++	$(OCAMLC) -c -o $*.cmo $(EXTERNAL_INCLUDES) $(XINCLUDES) $<
+ 
+ .c$(EXT_OBJ):
+-	$(OCAMLC) -c $(INCLUDES) -ccopt -DOCAML_VERSION=$(OCAMLVERSION_C) $<
++	$(OCAMLC) -c $(XINCLUDES) -ccopt -DOCAML_VERSION=$(OCAMLVERSION_C) $<
+ 	mv `basename $*$(EXT_OBJ)` $*$(EXT_OBJ)
+ 
+ 
+--- ./libs/ocplib-unix/minUnix.ml
++++ ./libs/ocplib-unix/minUnix.ml
+@@ -302,7 +302,7 @@
+ external set_nonblock : file_descr -> unit = "unix_set_nonblock"
+ external clear_nonblock : file_descr -> unit = "unix_clear_nonblock"
+ external set_close_on_exec : file_descr -> unit = "unix_set_close_on_exec"
+-external clear_close_on_exec : file_descr -> unit = "unix_clear_close_on_exec"
++external clear_close_on_exec : file_descr -> unit = "win_clear_close_on_exec"
+ 
+ external mkdir : string -> file_perm -> unit = "unix_mkdir"
+ external rmdir : string -> unit = "unix_rmdir"
+--- ./libs/ocplib-unix/minUnix_c.c
++++ ./libs/ocplib-unix/minUnix_c.c
+@@ -10,13 +10,12 @@
+ /*                                                                        */
+ /**************************************************************************/
+ 
+-#include <caml/mlvalues.h>
+-
+ #ifdef _WIN32
+ 
+ #include <winsock2.h>
+ #include <windows.h>
+ #include <sys/types.h>
++#include <io.h>
+ 
+ #endif
+ 
+@@ -24,6 +23,17 @@
+ #include <caml/alloc.h>
+ #include <caml/memory.h>
+ #include <caml/signals.h>
++#include <caml/misc.h>
++/* very dirty: CAMLassert is exposed since 4.02, when caml/version.h was 
++   also introduced */
++#ifdef CAMLassert
++#include <caml/version.h>
++#else
++#define OCAML_VERSION_MAJOR 4
++#define OCAML_VERSION_MINOR 0
++#define OCAML_VERSION_PATCHLEVEL 0
++#endif
++
+ 
+ #ifndef CAML_UNIXSUPPORT_H
+ #include <caml/unixsupport.h>
+@@ -31,14 +41,20 @@
+ #endif
+ 
+ /* Versions before 4.02.0 use unix_ prefixes for these functions */
++/* Really ??? */
+ 
+-#if OCAML_VERSION_OCP == 4010001
++#if 0 && (OCAML_VERSION_MAJOR < 4 || (OCAML_VERSION_MAJOR == 4 && OCAML_VERSION_MINOR < 2))
+ #define win_cleanup unix_cleanup
+ #define win_filedescr_of_channel  unix_filedescr_of_channel
+ #define win_inchannel_of_filedescr  unix_inchannel_of_filedescr
+ #define win_outchannel_of_filedescr unix_outchannel_of_filedescr
+ #define win_startup unix_startup
+ #define win_waitpid unix_waitpid
++extern value unix_startup(value);
++extern value unix_cleanup(value);
++#else
++extern value win_startup(value);
++extern value win_cleanup(value);
+ #endif
+ 
+ /* There is a test in win_starup/win_cleanup, so there is no
+--- ./libs/ocplib-unix/onlyUnix_c.c
++++ ./libs/ocplib-unix/onlyUnix_c.c
+@@ -25,6 +25,18 @@
+ #include <caml/memory.h>
+ #include <caml/signals.h>
+ #include <caml/fail.h>
++/* very dirty: CAMLassert is exposed since 4.02, when caml/version.h was 
++   also introduced */
++#ifdef CAMLassert
++#include <caml/version.h>
++#else
++#define OCAML_VERSION_MAJOR 4
++#define OCAML_VERSION_MINOR 0
++#define OCAML_VERSION_PATCHLEVEL 0
++#ifndef OCAML_VERSION
++#define OCAML_VERSION 4000
++#endif
++#endif
+ 
+ #ifndef CAML_UNIXSUPPORT_H
+ #include <caml/unixsupport.h>
+@@ -43,15 +55,17 @@
+ UNAVAILABLE_PRIM(unix_fork)
+ UNAVAILABLE_PRIM(unix_wait)
+ UNAVAILABLE_PRIM(unix_nice)
++#if (OCAML_VERSION < 41000)
+ UNAVAILABLE_PRIM(unix_ftruncate)
+ UNAVAILABLE_PRIM(unix_truncate)
++#endif
+ UNAVAILABLE_PRIM(unix_fchmod)
+ UNAVAILABLE_PRIM(unix_umask)
+ UNAVAILABLE_PRIM(unix_chown)
+ UNAVAILABLE_PRIM(unix_fchown)
+ UNAVAILABLE_PRIM(unix_chroot)
+ UNAVAILABLE_PRIM(unix_mkfifo)
+-#if (OCAML_VERSION < 4030)
++#if (OCAML_VERSION < 40300)
+ UNAVAILABLE_PRIM(unix_readlink)
+ UNAVAILABLE_PRIM(unix_symlink)
+ #endif
+@@ -61,7 +75,9 @@
+ UNAVAILABLE_PRIM(unix_closedir)
+ 
+ UNAVAILABLE_PRIM(unix_getppid)
++#if (OCAML_VERSION < 40300)
+ UNAVAILABLE_PRIM(unix_isatty)
++#endif 
+ UNAVAILABLE_PRIM(unix_opendir)
+ UNAVAILABLE_PRIM(unix_readdir)
+ UNAVAILABLE_PRIM(unix_rewinddir)
+--- ./libs/ocplib-unix/onlyWin32_c.c
++++ ./libs/ocplib-unix/onlyWin32_c.c
+@@ -32,6 +32,8 @@
+ #define CAML_UNIXSUPPORT_H
+ #endif
+ 
++extern char * caml_search_exe_in_path(char * name);
++
+ #ifdef _WIN32
+ static value alloc_process_status(HANDLE pid, int status)
+ {
+--- ./tools/ocp-build/misc/buildMisc.ml
++++ ./tools/ocp-build/misc/buildMisc.ml
+@@ -206,9 +206,17 @@
+       create_process error_handler cmd args maybe_chdir fd1 fd2 fd3
+ end
+ 
++let do_clear_close_on_exec =
++  let ocaml_major,ocaml_minor =
++    Scanf.sscanf Sys.ocaml_version "%u.%u" (fun a b -> a, b) in
++  ocaml_major > 4 || ( ocaml_major = 4 && ocaml_minor >= 6)
++
+ let open_for_pipe filename =
+   let oc = open_out_bin filename in
+-  MinUnix.descr_of_out_channel oc
++  let fd = MinUnix.descr_of_out_channel oc in
++  if do_clear_close_on_exec then
++    MinUnix.clear_close_on_exec fd;
++  fd
+ 
+ let create_process cmd maybe_chdir stdin stdout stderr =
+   match cmd with
+@@ -218,7 +226,10 @@
+         None -> MinUnix.stdin
+       | Some filename ->
+         let ic = open_in_bin filename in
+-        MinUnix.descr_of_in_channel ic
++        let fd = MinUnix.descr_of_in_channel ic in
++        if do_clear_close_on_exec then
++          MinUnix.clear_close_on_exec fd;
++        fd
+     in
+     let stdout_fd = match stdout with
+         None -> MinUnix.stdout

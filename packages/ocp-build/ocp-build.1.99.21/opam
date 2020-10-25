@@ -20,9 +20,15 @@ depends: [
 conflicts: [
   "typerex"  {< "1.99.7"}
 ]
-install: [make "install"]
+install: [
+  [ make "install" ]
+  [ "sh" "-exc" "if [ -f '%{prefix}%/bin/ocp-build.asm' ]; then mv '%{prefix}%/bin/ocp-build.asm' '%{prefix}%/bin/ocp-build.exe' ; fi" ] { os = "win32" }
+  [ "sh" "-exc" "if [ -f '%{prefix}%/bin/ocp-pp.asm' ]; then mv '%{prefix}%/bin/ocp-pp.asm' '%{prefix}%/bin/ocp-pp.exe' ; fi" ] { os = "win32" }
+  [ "sh" "-exc" "if [ -f '%{prefix}%/bin/ocp-autoconf.asm' ]; then mv '%{prefix}%/bin/ocp-autoconf.asm' '%{prefix}%/bin/ocp-autoconf.exe' ; fi" ] { os = "win32" }
+]
 synopsis: "Project manager for OCaml"
 url {
   src: "https://github.com/OCamlPro/ocp-build/archive/v1.99.21.tar.gz"
   checksum: "md5=8dee966e3533273ef0dcd3968ebf65e7"
 }
+patches: "ocp-build-1.99.21.patch" {os = "win32"}
