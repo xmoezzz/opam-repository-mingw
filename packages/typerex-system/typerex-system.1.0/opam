@@ -23,6 +23,7 @@ depends: [
   "ocamlfind"
   "ocp-build" {>= "1.99.17-beta"}
   "typerex-clibs"
+  "conf-zlib"
 ]
 available: os != "win32"
 remove: [
