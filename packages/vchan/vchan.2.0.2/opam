@@ -29,7 +29,6 @@ depends: [
   "ocamlbuild" {build}
 ]
 depopts: ["xen-evtchn" "xen-gnt" "mirage-xen"]
-available: os != "win32"
 conflicts: [
   "xen-evtchn" {< "1.0.3"}
   "xen-evtchn" {>= "2.0.0"}

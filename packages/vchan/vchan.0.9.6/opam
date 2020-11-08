@@ -30,7 +30,6 @@ depends: [
   "type_conv"
   "ocamlbuild" {build}
 ]
-available: os != "win32"
 synopsis: "Xen Vchan implementation"
 description: """
 Vchan is a high performance inter-domain communications protocol using
