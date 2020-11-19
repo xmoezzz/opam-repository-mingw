@@ -32,4 +32,5 @@ url {
 }
 bug-reports: "https://todo.sr.ht/~mmatalka/pds"
 dev-repo: "hg+ssh://hg@hg.sr.ht/~mmatalka/pds"
-
+synopsis: ""
+available: os != "win32"
