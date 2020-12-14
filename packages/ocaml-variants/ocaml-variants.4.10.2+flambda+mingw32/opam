@@ -1,0 +1,46 @@
+opam-version: "2.0"
+synopsis: "OCaml 4.10.2 with flambda activated (mingw32)"
+maintainer: "platform@lists.ocaml.org"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://ocaml.org"
+bug-reports: "https://github.com/ocaml/ocaml/issues"
+dev-repo: "git://github.com/ocaml/ocaml"
+depends: [
+  "ocaml" {= "4.10.2" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "i686-w64-mingw32-gcc.exe"]
+  [CPP = "i686-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--enable-flambda" "--host=i686-w64-mingw32" "CC=i686-w64-mingw32-gcc" "CPP=i686-w64-mingw32-cpp"]
+  [make "SHELL=/bin/dash" "flexdll"]
+  [make "SHELL=/bin/dash" "-j%{jobs}%" "world.opt"]
+  [make "SHELL=/bin/dash" "flexlink.opt"]
+]
+install: [
+  [make "SHELL=/bin/dash" "install"]
+  ["dash" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""]
+]
+patches: ["ocaml-4.10.2.patch" "inline-flexdll.patch"]
+url {
+  src: "https://github.com/ocaml/ocaml/archive/4.10.2.tar.gz"
+  checksum: "sha512=1dd827da07f01e815fd74dd7ee84db0900f24782f8f7fd426e2d71b9fb03c7b8045f22e018120a0446c362315751365d1bd8c1724edef2b182394e76eb0a07b2"
+}
+extra-source "ocaml-4.10.2.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/c969e93bae23ff33a428b4b7c5498a34/raw/89c1cea7215176a2024ae5473201618c6cf95562/ocaml-4.10.2.patch"
+  checksum: "sha512=d1380cb135eda4170ec9a262b93fcaa1654e2c668745919e688b3a40893997dab4e90653555305bb0cdb80538de9f50d08f0b5a272c47ed20135187ed897af0a"
+}
+extra-source "inline-flexdll.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/01e45abbf0443bae7630cf63cdb261de/raw/520cd2ccd2bbb2c7a09d01ec0e07d6031601f8c4/inline-flexdll.patch"
+  checksum: "sha512=05c8761b3176944f5f76180e3ec72c26bac5e374fd7517affd18151e017cb4e6516e80cff701e48915d63c24b249b6d9a4612f413568b4b63afe36a099642470"
+}
