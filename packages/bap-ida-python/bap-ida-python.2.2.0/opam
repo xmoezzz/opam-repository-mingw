@@ -41,3 +41,4 @@ post-messages: [
    cp %{prefix}%/share/%{name}%/bap.cfg %{conf-ida:path}%/cfg/
  "
 ]
+available: os != "win32"

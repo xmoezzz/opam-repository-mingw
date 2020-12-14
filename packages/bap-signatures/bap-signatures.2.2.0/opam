@@ -21,3 +21,4 @@ url {
   src:
     "https://github.com/BinaryAnalysisPlatform/bap/releases/download/v2.2.0/sigs.tar.gz"
 }
+available: os != "win32"
