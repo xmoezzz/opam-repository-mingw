@@ -183,7 +183,7 @@
  {
 --- ./tools/ocp-build/misc/buildMisc.ml
 +++ ./tools/ocp-build/misc/buildMisc.ml
-@@ -206,9 +206,17 @@
+@@ -206,9 +206,16 @@
        create_process error_handler cmd args maybe_chdir fd1 fd2 fd3
  end
  
@@ -193,24 +193,65 @@
 +  ocaml_major > 4 || ( ocaml_major = 4 && ocaml_minor >= 6)
 +
  let open_for_pipe filename =
-   let oc = open_out_bin filename in
+-  let oc = open_out_bin filename in
 -  MinUnix.descr_of_out_channel oc
-+  let fd = MinUnix.descr_of_out_channel oc in
++  let fd = MinUnix.openfile filename MinUnix.[O_RDWR; O_APPEND; O_CREAT; O_SHARE_DELETE] 0o777 in
 +  if do_clear_close_on_exec then
 +    MinUnix.clear_close_on_exec fd;
 +  fd
  
  let create_process cmd maybe_chdir stdin stdout stderr =
    match cmd with
-@@ -218,7 +226,10 @@
+@@ -217,8 +224,10 @@
+     let stdin_fd = match stdin with
          None -> MinUnix.stdin
        | Some filename ->
-         let ic = open_in_bin filename in
+-        let ic = open_in_bin filename in
 -        MinUnix.descr_of_in_channel ic
-+        let fd = MinUnix.descr_of_in_channel ic in
++        let fd = MinUnix.openfile filename MinUnix.[O_RDWR; O_APPEND; O_CREAT; O_SHARE_DELETE] 0o777 in
 +        if do_clear_close_on_exec then
 +          MinUnix.clear_close_on_exec fd;
 +        fd
      in
      let stdout_fd = match stdout with
          None -> MinUnix.stdout
+--- ./tools/ocp-build/ocaml/buildOCamlRules.ml
++++ ./tools/ocp-build/ocaml/buildOCamlRules.ml
+@@ -341,6 +341,28 @@
+   add_rule_sources r lib.lib_ready;
+   r
+ 
++(* gcc cross compiler doesn't like \\ *)
++let slashify =
++  if Sys.os_type <> "Win32" then
++    fun x -> x
++  else
++    fun x ->
++    let len = String.length x in
++    let b = Bytes.create len in
++    for i = 0 to pred len do
++      match x.[i] with
++      | '\\' -> Bytes.set b i '/'
++      | c -> Bytes.set b i c
++    done;
++    if len > 1 then (
++      let c1 = Bytes.get b 0 in
++      let c2 = Bytes.get b 1 in
++      if c2 = ':' && c1 >= 'a' && c1 <= 'z' &&
++           ( len = 2 || Bytes.get b 2 = '/') then
++        Bytes.set b 0 (Char.uppercase_ascii c1)
++    );
++    Bytes.to_string b
++
+ let add_c2o_rule b lib seq src_file target_file options =
+   let build_dir = BuildEngineContext.add_directory b (MinUnix.getcwd ()) in
+   let temp_file = add_temp_file lib build_dir target_file.file_basename in
+@@ -356,7 +378,7 @@
+        S "-ccopt"; S
+                    (String.concat " " (cflags_option.get  options));
+        S "-ccopt"; S (String.concat " " ( ccopt_option.get options));
+-       S "-c"; S (file_filename src_file);
++       S "-c"; S (slashify (file_filename src_file));
+       ])
+ );
+      Move (false, F temp_file.file_file, F target_file.file_file)
