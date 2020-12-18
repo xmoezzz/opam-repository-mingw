@@ -8,7 +8,7 @@ let input_line ch =
   else
     String.sub str 0 (len - 1)
 
-let re = Str.regexp "^\\([a-z]\\)\\\\[:]\\([/\\\\]\\)"
+let re = Str.regexp "^\\([A-Za-z]\\)\\\\[:]\\([/\\\\]\\)"
 
 let process_entry str =
   (* non-zero length because of Str.split *)

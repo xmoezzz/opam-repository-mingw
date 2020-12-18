@@ -36,7 +36,7 @@ synopsis: "Build system designed for scalability and portability"
 flags: light-uninstall
 extra-files: [
   ["omake-0.9.8.6.patch" "md5=b5a55d406aeebda369afc98b7202a250"]
-  ["ohelper.ml" "md5=e1e03d5c49e5f842b0164fd6cae1a7c1"]
+  ["ohelper.ml" "md5=a2eaef60ef365c2bcc0a8759a8c222d6"]
   ["change-prefix.sh" "md5=2a37b0601ef215aaffe465dd25268706"]
 ]
 url {

@@ -28,7 +28,7 @@ extra-files: [
   ["patch-mm" "md5=f7d90fb1ed3cf766158f2dde92e94c76"]
   ["patch-chmod" "md5=e031653edeead56674d8173058edf097"]
   ["omake.install" "md5=a4c00488faa68cff663fadb06962c50b"]
-  ["ohelper.ml" "md5=e1e03d5c49e5f842b0164fd6cae1a7c1"]
+  ["ohelper.ml" "md5=a2eaef60ef365c2bcc0a8759a8c222d6"]
 ]
 url {
   src: "https://github.com/camlspotter/omake-fork/archive/master.tar.gz"

@@ -40,7 +40,7 @@ synopsis: "Build system designed for scalability and portability"
 flags: light-uninstall
 extra-files: [
   ["omake-omake-0.10.1.patch" "md5=bdca5666711d9e724cf5df3de4629929"]
-  ["ohelper.ml" "md5=e1e03d5c49e5f842b0164fd6cae1a7c1"]
+  ["ohelper.ml" "md5=a2eaef60ef365c2bcc0a8759a8c222d6"]
 ]
 url {
   src: "https://github.com/ocaml-omake/omake/archive/omake-0.10.1.tar.gz"

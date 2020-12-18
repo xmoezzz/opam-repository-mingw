@@ -34,7 +34,7 @@ extra-files: [
   ["omake-share_delete.patch" "md5=ebbaf5537cdecb6429671f6d277de731"]
   ["omake-faster-build.patch" "md5=f5d38fa9c9302e3d74a9396c333cb92a"]
   ["omake-0.10.0-test2.patch" "md5=2da7afd7223cca2f4fcc2cb510d70c6c"]
-  ["ohelper.ml" "md5=e1e03d5c49e5f842b0164fd6cae1a7c1"]
+  ["ohelper.ml" "md5=a2eaef60ef365c2bcc0a8759a8c222d6"]
 ]
 url {
   src: "http://download.camlcity.org/download/omake-0.10.0-test2.tar.gz"
