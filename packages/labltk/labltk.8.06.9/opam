@@ -22,6 +22,7 @@ depends: [
 ]
 post-messages: [
   "This package requires Tcl/Tk with its development packages installed on your system" {failure}
+  "You must either set the environment variable TK_LIBRARY manually (e.g. to C:\\cygwin\\usr\\x86_64-w64-mingw32\\sys-root\\mingw\\lib\\tk8.6) or copy the tcl-tk-files relative to your executable in a appropriate order" { success & os = "win32"}
 ]
 synopsis: "OCaml interface to Tcl/Tk"
 description: "ocamlbrowser is now a separate package.\n\
