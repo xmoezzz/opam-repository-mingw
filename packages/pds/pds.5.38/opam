@@ -17,7 +17,7 @@ depends: [
   "ppx_deriving"
   "process"
   "sedlex"
-  "toml"
+  "toml" { < "6.0" }
 ]
 authors: [
   "orbitz@gmail.com"
