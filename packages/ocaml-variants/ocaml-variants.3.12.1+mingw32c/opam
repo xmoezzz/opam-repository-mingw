@@ -1,0 +1,32 @@
+opam-version: "2.0"
+synopsis: "pre-compiled 3.12.1 build (mingw32)"
+maintainer: "platform@lists.ocaml.org"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://ocaml.org"
+bug-reports: "https://github.com/ocaml/ocaml/issues"
+dev-repo: "git://github.com/ocaml/ocaml"
+depends: [
+  "ocaml" {= "3.12.1" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+  "base-ocamlbuild" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "i686-w64-mingw32-gcc.exe"]
+  [CPP = "i686-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/ld.conf"]
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/Makefile.config"]
+]
+install: ["dash.exe" "install.sh" prefix]
+url {
+  src:
+    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/3.12.1+mingw32c.tar.xz"
+  checksum: "sha512=2d28c571a8c064bbcf291824f47fedcae7cf696393d9c50a5fadcbb8661d6bc3c7b17d945c7f2ea0d03c338d536491973f6d68be6c9800b4837b9a6cc1c92b28"
+}
