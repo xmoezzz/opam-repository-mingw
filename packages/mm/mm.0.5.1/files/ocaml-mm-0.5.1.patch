@@ -1,0 +1,11 @@
+--- ./src/Makefile.in
++++ ./src/Makefile.in
+@@ -2,7 +2,7 @@
+ image_data.h image_data.c image_pixel.h image_pixel.c image_rgb.h image_rgb.c image_yuv420.h image_yuv420.c \
+ image.mli image.ml video.mli video.ml MIDI.mli MIDI.ml synth.mli synth.ml
+ RESULT = mm
+-LIBINSTALL_FILES := $(wildcard *.mli *.cmi *.cma *.cmxa *.cmx *.cmxs *.a *.so)
++LIBINSTALL_FILES := $(wildcard *.mli *.cmi *.cma *.cmxa *.cmx *.cmxs *.a *.dll)
+ OCAMLFLAGS = @OCAMLFLAGS@
+ OCAMLNCFLAGS = @OCAMLNCFLAGS@
+ OCAMLLDFLAGS = -linkall
