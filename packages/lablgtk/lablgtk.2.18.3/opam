@@ -11,22 +11,13 @@ depends: [
   "ocamlfind" {>= "1.2.1"}
   "camlp4"
   "conf-pkg-config" {build}
+  "conf-gtk2" {build}
 ]
 depopts: [
   "conf-gtksourceview"
   "conf-gnomecanvas"
   "conf-glade"
   "lablgl"
-]
-depexts: [
-  ["libgtk2.0-dev" "libexpat1-dev"] {os-family = "debian"}
-  ["gtk" "expat"] {os-distribution = "homebrew" & os = "macos"}
-  ["gtk2.0"] {os = "win32" & os-distribution = "cygwinports"}
-  ["gtk2-devel"] {os-distribution = "centos"}
-  ["gtk2-devel"] {os-distribution = "fedora"}
-  ["gtk2-devel"] {os-distribution = "ol"}
-  ["gtk+2.0-dev"] {os-distribution = "alpine"}
-  ["gtk2-devel"] {os-family = "suse"}
 ]
 patches: [
   "coq-patch" {os = "win32"}
