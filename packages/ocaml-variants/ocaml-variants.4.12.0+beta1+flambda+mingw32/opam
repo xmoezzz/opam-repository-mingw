@@ -1,0 +1,42 @@
+opam-version: "2.0"
+synopsis: "first beta of OCaml 4.12.0 with flambda activated (mingw32)"
+maintainer: "platform@lists.ocaml.org"
+depends: [
+  "ocaml" {= "4.12.0" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "i686-w64-mingw32-gcc.exe"]
+  [CPP = "i686-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--enable-flambda" "--host=i686-w64-mingw32" "CC=i686-w64-mingw32-gcc" "CPP=i686-w64-mingw32-cpp"]
+  [make "SHELL=/bin/dash" "flexdll"]
+  [make "SHELL=/bin/dash" "-j%{jobs}%" "world.opt"]
+  [make "SHELL=/bin/dash" "flexlink.opt"]
+]
+install: [
+  [make "SHELL=/bin/dash" "install"]
+  ["dash" "-exc" "echo \"%{lib}%/stublibs\"  >> \"%{lib}%/ocaml/ld.conf\""]
+]
+patches: ["ocaml-4.12.0+beta1.patch" "inline-flexdll.patch"]
+url {
+  src: "https://github.com/ocaml/ocaml/archive/4.12.0-beta1.tar.gz"
+  checksum: "sha512=006c272ad60a647bdd578129cc56bef8a1e93a95a585553d44126dbf0b9e3e018664ea7cc24fd0d8da36794dcbb671c54447f572bec3e3c08292fa0b39233fda"
+}
+extra-source "ocaml-4.12.0+beta1.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/665421b0ba046cc970e2266b2b246cb2/raw/21279bc217879a9771bf4ef09e213664bdebaef5/ocaml-4.12.0+beta1.patch"
+  checksum: "sha512=797a865a1e5512ca9d44ec73599eec86f5c83707075ec93a85fd86eea4bdd9a7556c839cd3b1028ead842ec33a8a60ae554caf38edb98d8aeebd814f2d6358ac"
+}
+extra-source "inline-flexdll.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/01e45abbf0443bae7630cf63cdb261de/raw/520cd2ccd2bbb2c7a09d01ec0e07d6031601f8c4/inline-flexdll.patch"
+  checksum: "sha512=05c8761b3176944f5f76180e3ec72c26bac5e374fd7517affd18151e017cb4e6516e80cff701e48915d63c24b249b6d9a4612f413568b4b63afe36a099642470"
+}
