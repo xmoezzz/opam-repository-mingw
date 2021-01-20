@@ -14,9 +14,11 @@ depexts: [
   ["postgresql-devel"] {os-distribution = "centos"}
   ["postgresql-devel"] {os-distribution = "rhel"}
   ["postgresql-devel"] {os-distribution = "fedora"}
-  ["postgresql-devel"] {os-family = "suse"}
+  ["postgresql-devel"] {os-distribution = "ol"}
+  ["postgresql-server-devel"] {os-family = "suse"}
   ["postgresql-dev"] {os-distribution = "alpine"}
-  ["postgresql"] {os = "win32" & os-distribution = "cygwinports"}
+  ["postgresql"] {os = "win32" & os-distribution = "cygwinports"}  
+  ["postgresql-libs"] {os-family = "arch"}
   ["postgresql"] {os = "macos" & os-distribution = "homebrew"}
   ["postgresql96"] {os = "macos" & os-distribution = "macports"}
 ]
