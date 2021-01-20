@@ -16,20 +16,11 @@ build: [
 install: [
   [make "install"]
 ]
-remove: [
-  ["ocamlfind" "remove" "libevent"]
-]
 depends: [
   "ocaml"
   "ocamlfind" {build}
   "base-unix"
-]
-depexts: [
-  ["libevent-dev"] {os-distribution = "alpine"}
-  ["libevent-devel"] {os-distribution = "centos"}
-  ["libevent-dev"] {os-family = "debian"}
-  ["libevent-devel"] {os-distribution = "fedora"}
-  ["libevent"] {os = "win32" & os-distribution = "cygwinports"}
+  "conf-libevent" {build}
 ]
 available: os != "macos"
 patches: "ocaml-libevent-0.8.0.patch" {os = "win32"}
@@ -39,7 +30,6 @@ libevent provides a mechanism to execute a callback function
 when a specific event occurs on a file descriptor or
 after a timeout has been reached. Furthermore, libevent also
 supports callbacks due to signals or regular timeouts."""
-flags: light-uninstall
 extra-files: [
   "ocaml-libevent-0.8.0.patch" "md5=d99c39407d18daf803dc04a630a478a0"
 ]
