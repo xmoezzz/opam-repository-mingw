@@ -32,7 +32,7 @@ patches: [
 ]
 extra-files: [
   ["hasgot.patch" "md5=1e4bf6b5aa4740e7fbffff97d18bfc30"]
-  ["build.sh" "md5=16944cc8ec1f359605366344b9658146"]
+  ["build.sh" "md5=76a4f7ed35475c7aec6e41990bdb779a"]
   ["install.sh" "md5=30c7fbc12d29027e499791c6404db4cc"]
   ["labltk-8.06.8.patch" "md5=b4bbbfb59a7d0e5d831cc655b5e5f3f7"]
 ]

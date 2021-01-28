@@ -36,7 +36,7 @@ flags: light-uninstall
 extra-files: [
   ["labltk-8.06.3.patch" "md5=5481e2827c4079277ec09eff30f4ac79"]
   ["install.sh" "md5=ed7f4214bc5eb16afba3c3ec7840c3b3"]
-  ["build.sh" "md5=d75f181554a021faedca04ec8e9ad79f"]
+  ["build.sh" "md5=14c278ab433e7317bac6af0d4739261d"]
 ]
 url {
   src:

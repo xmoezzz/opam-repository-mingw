@@ -38,7 +38,7 @@ flags: light-uninstall
 extra-files: [
   ["patch-labltk" "md5=c0d1ff80cc700ccf9071d152cf616895"]
   ["install.sh" "md5=ece1caf81a844f6002d6c6fa32e6c0d7"]
-  ["build.sh" "md5=3d73c9b14d7f4f9862ad62ee795daa5c"]
+  ["build.sh" "md5=14c278ab433e7317bac6af0d4739261d"]
 ]
 url {
   src:

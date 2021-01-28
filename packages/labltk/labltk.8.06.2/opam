@@ -34,7 +34,7 @@ extra-files: [
   ["labltk-8.06.2.patch" "md5=9b8447d094294a4d9796c8f330226628"]
   ["install.sh" "md5=ece1caf81a844f6002d6c6fa32e6c0d7"]
   ["cltkImg.patch" "md5=d3fbf34d6c96edcc4b3d80be2338e2a7"]
-  ["build.sh" "md5=3d73c9b14d7f4f9862ad62ee795daa5c"]
+  ["build.sh" "md5=14c278ab433e7317bac6af0d4739261d"]
 ]
 url {
   src:

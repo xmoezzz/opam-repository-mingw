@@ -42,10 +42,20 @@ for f in "${sys_root}/lib/tk"* ; do
     f="${sys_root}/lib/libtcl${p}.a"
     if [ -f "$f" ]; then
         libtcl=$f
+    else
+        f="${sys_root}/lib/libtcl${p}.dll.a"
+        if [ -f "$f" ]; then
+            libtcl=-ltcl${p}
+        fi
     fi
     f="${sys_root}/lib/libtk${p}.a"
     if [ -f "$f" ]; then
         libtk=$f
+    else
+        f="${sys_root}/lib/libtk${p}.dll.a"
+        if [ -f "$f" ]; then
+            libtk=-ltk${p}
+        fi
     fi
 done
 if [ -z "$libtcl" ] || [ -z "$libtk" ]; then

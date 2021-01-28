@@ -6,8 +6,8 @@ prefix="$(readlink -f "$1")"
 #INSTALLDIR="${prefix}/lib/labltk"
 #INSTALLBINDIR="${prefix}/bin"
 
-system="$(ocamlfind ocamlc -config | awk '/^system:/ {print $2}')"
-CC=$(shell $(OCAMLC) -config 2>/dev/null | awk '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf "%s " ,$$i}')
+system="$(ocamlfind ocamlc -config | awk -F '[\t \r]+' '/^system:/ {print $2}')"
+CC=$(ocamlfind ocamlc -config 2>/dev/null | awk -F '[\t \r]+' '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf "%s " ,$i}')
 export CC
 #RANLIB=ranlib
 case "$system" in
@@ -42,10 +42,20 @@ for f in "${sys_root}/lib/tk"* ; do
     f="${sys_root}/lib/libtcl${p}.a"
     if [ -f "$f" ]; then
         libtcl=$f
+    else
+        f="${sys_root}/lib/libtclstub${p}.a"
+        if [ -f "$f" ]; then
+            libtcl=-ltcl${p}
+        fi
     fi
     f="${sys_root}/lib/libtk${p}.a"
     if [ -f "$f" ]; then
         libtk=$f
+    else
+        f="${sys_root}/lib/libtkstub${p}.a"
+        if [ -f "$f" ]; then
+            libtk=-ltk${p}
+        fi
     fi
 done
 if [ -z "$libtcl" ] || [ -z "$libtk" ]; then
