@@ -43,3 +43,4 @@ url {
     "sha512=7714e4f8cd8757d1ed3e919d00da0e1365b0e24b74560c620c4d4a12f85a62a6bbbb76ce436bed6237876669e4fef883d390ab1faf2b7ef2e07cd6ce838ed222"
   ]
 }
+patches: "graphics-5.0.0.patch" {os = "win32"}
