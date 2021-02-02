@@ -9,3 +9,14 @@
    if win32 then Win32
    else
      match C.Process.run c "uname" [ "-s" ] with
+--- ./src/win32/draw.c
++++ ./src/win32/draw.c
+@@ -22,8 +22,6 @@
+ #include "caml/memory.h"
+ 
+ HDC gcMetaFile;
+-int grdisplay_mode;
+-int grremember_mode;
+ GR_WINDOW grwindow;
+ 
+ static void GetCurrentPosition(HDC hDC,POINT *pt)
