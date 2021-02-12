@@ -1,0 +1,186 @@
+--- ./Makefile
++++ ./Makefile
+@@ -51,7 +51,18 @@
+ #OCAMLBIN=../../bin
+ OCAMLBIN := $(shell dirname `which ocaml`)
+ OCAMLC=$(OCAMLBIN)/ocamlc
+-LIBDIR := $(shell ocamlc -where)
++LIBDIR := $(shell ocamlc -where | tr -d '\r')
++EXT_DLL:=$(shell $(OCAMLC) -config | awk -F '[\t\r ]+' '/^ext_dll:/ {print $$2}')
++EXT_LIB:=$(shell $(OCAMLC) -config | awk -F '[\t\r ]+' '/^ext_lib:/ {print $$2}')
++EXT_OBJ:=$(shell $(OCAMLC) -config | awk -F '[\t\r ]+' '/^ext_obj:/ {print $$2}')
++OS_TYPE:=$(shell $(OCAMLC) -config | awk -F '[\t\r ]+' '/^os_type:/ {print $$2}')
++
++ifeq ($(OS_TYPE),$(filter $(OS_TYPE),Win32 Cygwin))
++EXT_EXE=.exe
++else
++EXT_EXE=
++endif
++
+ 
+ # The following Makefile.config will set ARCH, MODEL, SYSTEM
+ include $(LIBDIR)/Makefile.config
+@@ -73,7 +84,7 @@
+ # Actually, now stacks-native.c has the appropriate attributes that prevent
+ # the dangerous optimizations. So, no special flags are needed.
+ #CC=gcc -fno-ipa-sra
+-CC=gcc
++CC:= $(shell $(OCAMLC) -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf "%s " ,$$i}')
+ CFLAGS=-fPIC -Wall $(OCAMLINCLUDES) -I$(STDINCLUDES) -O2
+ NATIVEFLAGS=-DCAML_NAME_SPACE -DNATIVE_CODE \
+        -DTARGET_$(ARCH) -DSYS_$(SYSTEM)
+@@ -85,28 +96,28 @@
+ all: delimcc.cma
+ opt: delimccopt.cmxa
+ 
+-delimcc.cma: delimcc.cmo stacks.o delim_serialize.o
++delimcc.cma: delimcc.cmo stacks$(EXT_OBJ) delim_serialize$(EXT_OBJ)
+ 	$(OCAMLMKLIB) -o delimcc -oc delimcc \
+-	delimcc.cmo stacks.o delim_serialize.o
++	delimcc.cmo stacks$(EXT_OBJ) delim_serialize$(EXT_OBJ)
+ 
+-delimccopt.cmxa: delimcc.cmx stacks-native.o delim_serialize.o
++delimccopt.cmxa: delimcc.cmx stacks-native$(EXT_OBJ) delim_serialize$(EXT_OBJ)
+ 	$(OCAMLMKLIB) -o delimccopt -oc delimccopt \
+-	delimcc.cmx stacks-native.o delim_serialize.o
++	delimcc.cmx stacks-native$(EXT_OBJ) delim_serialize$(EXT_OBJ)
+ 
+ install:
+-	if test -f dlldelimcc.so; then cp dlldelimcc.so $(STUBLIBDIR); fi
+-	cp libdelimcc.a $(LIBDIR) && \
+-	  cd $(LIBDIR) && $(RANLIB) libdelimcc.a
++	if test -f dlldelimcc$(EXT_DLL); then cp dlldelimcc$(EXT_DLL) $(STUBLIBDIR); fi
++	cp libdelimcc$(EXT_LIB) $(LIBDIR) && \
++	  cd $(LIBDIR) && $(RANLIB) libdelimcc$(EXT_LIB)
+ 	cp delimcc.cma delimcc.cmi $(LIBDIR)
+-	if test -f dlldelimccopt.so; then \
+-	  cp dlldelimccopt.so $(STUBLIBDIR); fi
+-	if test -f libdelimccopt.a;  then \
+-	  cp libdelimccopt.a $(LIBDIR); \
+-	  cd $(LIBDIR) && $(RANLIB) libdelimccopt.a; fi
++	if test -f dlldelimccopt$(EXT_DLL); then \
++	  cp dlldelimccopt$(EXT_DLL) $(STUBLIBDIR); fi
++	if test -f libdelimccopt$(EXT_LIB);  then \
++	  cp libdelimccopt$(EXT_LIB) $(LIBDIR); \
++	  cd $(LIBDIR) && $(RANLIB) libdelimccopt$(EXT_LIB); fi
+ 	if test -f delimccopt.cmxa; then cp delimccopt.cmxa $(LIBDIR); fi
+ 
+-findlib-install: META dlldelimcc.so libdelimcc.a delimcc.cma delimcc.cmi \
+-	dlldelimccopt.so libdelimccopt.a delimccopt.a delimccopt.cmxa
++findlib-install: META dlldelimcc$(EXT_DLL) libdelimcc$(EXT_LIB) delimcc.cma delimcc.cmi \
++	dlldelimccopt$(EXT_DLL) libdelimccopt$(EXT_LIB) delimccopt$(EXT_LIB) delimccopt.cmxa
+ 	$(OCAMLFIND) install $(OCAMLFIND_INSTFLAGS) delimcc $^
+ 
+ 
+@@ -122,26 +133,26 @@
+ 	$(OCAMLOPT) -opaque -c delimcc.ml
+ 
+ # When using GCC 4.7, add the flag -fno-ipa-sra (but it is no longer needed...)
+-stacks-native.o: stacks-native.c
++stacks-native$(EXT_OBJ): stacks-native.c
+ 	$(CC) -c $(NATIVEFLAGS) -O2 -fPIC -Wall \
+ 	$(OCAMLINCLUDES) -I$(STDINCLUDES) stacks-native.c
+ 
+-top:	libdelimcc.a delimcc.cma
++top:	libdelimcc$(EXT_LIB) delimcc.cma
+ 	$(OCAMLMKTOP) -o ocamltopcc delimcc.cma
+ 
+ .PRECIOUS: testd0
+-testd0: libdelimcc.a testd0.ml delimcc.cmi
+-	$(OCAMLC) -o $@ delimcc.cma $@.ml
++testd0: libdelimcc$(EXT_LIB) testd0.ml delimcc.cmi
++	$(OCAMLC) -o $@$(EXT_EXE) delimcc.cma $@.ml
+ 	./testd0
+ 
+-testd0opt: libdelimccopt.a testd0.ml delimcc.cmi
+-	$(OCAMLOPT) -o $@ -noautolink delimccopt.cmxa libdelimccopt.a testd0.ml
++testd0opt: libdelimccopt$(EXT_LIB) testd0.ml delimcc.cmi
++	$(OCAMLOPT) -o $@$(EXT_EXE) -noautolink delimccopt.cmxa libdelimccopt$(EXT_LIB) testd0.ml
+ 	./testd0opt
+ 
+ # serialization test
+ .PRECIOUS: tests0
+-tests0: libdelimcc.a tests0.ml delimcc.cmi
+-	$(OCAMLC) -o $@ delimcc.cma $@.ml
++tests0: libdelimcc$(EXT_LIB) tests0.ml delimcc.cmi
++	$(OCAMLC) -o $@$(EXT_EXE) delimcc.cma $@.ml
+ 	./$@
+ 	./$@ /tmp/k1
+ 
+@@ -153,32 +164,32 @@
+ 	rm -f *.cm[ixo] *.[oa] *~
+ 
+ clean::
+-	rm -f delimcc.a delimcc.cma libdelimcc.a dlldelimcc.so \
+-	delimccopt.cmxa libdelimccopt.a dlldelimccopt.so
++	rm -f delimcc$(EXT_LIB) delimcc.cma libdelimcc$(EXT_LIB) dlldelimcc$(EXT_DLL) \
++	delimccopt.cmxa libdelimccopt$(EXT_LIB) dlldelimccopt$(EXT_DLL)
+ 
+ 
+-memory%: libdelimcc.a memory%.ml  delimcc.cmi
+-	$(OCAMLC) -o $@  delimcc.cma $@.ml
++memory%: libdelimcc$(EXT_LIB) memory%.ml  delimcc.cmi
++	$(OCAMLC) -o $@$(EXT_EXE)  delimcc.cma $@.ml
+ 	./$@ > /dev/null
+ 
+-memory%opt: libdelimccopt.a memory%.ml delimcc.cmi
+-	$(OCAMLOPT) -o $@ delimccopt.cmxa memory$*.ml
++memory%opt: libdelimccopt$(EXT_LIB) memory%.ml delimcc.cmi
++	$(OCAMLOPT) -o $@$(EXT_EXE) delimccopt.cmxa memory$*.ml
+ 	./$@ > /dev/null
+ 
+-%: libdelimcc.a %.ml delimcc.cmi
+-	$(OCAMLC) -o $@ -dllpath . delimcc.cma $@.ml
++%: libdelimcc$(EXT_LIB) %.ml delimcc.cmi
++	$(OCAMLC) -o $@$(EXT_EXE) -dllpath . delimcc.cma $@.ml
+ 	./$@
+ 
+-%opt: libdelimccopt.a %.ml delimcc.cmi
+-	$(OCAMLOPT) -o $@  delimccopt.cmxa $*.ml
++%opt: libdelimccopt$(EXT_LIB) %.ml delimcc.cmi
++	$(OCAMLOPT) -o $@$(EXT_EXE)  delimccopt.cmxa $*.ml
+ 	./$@
+ 
+-sieve: libdelimcc.a lwc.cmi lwc.ml sieve.ml
+-	$(OCAMLC) -o $@ -dllpath . unix.cma delimcc.cma lwc.ml $@.ml
++sieve: libdelimcc$(EXT_LIB) lwc.cmi lwc.ml sieve.ml
++	$(OCAMLC) -o $@$(EXT_EXE) -dllpath . unix.cma delimcc.cma lwc.ml $@.ml
+ 	./$@
+ 
+-sieveopt: libdelimccopt.a lwc.cmi lwc.ml sieve.ml
+-	$(OCAMLOPT) -o $@ unix.cmxa delimccopt.cmxa lwc.ml sieve.ml
++sieveopt: libdelimccopt$(EXT_LIB) lwc.cmi lwc.ml sieve.ml
++	$(OCAMLOPT) -o $@$(EXT_EXE) unix.cmxa delimccopt.cmxa lwc.ml sieve.ml
+ 	./$@
+ 
+ clean::
+@@ -200,8 +211,8 @@
+ 
+ # Used during the development
+ .PRECIOUS: try-native
+-try-native: stacks-native.o delim_serialize.o delimccopt.ml
+-	$(OCAMLOPT) -o $@ \
+-	stacks-native.o delim_serialize.o delimccopt.ml 
++try-native: stacks-native$(EXT_OBJ) delim_serialize$(EXT_OBJ) delimccopt.ml
++	$(OCAMLOPT) -o $@$(EXT_EXE) \
++	stacks-native$(EXT_OBJ) delim_serialize$(EXT_OBJ) delimccopt.ml 
+ 	./$@
+ 
+--- ./tests0.ml
++++ ./tests0.ml
+@@ -10,13 +10,13 @@
+ let () = prerr_endline "\nInitializing tests0\n"
+ 
+ let save_state_file fname k =
+-  let oc = open_out fname in
++  let oc = open_out_bin fname in
+   let () = output_delim_value oc k in
+   close_out oc
+ ;;
+ 
+ let load_state_file fname =
+-  let ic = open_in fname in
++  let ic = open_in_bin fname in
+   let v = Marshal.from_channel ic in
+   let () = close_in ic in
+   v
