@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer: "rudi.grinberg@gmail.com"
+maintainer: "yallop@gmail.com"
 authors: ["Oleg Kiselyov"]
 homepage: "http://okmij.org/ftp/continuations/implementations.html#caml-shift"
 license: "MIT"
@@ -7,17 +7,17 @@ build: [
   [make "all"]
   [make "opt"]
 ]
-remove: [["ocamlfind" "remove" "delimcc"]]
 depends: [
-  "ocaml" {>= "4.04.0" & < "4.10.0"}
-  "ocamlfind"
+  "ocaml" {>= "4.04.0" & < "4.12.0"}
+  "ocamlfind" {build}
+  "conf-which" {build}
 ]
+available: arch != "ppc64"
 install: [make "findlib-install"]
-available: os != "win32"
 synopsis:
   "Oleg's delimited continuations library for byte-code and native OCaml"
-flags: light-uninstall
+conflicts: ["ocaml-system"]
 url {
-  src: "https://github.com/zinid/delimcc/archive/2017.03.02.zip"
-  checksum: "md5=8b8f25b8ae136ad63f076518ac9c00f8"
+  src: "http://okmij.org/ftp/continuations/caml-shift-20201008.tar.gz"
+  checksum: "md5=db0b649b012490d54f90a541f6b4e58e"
 }
