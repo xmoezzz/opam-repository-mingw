@@ -11,6 +11,7 @@ dev-repo: "git://github.com/mjambon/ocamlscript"
 depends: [
   "ocaml" {>= "4.08"} # because of Fun.protect
   "ocamlfind"
+  "cygwinpath" {os = "win32"}
 ]
 build: [make]
 install: [make "install"]
@@ -18,3 +19,4 @@ url {
   src: "https://github.com/mjambon/ocamlscript/archive/v3.0.0.tar.gz"
   checksum: "md5=52cea3976a09e979395875f493c46f30"
 }
+patches: "ocamlscript-3.0.0.patch" {os = "win32"}

@@ -1,0 +1,99 @@
+--- ./Makefile
++++ ./Makefile
+@@ -17,7 +17,7 @@
+ endif
+ export BINDIR
+ 
+-PACKS = unix str
++PACKS = unix str cygwinpath
+ # PP = camlp4o -I . -parser pa_opt.cmo
+ # export PP
+ 
+@@ -25,6 +25,14 @@
+ OCAMLFLAGS = -dtypes
+ 
+ 
++
++ifeq ($(OS),Windows_NT)
++EXE := .exe
++else
++EXE :=
++endif
++
++
+ .PHONY: init default common bytelib optlib optexe bytelib optlib \
+         install uninstall test tests examples ocamldoc version meta archive
+ 
+@@ -47,11 +55,11 @@
+ 	# 	cp pa_tryfinally310.cmi pa_tryfinally.cmi
+ 
+ byteexe: bytelib
+-	ocamlfind ocamlc -o ocamlscript.byte \
++	ocamlfind ocamlc -o ocamlscript.byte$(EXE) \
+ 	  -package '$(PACKS)' -linkpkg $(OCAMLFLAGS) \
+ 	  ocamlscript.cmo main.ml
+ optexe: optlib
+-	ocamlfind ocamlopt -o ocamlscript \
++	ocamlfind ocamlopt -o ocamlscript$(EXE) \
+ 	  -package '$(PACKS)' -linkpkg $(OCAMLFLAGS) \
+ 	  ocamlscript.cmx main.ml
+ bytelib: pabc
+--- ./main.ml
++++ ./main.ml
+@@ -247,7 +247,7 @@
+ 		    Sys.getcwd ())
+     | `File script_name -> "", get_dir script_name in
+ 
+-  let file, oc = Filename.open_temp_file "meta" ".ml" in
++  let file, oc = Filename.open_temp_file ~mode:[Open_binary] "meta" ".ml" in
+   fprintf oc "\
+ #%i %S;;
+ (* Opam installations of findlib place topfind in a different directory *)
+@@ -486,7 +486,7 @@
+     match Array.to_list Sys.argv with
+     | ocamlscript :: (arg1 :: other_args as l) ->
+       (match guess_arg1 arg1 with
+-       | `Script_name -> (`File (absolute arg1), l)
++       | `Script_name -> (`File (absolute (CygwinPath.to_native arg1)), l)
+        | `Ocamlscript_args (opt1, stopped, hardcoded_script_args) ->
+ 	 let command_line_script_args =
+ 	   let continued_args =
+@@ -519,7 +519,8 @@
+ 	     (`Stdin,
+ 	      "" :: hardcoded_script_args)
+ 	   | script_name :: l ->
+-	     Opt.set "source" Opt.from (`File script_name);
++        let script_name = CygwinPath.to_native script_name in
++        Opt.set "source" Opt.from (`File script_name);
+ 	     (`File (absolute script_name),
+ 	      script_name :: (hardcoded_script_args @ l)))
+     | [_] | [] ->
+--- ./ocaml.ml
++++ ./ocaml.ml
+@@ -116,7 +116,7 @@
+     if !use_camlp4 then
+       let syntax, camlp4 =
+ 	if !revised then "camlp4r", !camlp4r
+-	else "camlp4o", !camlp4o in
++  else "camlp4o", exe !camlp4o in
+       let ppoptions =
+ 	if !ppopt = [] then []
+ 	else
+@@ -127,7 +127,7 @@
+ 	"-syntax" :: syntax :: ppoptions
+       else
+ 	let space = function | "" -> "" | s -> " " ^ s in
+-	["-pp"; sprintf "'%s%s'" camlp4 (space (String.concat " " ppoptions))]
++  ["-pp"; sprintf "%s%s" camlp4 (space (String.concat " " ppoptions))]
+     else [] in
+   let packages =
+     if really_use_ocamlfind then
+@@ -144,7 +144,7 @@
+ 
+   let xcommands, all_ml_files = extra_commands all_sources in
+ 
+-  let args = compiler @ "-o" :: "prog" ::
++  let args = compiler @ "-o" :: (exe "prog") ::
+ 	                flags @ camlp4_stuff @ packages @ all_ml_files in
+   (init, xcommands, command args, exe "prog")
+ 
