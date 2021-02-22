@@ -31,7 +31,7 @@ depends: [
   "ocaml" {>= "4.02" & < "4.13.0"}
   "conf-perl"
   "conf-perl-ipc-system-simple"
-  "conf-perl-string-shellquote"
+  "conf-perl-string-shellquote" {os != "win32"}
   "conf-diffutils" { with-test & os-distribution = "alpine" }
   "pcre" { with-test }
   "ounit" { with-test }
@@ -42,8 +42,8 @@ build: [
   ["./configure" "--prefix" prefix "-libdir" lib "-mandir" man]
   [make "-j%{jobs}%" "DEBUG=-g" "world.opt"]
   [make "-j%{jobs}%" "DEBUG=-g" "all"]
-  [make "-C" "testsuite" "clean" "all-tests"] { with-test & ocaml:version >= "4.10.0" }
-  [make "-C" "test" "clean" "all"] {with-test & ocaml:version >= "4.10.0" }
+  [make "-C" "testsuite" "clean" "all-tests"] { with-test & ocaml:version >= "4.10.0" & os != "win32"}
+  [make "-C" "test" "clean" "all"] {with-test & ocaml:version >= "4.10.0" & os != "win32"}
 ]
 install: [make "install"]
 
