@@ -1,0 +1,31 @@
+opam-version: "2.0"
+synopsis: "Pre-compiled 4.12.0 release (mingw64)"
+maintainer: "platform@lists.ocaml.org"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://ocaml.org"
+bug-reports: "https://github.com/ocaml/ocaml/issues"
+dev-repo: "git://github.com/ocaml/ocaml"
+depends: [
+  "ocaml" {= "4.12.0" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "x86_64-w64-mingw32-gcc.exe"]
+  [CPP = "x86_64-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/ld.conf"]
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/Makefile.config"]
+]
+install: ["dash.exe" "install.sh" prefix]
+url {
+  src:
+    "https://github.com/fdopen/ocaml/releases/download/4.12.0-0/4.12.0+mingw64c.tar.xz"
+  checksum: "sha512=90623b30aea090e2c24c39dd422c8b541cf5257ba9e50205e6435c34e6ea29a9d455fd2d17fc19c4d683152ea0d830588f2cab2b602a34747aa334de5a15a96e"
+}
