@@ -4,6 +4,11 @@ An opam repository for windows - including an experimental build of opam
 for windows (of course, you still need cygwin for nearly everything:
 a shell interpreter to run configure scripts, git, rsync, ...)
 
+## Discontinuation
+
+This repo will soon be
+[discontinued](https://fdopen.github.io/opam-repository-mingw/2021/02/26/repo-discontinued/).
+
 ## Homepage
 
 There is now a small homepage with installation instructions and usage
