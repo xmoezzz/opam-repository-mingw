@@ -6,11 +6,13 @@ bug-reports: "https://github.com/garrigue/labltk/issues"
 dev-repo: "git+https://github.com/garrigue/labltk.git"
 license: "LGPL-2.1-or-later with OCaml-LGPL-linking-exception"
 build: [
-  ["./configure" "-use-findlib" "-installbindir" bin]
-  [make "all"]
+  ["./configure" "-use-findlib" "-installbindir" bin]  { os != "win32" }
+  [make "all"] { os != "win32" }
+  ["sh" "build.sh" prefix ] { os = "win32" }
 ]
 install: [
-  [make "install-browser"]
+  [make "install-browser"] { os = "win32" }
+  ["sh" "install.sh" prefix ] { os = "win32" }
 ]
 depends: [
   "ocaml" {>= "4.12" & < "4.13"}
@@ -28,3 +30,4 @@ url {
   src: "https://github.com/garrigue/labltk/archive/8.06.10.tar.gz"
   checksum: "md5=d6b4691bb03b114d45411158143883d7"
 }
+patches: "labltk-8.06.10.patch" {os = "win32"}
