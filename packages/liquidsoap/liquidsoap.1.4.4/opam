@@ -156,3 +156,4 @@ url {
     "sha512=730e66d460eacdce3c1d8ecf64c6b4d3f8d1c0cb9d955e47ebc0d791ce98d3db3b7c33154b324cb0f35760c2efe4d9d06bbdc1966fe64d103002ce5196e42a07"
   ]
 }
+patches: "liquidsoap-1.4.4.patch" {os = "win32"}
