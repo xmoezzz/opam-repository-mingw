@@ -10,7 +10,11 @@ install: [
   [make "install"]
 ]
 remove: ["ocamlfind" "remove" "opus"]
-depends: ["ocaml" "ocamlfind" "ogg"]
+depends: [
+  "ocaml"
+  "ocamlfind"
+  "ogg" {< "0.7.0"}
+]
 depexts: [
   ["libavutil-dev" "libopus-dev"] {os-family = "debian"}
   ["opus"] {os = "win32" & os-distribution = "cygwinports"}
