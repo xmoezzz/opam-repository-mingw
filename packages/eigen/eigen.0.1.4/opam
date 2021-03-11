@@ -13,6 +13,7 @@ depends: [
   "ctypes" {>= "0.14.0"}
   "dune" {>= "1.5"}
 ]
+available: os != "win32" & (arch = "x86_32" | arch = "x86_64")
 build: [
   ["dune" "build" "-p" name "eigen_cpp/libeigen_cpp_stubs.a"]
   ["dune" "build" "-p" name "-j" jobs]
@@ -25,4 +26,3 @@ url {
     "sha512=1bde5688c3aa6f8feddc750386dc66aa2423ad69361272a7c3115b8823f621231b22505c071b03f5bd11252d0b7ebc22e42a2e8915152fba680f4470b3e829db"
   ]
 }
-available: os != "win32"

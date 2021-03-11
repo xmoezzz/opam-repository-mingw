@@ -15,6 +15,7 @@ depends: [
   "ctypes" {>= "0.14.0"}
   "dune" {>= "1.1.0"}
 ]
+available: os != "win32" & (arch = "x86_32" | arch = "x86_64")
 synopsis: "Owl's OCaml interface to Eigen3 C++ library"
 description:
 "Eigen is a thin OCaml interface to Eigen3 C++ template library used in Owl to provide basic numerical support for both sparse and dense matrix operations."
@@ -22,4 +23,3 @@ url {
   src: "https://github.com/ryanrhymes/eigen/archive/0.1.0.tar.gz"
   checksum: "md5=0560157b9f6a418ff1fc4ebaa4c6f637"
 }
-available: os != "win32"
