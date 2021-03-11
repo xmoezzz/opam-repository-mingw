@@ -14,6 +14,7 @@ depexts: [
   ["opus"] {os-family = "arch"}
   ["libopus"] {os = "freebsd" | os-distribution = "nixos" | os-family = "suse" | os = "macos" & os-distribution = "homebrew"}
   ["opus-devel"] {os-distribution="centos" | os-family = "fedora"}
+  ["opus"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 synopsis: "Virtual package relying on libopus"
 description:
