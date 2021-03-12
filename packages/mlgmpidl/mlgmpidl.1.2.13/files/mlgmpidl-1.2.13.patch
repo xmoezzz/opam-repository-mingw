@@ -1,0 +1,31 @@
+--- ./Makefile
++++ ./Makefile
+@@ -251,6 +251,8 @@
+ # IDL
+ #-----------------------------------
+ 
++CPP:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^ranlib:/ {print $$2}' | sed 's|ranlib|cpp|g')
++
+ $(IDLMODULES:%=%.mli): %.mli: %.ml
+ $(IDLMODULES:%=%_caml.c): %_caml.c: %.ml
+ # Generate for each %.idl: %i.ml, %i.mli, %_caml.c
+@@ -260,7 +262,7 @@
+ 	{ cp $*.idl $${tmpdir}/$*.idl;					\
+ 	  $(CAMLIDL) -no-include					\
+ 		-D MPFR_VERSION_MAJOR=$(MPFR_VERSION_MAJOR)		\
+-		-prepro cpp $${tmpdir}/$*.idl			&&	\
++		-prepro "$(CPP)" $${tmpdir}/$*.idl			&&	\
+ 	  $(PERL) perlscript_c.pl < $${tmpdir}/$*_stubs.c >$*_caml.c &&	\
+ 	  $(PERL) perlscript_caml.pl < $${tmpdir}/$*.ml >$*.ml &&	\
+ 	  $(PERL) perlscript_caml.pl < $${tmpdir}/$*.mli >$*.mli; }
+--- ./configure
++++ ./configure
+@@ -294,7 +294,7 @@
+ test "x$mpfr_prefix" != "x" && mpfr_cflags="-I$mpfr_prefix/include";
+ mpfr_version_major=$( echo MPFR_VERSION_MAJOR \
+ 			  | "$cc" $mpfr_cflags -imacros mpfr.h -E -P - \
+-			  | "$grep" '[^[:blank:]]' )
++			  | "$grep" '[^[:blank:]]' | "$grep" -v '^#' )
+ echo "library mpfr major version: $mpfr_version_major"
+ 
+ # OCaml environment
