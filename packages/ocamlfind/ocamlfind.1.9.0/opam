@@ -43,4 +43,6 @@ url {
     "md5=46e57ac4c1e3991d66e3dd7f247963d5"
     "sha512=b2084ef88d514cdec1ea988487f23ea006189031ff2eddf1d2f2e96db0f164856929475fbd8b5f6cf3844e8b3f0fba2aa8b7846174f1a1d815ce459eda3b661f"
   ]
+  mirrors: "http://download2.camlcity.org/download/findlib-1.9.tar.gz"
 }
+patches: "findlib-1.9.patch" {os = "win32"}
