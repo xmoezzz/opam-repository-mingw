@@ -3,7 +3,7 @@ synopsis: "OCaml 4.06.1 with flambda activated (mingw32)"
 maintainer: "platform@lists.ocaml.org"
 authors: "Xavier Leroy and many contributors"
 homepage: "https://ocaml.org"
-bug-reports: "https://github.com/ocaml/ocaml/issues"
+bug-reports: "https://github.com/fdopen/opam-repository-mingw/issues"
 dev-repo: "git://github.com/ocaml/ocaml"
 depends: [
   "ocaml" {= "4.06.1" & post}
