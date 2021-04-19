@@ -15,7 +15,7 @@ install: [
   ["bash" "install.sh" prefix ] { os = "win32" }
 ]
 depends: [
-  "ocaml" {>= "4.07"}
+  "ocaml" {>= "4.07" & < "4.13"}
   "ocamlfind" {build}
   "conf-tcl"
   "conf-tk"
