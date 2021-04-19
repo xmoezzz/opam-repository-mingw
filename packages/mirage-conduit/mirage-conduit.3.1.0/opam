@@ -18,7 +18,7 @@ depends: [
   "mirage-time-lwt" {>= "1.1.0"}
   "mirage-flow-lwt" {>= "1.2.0"}
   "mirage-dns" {>= "3.0.0" & < "4.0.0"}
-  "conduit-lwt" {>= "1.4.0" & < "3.0.0"}
+  "conduit-lwt" {>= "1.4.0"}
   "vchan" {>= "3.0.0"}
   "xenstore"
   "tls" {>= "0.8.0" & < "0.11.0"}
@@ -29,7 +29,6 @@ build: [
   ["dune" "runtest" "-p" name] {with-test}
 ]
 dev-repo: "git+https://github.com/mirage/ocaml-conduit.git"
-synopsis: "MirageOS interface to network connections"
 url {
   src:
     "https://github.com/mirage/ocaml-conduit/releases/download/v1.4.0/conduit-v1.4.0.tbz"
