@@ -25,6 +25,6 @@ build: [
 install: ["dash.exe" "install.sh" prefix]
 url {
   src:
-    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.08.0+msvc32c.tar.xz"
+    "https://github.com/fdopen/ocaml/releases/download/4.08.0-0/4.08.0+msvc32c.tar.xz"
   checksum: "md5=50a815334bac18a35786e80c38f40f46"
 }

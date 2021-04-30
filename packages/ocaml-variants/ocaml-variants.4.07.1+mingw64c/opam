@@ -26,6 +26,6 @@ build: [
 install: ["dash.exe" "install.sh" prefix]
 url {
   src:
-    "https://dl.bintray.com/fdopen/prebuild-win32-ocaml-packages/4.07.1+mingw64c3.tar.xz"
+    "https://github.com/fdopen/ocaml/releases/download/4.07.1-0/4.07.1+mingw64c3.tar.xz"
   checksum: "sha512=3193a09b7ceb00876d388387e6a3fda178602f5d032b891ef8902d9128f35dbe929b5ee6a8ffc420fee87f71df8aaf8f80beb36fc30d04cb1c9addc6a6b20aeb"
 }
