@@ -26,6 +26,6 @@ build: [
 install: ["dash.exe" "install.sh" prefix]
 url {
   src:
-    "https://github.com/fdopen/ocaml/releases/download/4.10.2-0/4.10.2+flambda+mingw64c.tar.xz"
-  checksum: "sha512=ca0414c0da6b1c02f1236fe716fab950a1802a8d7e7068882276178e200c61f276c1e5c3aa32401336c5c5f8e474926c3769361f2333dbc6c07949936bfe070a"
+    "https://github.com/fdopen/ocaml/releases/download/4.10.2-1/4.10.2+flambda+mingw64c.tar.xz"
+  checksum: "sha512=f8a4fc84608123a19ddb91445173b194ee757789fade561c0da3cbb3386d8899601e04b64cd9528a6818def1f9e025df2f015bb4e316e3102e11c3250d087b77"
 }

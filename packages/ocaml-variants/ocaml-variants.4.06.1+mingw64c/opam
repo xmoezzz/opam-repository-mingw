@@ -26,6 +26,6 @@ build: [
 install: ["dash.exe" "install.sh" prefix]
 url {
   src:
-    "https://github.com/fdopen/ocaml/releases/download/4.06.1-0/4.06.1+mingw64c3.tar.xz"
-  checksum: "sha512=7cccb9486ce0fe9695ce3b13f77a0954f882db64d532c6c1c72bb251ae5179876f60afea731e379b67631c887d9519797fb402d92d2df8c860a199de72c7d64b"
+    "https://github.com/fdopen/ocaml/releases/download/4.06.1-1/4.06.1+mingw64c.tar.xz"
+  checksum: "sha512=845501d4bc4bcc983642011343095a0fcdaf49c572a2d52bcf8a0667fbab05c525b8a4071908d5d3d8e7018afc973d3e3c37836815029695dcbd4188acf9c04e"
 }
