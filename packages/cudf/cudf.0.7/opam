@@ -5,6 +5,7 @@ depends: [
   "ocaml"
   "camlp4"
   "extlib" | "extlib-compat"
+  "ocamlfind" {build}
   "ocamlbuild" {build}
 ]
 patches: [ "patch-aa" { os = "win32" } ]
