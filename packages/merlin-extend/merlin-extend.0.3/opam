@@ -12,18 +12,16 @@ build: [
  [make]
 ]
 install: [make "install"]
-remove: ["ocamlfind" "remove" "merlin_extend"]
 depends: [
   "ocaml" {>= "4.02.3" & < "4.08.0"}
   "ocamlfind" {build}
-  "cppo" {build}
+  "cppo" {build & >= "1.1.0"}
 ]
 patches: "patch-ocamlmakefile-merlin-extend.0.3" {os = "win32"}
 synopsis: "A protocol to provide custom frontend to Merlin"
 description: """
 This protocol allows to replace the OCaml frontend of Merlin.
 It extends what used to be done with the `-pp' flag to handle a few more cases."""
-flags: light-uninstall
 extra-files: [
   "patch-ocamlmakefile-merlin-extend.0.3"
   "md5=d45b632b47350fb691aa8bcdea7cb769"
