@@ -31,3 +31,4 @@ extra-files: [
 ]
 bug-reports: "https://github.com/ocaml/opam-repository/issues"
 flags: conf
+available: os != "win32"
