@@ -34,13 +34,10 @@ build: [
   [make "check"] {with-test}
 ]
 install: [ [ make "install-lib" ] ]
-remove: [ [ "ocamlfind" "remove" "KappaLib" ] ]
-
 patches: "KaSim-4.0.patch" {os = "win32"}
-synopsis: "Software suite for the Kappa language."
-flags: light-uninstall
-extra-files: ["KaSim-4.0.patch" "md5=bae9aa7d122bffc38b988edc5d4c7e95"]
+
+synopsis: "Software suite for the Kappa language"
 url {
-  src: "https://github.com/Kappa-Dev/KaSim/archive/v4.0.tar.gz"
-  checksum: "md5=894a517c7991f42100d2e957efc6cfa2"
+  src: "https://github.com/Kappa-Dev/KappaTools/archive/v4.0.tar.gz"
+  checksum: "md5=2f9ee76a8aa8bf2ad6bbb37071759e59"
 }
