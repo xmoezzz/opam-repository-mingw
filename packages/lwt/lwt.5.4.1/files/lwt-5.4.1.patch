@@ -1,0 +1,34 @@
+--- ./src/unix/lwt_unix.h
++++ ./src/unix/lwt_unix.h
+@@ -46,6 +46,8 @@
+ /* Raise [Lwt_unix.Not_available]. */
+ void lwt_unix_not_available(char const *feature) Noreturn;
+ 
++#define LWT_NOT_AVAILABLE_BYTE(prim)                                    \
++  CAMLprim value lwt_##prim(value *a1, int a2) { lwt_unix_not_available(#prim); }
+ #define LWT_NOT_AVAILABLE1(prim) \
+     CAMLprim value lwt_##prim(value a1) { lwt_unix_not_available(#prim); }
+ #define LWT_NOT_AVAILABLE2(prim)                  \
+--- ./src/unix/windows_c/windows_not_available.c
++++ ./src/unix/windows_c/windows_not_available.c
+@@ -25,11 +25,11 @@
+ LWT_NOT_AVAILABLE5(unix_recvfrom)
+ LWT_NOT_AVAILABLE5(unix_bytes_recvfrom)
+ LWT_NOT_AVAILABLE6(unix_sendto)
+-LWT_NOT_AVAILABLE6(unix_sendto_byte)
++LWT_NOT_AVAILABLE_BYTE(unix_sendto_byte)
+ LWT_NOT_AVAILABLE6(unix_bytes_sendto)
+-LWT_NOT_AVAILABLE6(unix_bytes_sendto_byte)
++LWT_NOT_AVAILABLE_BYTE(unix_bytes_sendto_byte)
+ LWT_NOT_AVAILABLE3(unix_recv_msg)
+-LWT_NOT_AVAILABLE3(unix_send_msg)
++LWT_NOT_AVAILABLE6(unix_send_msg)
+ LWT_NOT_AVAILABLE1(unix_get_credentials)
+ LWT_NOT_AVAILABLE2(unix_mcast_set_loop)
+ LWT_NOT_AVAILABLE2(unix_mcast_set_ttl)
+@@ -76,4 +76,5 @@
+ LWT_NOT_AVAILABLE1(unix_getcwd_job)
+ LWT_NOT_AVAILABLE1(unix_tcgetattr_job)
+ LWT_NOT_AVAILABLE3(unix_tcsetattr_job)
++LWT_NOT_AVAILABLE_BYTE(unix_send_msg_byte)
+ #endif
