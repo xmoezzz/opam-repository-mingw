@@ -54,7 +54,7 @@ depexts: [
   ["perl-FindBin"] {os-distribution = "fedora"}
   ["build-base"] {os-distribution = "alpine"}
 ]
-available: arch != "ppc32" & arch != "ppc64"
+available: arch != "ppc32" & arch != "ppc64" & os != "win32"
 url {
   src: "https://github.com/goblint/cil/archive/1.8.0.tar.gz"
   checksum: [
