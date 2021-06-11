@@ -24,6 +24,9 @@ depends: ["ocaml"]
 extra-files: [
   "obuild-obuild-v0.1.9.patch" "md5=5837d3305eba3ef9c5d39feee4b8357b"
 ]
+conflicts: [
+  "ocamlfind" {>= "1.8.0"} # does not support warning(..) = "..." in META files
+]
 url {
   src: "https://github.com/ocaml-obuild/obuild/archive/obuild-v0.1.9.tar.gz"
   checksum: "md5=63d08d56fb8cba245c05cc5b3b558ebd"
