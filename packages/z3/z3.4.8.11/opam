@@ -6,13 +6,16 @@ bug-reports: "https://github.com/Z3prover/z3/issues"
 license: "MIT"
 dev-repo: "git+https://github.com/Z3prover/z3.git"
 build: [
-  [ "python2.7" "scripts/mk_make.py" "--ml" "--staticlib" ]
+  [ "python2.7" "scripts/mk_make.py" "--ml" "--staticlib" ] {os != "win32"}
+  [ "sh" "-ecx" "env AR=\"$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}' | sed 's|gcc|ar|g').exe\" CXX=\"$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}' | sed 's|gcc|g++|g').exe\" python2.7 scripts/mk_make.py --ml" ] {os = "win32"}
   [ make "-C" "build" "-j" jobs ]
 ]
 
 install: [
-  [ "sh" "-c" "ocamlfind install z3 build/api/ml/* build/libz3-static.a"]
+  [ "sh" "-c" "ocamlfind install z3 build/api/ml/* build/libz3-static.a"]   {os != "win32"}
+  [ "sh" "-c" "ocamlfind install z3 build/api/ml/META build/libz3.dll.a build/api/ml/*" ] {os = "win32"}
   [ "cp" "build/z3" "%{bin}%/z3"]
+  [ "install" "-m" "755" "build/libz3.dll" bin ] {os = "win32"}
 ]
 
 depends: [
@@ -35,3 +38,4 @@ url {
     "sha512=ceab703d0413d0135e0f4e6c3ba2bb58d6a4823385edb0bf7ecc96949a3073b687d415a2674c86c9f876adb52823f98f9fbbc107d799ed756dc16292f9864894"
   ]
 }
+patches: "z3-z3-4.8.11.patch" {os = "win32"}
