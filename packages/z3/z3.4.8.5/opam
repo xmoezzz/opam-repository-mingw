@@ -5,14 +5,20 @@ homepage: "https://github.com/Z3prover/z3"
 bug-reports: "https://github.com/Z3prover/z3/issues"
 license: "MIT"
 dev-repo: "git+https://github.com/Z3prover/z3.git"
-patches: ["4468.patch"]
+patches: [
+  "4468.patch"
+  "z3-Z3-4.8.5.patch" {os = "win32"}
+]
 build: [
-  [ "python2.7" "scripts/mk_make.py" "--ml" "--staticlib" ]
+  [ "python2.7" "scripts/mk_make.py" "--ml" "--staticlib" ] {os != "win32"}
+  [ "sh" "-ecx" "env AR=\"$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}' | sed 's|gcc|ar|g').exe\" CXX=\"$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}' | sed 's|gcc|g++|g').exe\" python2.7 scripts/mk_make.py --ml" ] {os = "win32"}
   [ make "-C" "build" "-j" jobs ]
 ]
 install: [
-  [ "sh" "-c" "ocamlfind install z3 build/api/ml/* build/libz3-static.a"]
-  [ "cp" "build/z3" "%{bin}%/z3"]
+  [ "sh" "-c" "ocamlfind install z3 build/api/ml/* build/libz3-static.a"] {os != "win32"}
+  [ "cp" "build/z3" "%{bin}%/z3"] {os != "win32"}
+  [ "sh" "-c" "ocamlfind install z3 build/api/ml/META build/libz3.dll.a build/api/ml/*" ] {os = "win32"}
+  [ "install" "-m" "755" "build/libz3.dll" "build/z3.exe" bin ] {os = "win32"}
 ]
 
 depends: [
@@ -25,9 +31,9 @@ depends: [
 synopsis: "Z3 solver"
 extra-files: [
   ["4468.patch" "sha512=d4cf90a4b3a9e9f1d07b1e6a04f89fb2c74e429d7e151bbc91841b54e34c8adbcd74183d79ed95c4df5d33b064dc715125523c7842cc3dfcc2b5b42ac83a244c"]
+  ["z3-Z3-4.8.5.patch" "sha512=c26fbbe46960e31ef4f116d5057364abdaf360356a780caa1654cb8517b049e304e1bfbf8c5e285091c6c70b5bd41f894a7bee0b79610f8e035effca0897186f"]
 ]
 
 url {
   src: "https://github.com/Z3Prover/z3/archive/Z3-4.8.5.tar.gz"
 }
-available: os != "win32"
