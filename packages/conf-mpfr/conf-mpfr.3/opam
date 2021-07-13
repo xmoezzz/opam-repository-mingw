@@ -5,11 +5,13 @@ authors: "http://www.mpfr.org/credit.html"
 bug-reports: "https://github.com/ocaml/opam-repository/issues"
 license: "LGPL-2.0-or-later"
 build: [
-  "sh" "-exc" "pkg-config --print-errors --exists mpfr || cc test.c -lgmp -lmpfr"
+  ["sh" "-exc" "pkg-config --print-errors --exists mpfr || cc test.c -lgmp -lmpfr"] {os != "win32"}
+  ["sh" "-ecx" "pkg-config --print-errors --exists mpfr || $(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}') test.c -lgmp -lmpfr" ] {os = "win32"}
 ]
 depends: [
   "conf-pkg-config" {build}
   "conf-gmp" {build}
+  "ocaml" {os = "win32"}
 ]
 depexts: [
   ["libmpfr-dev"] {os-family = "debian"}
@@ -24,6 +26,7 @@ depexts: [
   ["mpfr"] {os-family = "arch"}
   ["mpfr-dev"] {os-family = "alpine"}
   ["mpfr-devel"] {os-family = "suse"}
+  ["mpfr"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 synopsis: "Virtual package relying on library MPFR installation"
 description:
