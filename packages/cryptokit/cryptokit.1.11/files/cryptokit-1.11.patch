@@ -1,0 +1,13 @@
+--- ./src/stubs-rng.c
++++ ./src/stubs-rng.c
+@@ -43,8 +43,8 @@
+ 
+   if (! CryptAcquireContext(&prov, NULL, NULL, PROV_RSA_FULL,
+                             CRYPT_VERIFYCONTEXT | CRYPT_SILENT))
+-    raise_not_found();
+-  res = alloc((sizeof(HCRYPTPROV) + sizeof(value) - 1) / sizeof(value),
++    caml_raise_not_found();
++  res = caml_alloc((sizeof(HCRYPTPROV) + sizeof(value) - 1) / sizeof(value),
+               Abstract_tag);
+   HCRYPTPROV_val(res) = prov;
+   return res;

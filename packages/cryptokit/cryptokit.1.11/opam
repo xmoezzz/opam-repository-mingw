@@ -15,6 +15,7 @@ depends: [
 patches: [
   "aesni-detect.patch"
   "aesni-align.patch"
+  "cryptokit-1.11.patch" {os = "win32"}
 ]
 build: make
 install: [make "install"]
@@ -27,6 +28,7 @@ flags: light-uninstall
 extra-files: [
   ["aesni-detect.patch" "md5=3784e2496e42df30e39a9eb9906d6082"]
   ["aesni-align.patch" "md5=2d06282cde3943b4daed6eba3ea6c05e"]
+  ["cryptokit-1.11.patch" "sha512=bff778ff2e569b352709af3230a382a94907ece5d78870a06b60623843c7666135b0da3c707d6b4662de0ee2dbc6d5d9db6cb31db30008e46f010c7cd19efc12"]
 ]
 url {
   src:
