@@ -30,3 +30,4 @@ url {
   src: "http://rml.lri.fr/distrib/rml-1.09.07-2021-07-26.tar.gz"
   checksum: "md5=4fc5ca8f941f6a7f060fb9252389b8b4"
 }
+available: os != "win32"
