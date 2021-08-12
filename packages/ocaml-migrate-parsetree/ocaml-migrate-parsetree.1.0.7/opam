@@ -18,7 +18,10 @@ depends: [
   "ocamlfind" {build}
   "jbuilder" {>= "1.0+beta10"}
 ]
-conflicts: [ "dune" ]
+conflicts: [
+  "base-effects"
+  "dune"
+]
 patches: "ocaml-migrate-parsetree-1.0.7.patch" {os = "win32"}
 synopsis: "Convert OCaml parsetrees between different versions"
 description: """
