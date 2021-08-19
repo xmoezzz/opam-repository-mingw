@@ -5,13 +5,8 @@ homepage: "http://zeromq.org/"
 bug-reports: "https://github.com/ocaml/opam-repository/issues"
 license: "LGPL-2.0-or-later"
 build: [
-  ["cc" "test.c" 
-    "-I/usr/local/include" {os-distribution != "macports"}
-    "-L/usr/local/lib" {os-distribution != "macports"}
-    "-I/opt/local/include" {os-distribution = "macports"}
-    "-L/opt/local/lib" {os-distribution = "macports"}
-    "-lzmq"]{ os != "win32" }
-  ["dash" "-ecx" "cc=$(ocamlc -config | awk -F '[\r\t ]+' '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf \"%s \" ,$i}') ; $cc test.c -lzmq" ] { os = "win32" }
+  ["sh" "-c" "cc test.c $(pkg-config --libs --cflags libzmq)"] { os != "win32" }
+  ["dash" "-ecx" "cc=$(ocamlc -config | awk -F '[\r\t ]+' '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf \"%s \" ,$i}') ; $cc test.c $(pkg-config --libs --cflags libzmq)" ] { os = "win32" }
 ]
 depexts: [
   ["libzmq3-dev"] {os-family = "debian"}
