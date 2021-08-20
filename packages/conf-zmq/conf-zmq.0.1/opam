@@ -8,6 +8,7 @@ build: [
   ["sh" "-c" "cc test.c $(pkg-config --libs --cflags libzmq)"] { os != "win32" }
   ["dash" "-ecx" "cc=$(ocamlc -config | awk -F '[\r\t ]+' '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf \"%s \" ,$i}') ; $cc test.c $(pkg-config --libs --cflags libzmq)" ] { os = "win32" }
 ]
+depends: ["conf-pkg-config" {build}]
 depexts: [
   ["libzmq3-dev"] {os-family = "debian"}
   ["zeromq"] {os = "macos" & os-distribution = "homebrew"}
