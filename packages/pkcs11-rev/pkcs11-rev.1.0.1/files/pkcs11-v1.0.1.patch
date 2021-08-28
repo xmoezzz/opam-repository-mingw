@@ -1,0 +1,20 @@
+--- ./rev/dune
++++ ./rev/dune
+@@ -17,7 +17,7 @@
+ (install
+  (section stublibs)
+  (package pkcs11-rev)
+- (files dllpkcs11_rev_dllmain.so))
++ (files dllpkcs11_rev_dllmain.dll))
+ 
+ (rule
+  (targets pkcs11_rev_dll_main.o)
+@@ -26,7 +26,7 @@
+   (run %{ocamlc} -g -c %{dep:pkcs11_rev_dll_main.c})))
+ 
+ (rule
+- (targets dllpkcs11_rev_dllmain.so libpkcs11_rev_dllmain.a)
++ (targets dllpkcs11_rev_dllmain.dll libpkcs11_rev_dllmain.a)
+  (action
+   (run ocamlmklib -o pkcs11_rev_dllmain %{dep:pkcs11_rev_dll_main.o})))
+ 
