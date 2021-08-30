@@ -1,6 +1,12 @@
 opam-version: "2.0"
 maintainer: "mmatalka@gmail.com"
-build: make
+build: [
+  [make]
+]
+install: [
+  [make "PREFIX=%{prefix}%" "install"]
+]
+
 remove: [
   ["rm" "-v" "%{prefix}%/bin/opass"]
 ]
@@ -8,12 +14,14 @@ remove: [
 depends: [
   "ocaml" {>= "4.0.0"}
   "ocamlfind"
-  "core" {>= "108.08.00"}
+  "core" {>= "108.08.00" & < "113.24.00"}
   "core_extended" {< "v0.15"}
   "csv"
 ]
-install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/orbitz/opass"
+dev-repo: "git+https://github.com/orbitz/opass.git"
+authors: [ "orbitz@gmail.com" ]
+homepage: "https://github.com/orbitz/opass/blob/master/README.org"
+bug-reports: "https://github.com/orbitz/opass/issues"
 synopsis:
   "A simple command line tool for storing, retreiving, and generating password and"
 description: "secret notes, using PGP for encryption."
