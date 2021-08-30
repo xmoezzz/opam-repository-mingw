@@ -26,7 +26,7 @@ authors: [
 
 homepage: "https://bitbucket.org/mimirops/pds"
 bug-reports: "https://bitbucket.org/mimirops/pds/issues"
-dev-repo: "git+ssh://git@bitbucket.org/mimirops/pds.git"
+dev-repo: "git+https://bitbucket.org/mimirops/pds.git"
 available: os != "win32"
 synopsis: "A tool to build Makefiles for Ocaml projects"
 url {
