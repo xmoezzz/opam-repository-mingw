@@ -16,6 +16,8 @@ conflicts: [
   "alsa" {< "0.3.0"}
 ]
 build: [
+  ["tar" "-chf" "x.tar" "src/config"] {os="win32"}
+  ["tar" "-xf" "x.tar"] {os="win32"}
   ["dune" "subst"] {dev}
   [
     "dune"
