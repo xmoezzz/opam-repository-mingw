@@ -1,0 +1,58 @@
+--- ./configure
++++ ./configure
+@@ -6180,7 +6180,7 @@
+   CFLAGS="$CFLAGS -fPIC"
+ fi
+ 
+-OCAML_WHERE="`$OCAMLFIND ocamlc -where`"
++OCAML_WHERE="`$OCAMLFIND ocamlc -where | tr -d '\015'`"
+ # Beurk!
+ FINDLIB_PATH="`$OCAMLFIND printconf path | tr \\\\n \\; | sed -e 's#;$##' | sed -e 's#;#";"#g'`"
+ if test -n "${FINDLIB_PATH}"; then
+@@ -6244,7 +6244,7 @@
+ $as_echo "no" >&6; }
+     fi
+     OCAMLC="$OCAMLFIND ocamlopt"
+-    _DEP_OPTS="-native"
++    _DEP_OPTS="-native -slash"
+ else
+     BYTE=yes
+     OCAMLCOMP=OCAMLC
+@@ -6305,7 +6305,7 @@
+     else
+         OCAMLC="$OCAMLFIND ocamlc"
+     fi
+-    _DEP_OPTS=""
++    _DEP_OPTS="-slash"
+ fi
+ 
+ OCAML_VERSION="`$OCAMLC -version`"
+--- ./configure.ac
++++ ./configure.ac
+@@ -217,7 +217,7 @@
+   CFLAGS="$CFLAGS -fPIC"
+ fi
+ 
+-OCAML_WHERE="`$OCAMLFIND ocamlc -where`"
++OCAML_WHERE="`$OCAMLFIND ocamlc -where | tr -d '\015'`"
+ # Beurk!
+ FINDLIB_PATH="`$OCAMLFIND printconf path | tr \\\\n \\; | sed -e 's#;$##' | sed -e 's#;#";"#g'`"
+ if test -n "${FINDLIB_PATH}"; then
+@@ -275,7 +275,7 @@
+         AC_MSG_RESULT(no)
+     fi
+     OCAMLC="$OCAMLFIND ocamlopt"
+-    _DEP_OPTS="-native"
++    _DEP_OPTS="-native -slash"
+ else
+     BYTE=yes
+     OCAMLCOMP=OCAMLC
+@@ -296,7 +296,7 @@
+     else
+         OCAMLC="$OCAMLFIND ocamlc"
+     fi
+-    _DEP_OPTS=""
++    _DEP_OPTS="-slash"
+ fi
+ 
+ OCAML_VERSION="`$OCAMLC -version`"
