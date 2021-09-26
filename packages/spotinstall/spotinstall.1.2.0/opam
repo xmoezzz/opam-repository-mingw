@@ -42,6 +42,6 @@ for all the programs.
 
 SpotInstall provides a post-installation workaround: a small tool to install annotation files to the library destination directory. (You no longer need to add annotation file installation to the build scripts.)"""
 url {
-  src: "https://bitbucket.org/camlspotter/spotinstall/get/1.2.0.tar.gz"
+  src: "https://opam.ocaml.org/cache/md5/00/00d96fb110e1c569191e685c3073a89f"
   checksum: "md5=0a100ea3af41c7f77ebf17dbb39ad720"
 }
