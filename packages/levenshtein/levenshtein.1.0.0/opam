@@ -38,6 +38,6 @@ extra-files: [
   "patch-oasis-levenshtein.1.0.0" "md5=a03602108decd5788f03a4c7a5520123"
 ]
 url {
-  src: "https://bitbucket.org/camlspotter/ocaml_levenshtein/get/1.0.0.tar.gz"
+  src: "https://opam.ocaml.org/cache/md5/51/513c55272e1f1809aae4f922705abe70"
   checksum: "md5=513c55272e1f1809aae4f922705abe70"
 }
