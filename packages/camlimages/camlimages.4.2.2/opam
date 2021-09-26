@@ -45,6 +45,6 @@ extra-files: [
   "patch-camlimages-4.2.2" "md5=01cbec371432533fbc9f78782762d3ed"
 ]
 url {
-  src: "https://bitbucket.org/camlspotter/camlimages/get/4.2.2.tar.gz"
+  src: "https://opam.ocaml.org/cache/md5/3c/3c4aa0153ca2d91ec2a0798d74648581"
   checksum: "md5=3c4aa0153ca2d91ec2a0798d74648581"
 }

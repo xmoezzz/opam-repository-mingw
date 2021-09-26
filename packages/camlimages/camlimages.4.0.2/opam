@@ -46,6 +46,6 @@ extra-files: [
   "md5=11c15977bb19c5707df88934b4085c5e"
 ]
 url {
-  src: "https://bitbucket.org/camlspotter/camlimages/get/4.0.2.tar.gz"
+  src: "https://opam.ocaml.org/cache/md5/5c/5cfd732034ac7845d0b9e783254f0796"
   checksum: "md5=5cfd732034ac7845d0b9e783254f0796"
 }
