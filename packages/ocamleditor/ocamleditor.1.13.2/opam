@@ -15,12 +15,12 @@ conflicts: [
   "ocurl" {< "0.6"}
 ]
 install: ["ocaml" "tools/install.ml" "-prefix" prefix]
-dev-repo: "git://github.com/ftovagliari/ocamleditor"
 synopsis:
   "OCamlEditor is a GTK+ source code editor and build tool for OCaml."
 description: """
 It provides many features to facilitate editing code, accessing API reference
 directly from the editor and compiling projects."""
+dev-repo: "git+https://github.com/ftovagliari/ocamleditor.git"
 url {
   src: "https://github.com/ftovagliari/ocamleditor/archive/1.13.2.tar.gz"
   checksum: "md5=31a8c43e8f487fdca9c4436db75e3a5d"
