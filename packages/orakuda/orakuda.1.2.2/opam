@@ -38,6 +38,6 @@ extra-files: [
   "patch-oasis-orakuda.1.2.2" "md5=61a60f38f3bfb3c809ee4365e461e829"
 ]
 url {
-  src: "https://bitbucket.org/camlspotter/orakuda/get/1.2.2.tar.gz"
+  src: "https://opam.ocaml.org/cache/md5/ab/ab77dc713b9fc12ebdc1628e987f1582"
   checksum: "md5=ab77dc713b9fc12ebdc1628e987f1582"
 }
