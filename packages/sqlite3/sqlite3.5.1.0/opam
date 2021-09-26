@@ -26,6 +26,8 @@ depends: [
 build: [
   ["dune" "subst"] {dev}
   [
+    "env" {depext-cygwinports:installed}
+    "SQLITE3_DISABLE_LOADABLE_EXTENSIONS=true" {depext-cygwinports:installed}
     "dune"
     "build"
     "-p"
