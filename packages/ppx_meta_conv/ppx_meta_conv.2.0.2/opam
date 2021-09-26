@@ -36,6 +36,6 @@ extra-files: [
   "patch-oasis-ppx_meta_conv.2.0.2" "md5=398128135a3bb422b199179068838bab"
 ]
 url {
-  src: "https://bitbucket.org/camlspotter/ppx_meta_conv/get/2.0.2.tar.gz"
+  src: "https://opam.ocaml.org/cache/md5/f7/f7aa888fca3ec2b98aff1dfdc3d3c87a"
   checksum: "md5=f7aa888fca3ec2b98aff1dfdc3d3c87a"
 }
