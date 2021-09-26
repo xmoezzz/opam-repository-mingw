@@ -43,6 +43,7 @@ dev-repo: "git+https://github.com/ocaml/dune.git"
 build: [
  ["sh" "build.sh"]
 ]
+flags: avoid-version
 available: os = "win32"
 url {
   src: "https://github.com/fdopen/dune/releases/download/2.9.0/dune.2.9.0.tar.xz"
