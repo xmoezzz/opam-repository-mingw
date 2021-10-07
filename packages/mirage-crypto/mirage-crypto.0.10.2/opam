@@ -43,3 +43,4 @@ url {
   ]
 }
 patches: "mirage-crypto-v0.10.2.patch" {os = "win32"}
+available: arch != "s390x"
