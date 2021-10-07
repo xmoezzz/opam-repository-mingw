@@ -40,6 +40,6 @@ extra-files: [
   "patch-oasis-ppx_monadic.1.0.4" "md5=9a5b0f2b7e7d2f37673bfb9bd541d5b4"
 ]
 url {
-  src: "https://bitbucket.org/camlspotter/ppx_monadic/get/1.0.4.tar.gz"
+  src: "https://opam.ocaml.org/cache/md5/da/da8892d01ceb05ddd0be94b377603612"
   checksum: "md5=da8892d01ceb05ddd0be94b377603612"
 }
