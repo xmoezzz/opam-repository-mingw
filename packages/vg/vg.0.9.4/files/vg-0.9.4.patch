@@ -1,0 +1,20 @@
+--- ./pkg/pkg.ml
++++ ./pkg/pkg.ml
+@@ -38,7 +38,7 @@
+     Pkg.mllib ~cond:jsoo "src/vgr_htmlc.mllib";
+     Pkg.mllib ~cond:cairo2 "src/vgr_cairo.mllib";
+     Pkg.bin ~cond:vgr_pdf "test/vecho";
+-
++(* topkg is broken. It doesn't escape backslashes!
+     Pkg.doc "doc/index.mld" ~dst:"odoc-pages/index.mld";
+     Pkg.doc "test/examples.ml";
+     Pkg.doc "test/min_htmlc.html";
+@@ -50,7 +50,7 @@
+     Pkg.doc "test/fglyphs.ml";
+     Pkg.doc "test/vecho.ml";
+     doc_images;
+-
++*)
+     Pkg.test ~run:false "test/min_svg";
+     Pkg.test ~run:false "test/min_pdf";
+     Pkg.test ~run:false ~cond:cairo2 "test/min_cairo_png";
