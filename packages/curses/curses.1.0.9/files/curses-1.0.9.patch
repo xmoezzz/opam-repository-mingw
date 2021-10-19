@@ -1,0 +1,23 @@
+--- ./discover.ml
++++ ./discover.ml
+@@ -23,8 +23,7 @@
+         [
+           "#define CURSES_HEADER <ncursesw/curses.h>";
+           "#define CURSES_TERM_H <ncursesw/term.h>";
+-          "#define HAVE_TERMIOS_H 1";
+-          "#define HAVE_SYS_IOCTL_H 1";
++          "#define HAVE_WINDOWS_H 1";
+         ]
+       in
+       C.Flags.write_lines "_config.h" config_h;
+--- ./dune
++++ ./dune
+@@ -43,7 +43,7 @@
+    %{workspace_root}
+    (with-stdout-to
+     %{target}
+-    (system "%{bin:gcc} -x c -E _curses.ml")))))
++    (system "%{ocaml-config:c_compiler} -x c -E _curses.ml")))))
+ 
+ (rule
+  (targets c_flags.sexp c_library_flags.sexp config.ml _config.h)
