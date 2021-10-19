@@ -1,0 +1,28 @@
+--- ./Makefile
++++ ./Makefile
+@@ -106,6 +106,14 @@
+ $(BIN_CMO): src/ocplib-ocamlres.cma
+ $(BIN_CMX): src/ocplib-ocamlres.cmxa
+ 
++OS_SYSTEM:=$(shell ocamlfind ocamlc -config | awk -F '[\t\r ]+' '/^system:/ {print $$2}')
++ifeq ($(OS_TYPE),$(filter $(OS_TYPE),Win32 Cygwin))
++EXT_EXE=.exe
++else
++EXT_EXE=
++endif
++
++
+ install: all
+ 	ocamlfind install -destdir $(LIBDIR) ocplib-ocamlres \
+           src/META \
+@@ -113,8 +121,8 @@
+           src/*ocplib-ocamlres-runtime.* \
+ 	  $(RUNLIB_CMI) $(RUNLIB_CMTI) $(RUNLIB_CMT) $(RUNLIB_MLI) $(RUNLIB_ML) \
+ 	  $(LIB_CMI) $(LIB_CMTI) $(LIB_CMT) $(LIB_MLI) $(LIB_ML)
+-	install ocp-ocamlres.asm $(BINDIR)/ocp-ocamlres
+-	install ocp-ocamlres.byte $(BINDIR)/ocp-ocamlres.byte
++	install ocp-ocamlres.asm $(BINDIR)/ocp-ocamlres$(EXT_EXE)
++	install ocp-ocamlres.byte $(BINDIR)/ocp-ocamlres.byte$(EXT_EXE)
+ 
+ uninstall:
+ 	ocamlfind remove -destdir $(LIBDIR) ocplib-ocamlres
