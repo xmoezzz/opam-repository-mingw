@@ -22,7 +22,8 @@ depexts: [
   ["autoconf"] {os-distribution = "alpine"}
   ["autoconf"] {os-distribution = "ol"}
   ["autoconf"] {os-distribution = "rhel"}
-  ["system:autoconf"] {os = "win32" & os-distribution = "cygwinports"}
+  ["system:autoconf"] {os = "win32" & os-distribution = "cygwinports"}  
+  ["autoconf"] {os-family = "suse"}
 ]
 synopsis: "Virtual package relying on autoconf installation"
 description: """
