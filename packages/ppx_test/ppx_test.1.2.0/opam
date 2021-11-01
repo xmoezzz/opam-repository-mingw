@@ -34,6 +34,6 @@ extra-files: [
   "patch-oasis-ppx_test.1.2.0" "md5=cc3170e08e81061139f2d7e5d4d2b07c"
 ]
 url {
-  src: "https://opam.ocaml.org/cache/md5/e4/e4ae09ecdd365b43e90d06339b0dad80"
+  src: "https://github.com/ocaml/opam-source-archives/raw/main/ppx_test-1.2.0.tar.gz"
   checksum: "md5=e4ae09ecdd365b43e90d06339b0dad80"
 }

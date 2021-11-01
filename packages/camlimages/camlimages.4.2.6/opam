@@ -46,6 +46,6 @@ extra-files: [
   "md5=21f6e48da5f70ff6ce25611f4c940ec6"
 ]
 url {
-  src: "https://opam.ocaml.org/cache/md5/1e/1e16ba8381ccec229d128342e58d2f19"
+  src: "https://github.com/ocaml/opam-source-archives/raw/main/camlimages-4.2.6.tar.gz"
   checksum: "md5=1e16ba8381ccec229d128342e58d2f19"
 }

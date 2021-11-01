@@ -28,6 +28,6 @@ extra-files: [
   "patch-oasis-spotlib.2.4.0" "md5=b5797c9c84f20c538ebd8b2a4974b3bd"
 ]
 url {
-  src: "https://opam.ocaml.org/cache/md5/b4/b4560a160ed6f2a1ac1d575d44073eb1"
+  src: "https://github.com/ocaml/opam-source-archives/raw/main/spotlib-2.4.0.tar.gz"
   checksum: "md5=b4560a160ed6f2a1ac1d575d44073eb1"
 }

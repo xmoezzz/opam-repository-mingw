@@ -32,6 +32,6 @@ extra-files: [
   "patch-oasis-treeprint.1.0.2" "md5=38b61fa45da8753e6d2e7c855064e863"
 ]
 url {
-  src: "https://opam.ocaml.org/cache/md5/0a/0a6ab4e50558e3ec5e512ce7c961a91f"
+  src: "https://github.com/ocaml/opam-source-archives/raw/main/treeprint-1.0.2.tar.gz"
   checksum: "md5=0a6ab4e50558e3ec5e512ce7c961a91f"
 }

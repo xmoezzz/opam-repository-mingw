@@ -29,6 +29,6 @@ extra-files: [
   "patch-oasis-meta_conv.1.1.5" "md5=34bb8117213bbc2fee1c3f8577d8e128"
 ]
 url {
-  src: "https://opam.ocaml.org/cache/md5/32/32f2898c0e4c8b18c8efc6af3f571d72"
+  src: "https://github.com/ocaml/opam-source-archives/raw/main/meta_conv-1.1.5.tar.gz"
   checksum: "md5=32f2898c0e4c8b18c8efc6af3f571d72"
 }
