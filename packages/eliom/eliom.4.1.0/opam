@@ -40,3 +40,4 @@ url {
   src: "https://github.com/ocsigen/eliom/archive/4.1.0.tar.gz"
   checksum: "md5=e93ccae5d61ce73e2d0f139cc5e3524d"
 }
+available: os != "win32"
