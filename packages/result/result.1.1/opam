@@ -12,7 +12,7 @@ description: """
 Projects that want to use the new result type defined in OCaml >= 4.03
 while staying compatible with older version of OCaml should use the
 Result module defined in this library."""
-depends: ["ocaml"]
+depends: ["ocaml" {< "4.14"}]
 extra-files: ["patch-aa" "md5=22e272a3e108115e2a44579a74f1ea24"]
 url {
   src: "https://github.com/janestreet/result/archive/1.1.tar.gz"
