@@ -24,8 +24,8 @@ depends: [
 depopts: [
   "ounit"
 ]
+dev-repo: "git+https://github.com/akabe/slap"
 bug-reports: "https://github.com/akabe/slap/issues"
-dev-repo: "git://github.com/akabe/slap"
 synopsis:
   "Linear algebra library with static size checking for matrix operations"
 description: """

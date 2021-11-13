@@ -18,11 +18,11 @@ remove: [["ocamlfind" "remove" "oasis2opam"]]
 depends: [
   "ocaml"
   "ocamlfind"
-  "oasis" {>= "0.3.0" & < "0.4.2"} | "oasis-mirage" {>= "0.3.0"}
+  ("oasis" {>= "0.3.0" & < "0.4.2"} | "oasis-mirage" {>= "0.3.0"})
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/ocaml/oasis2opam"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/ocaml/oasis2opam"
 synopsis: "Tool to convert OASIS metadata to OPAM package descriptions"
 description: """
 Generate OPAM files from _oasis.  Most of the metadata

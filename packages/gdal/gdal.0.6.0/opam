@@ -21,8 +21,8 @@ depends: [
 depexts: [
   ["libgdal-dev"] {os-family = "debian"}
 ]
+dev-repo: "git+https://github.com/hcarty/ocaml-gdal"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/hcarty/ocaml-gdal"
 synopsis: "Bindings to the GDAL and OGR libraries"
 flags: light-uninstall
 url {

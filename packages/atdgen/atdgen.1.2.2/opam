@@ -12,8 +12,8 @@ depends: [
   "biniou"
   "yojson"
 ]
+dev-repo: "git+https://github.com/MyLifeLabs/atdgen"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/MyLifeLabs/atdgen"
 synopsis:
   "Generates efficient JSON serializers, deserializers and validators"
 flags: light-uninstall

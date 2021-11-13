@@ -30,8 +30,8 @@ conflicts: [
   "async_extra" {<= "111.25.00"}
   "async_extra" {>= "112.01.00"}
 ]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-openflow"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/frenetic-lang/ocaml-openflow"
 synopsis: "Serialization and protocol implementation for OpenFlow 1.{0,3}"
 description: """
 This library provides the basic building blocks that are necessary to build an

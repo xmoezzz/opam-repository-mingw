@@ -28,8 +28,8 @@ depopts: ["ounit"]
 conflicts: [
   "ounit" {< "1.0.2"}
 ]
+dev-repo: "git+https://github.com/mirage/ocaml-uri"
 patches: "patch-oasis-uri.1.3.12" {os = "win32"}
-dev-repo: "git://github.com/mirage/ocaml-uri"
 install: ["ocaml" "setup.ml" "-install"]
 synopsis: "RFC3986 URI/URL parsing library"
 flags: light-uninstall

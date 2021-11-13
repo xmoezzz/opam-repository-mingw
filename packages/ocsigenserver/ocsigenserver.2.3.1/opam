@@ -43,15 +43,15 @@ depends: [
   "pcre"
   "cryptokit"
   "tyxml" {>= "3.0.0" & < "3.2"}
-  "dbm" | "sqlite3"
+  ("dbm" | "sqlite3")
 ]
 depopts: ["camlzip"]
 conflicts: [
   "camlzip" {< "1.04"}
 ]
-available: os != "win32"
+dev-repo: "git+https://github.com/ocsigen/ocsigenserver"
 install: [make "install"]
-dev-repo: "git://github.com/ocsigen/ocsigenserver"
+available: os != "win32"
 synopsis: "A full-featured and extensible Web server"
 description: """
 It implements most features of the HTTP protocol, and has a very

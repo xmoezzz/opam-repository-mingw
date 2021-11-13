@@ -14,7 +14,7 @@ depends: [
   "ocamlfind" {build}
   "ocamlbuild" {build}
 ]
-dev-repo: "git://github.com/kit-ty-kate/ocaml-monomorphic"
+dev-repo: "git+https://github.com/kit-ty-kate/ocaml-monomorphic"
 install: ["ocaml" "setup.ml" "-install"]
 patches: "patch-oasis-monomorphic.1.1" {os = "win32"}
 synopsis:

@@ -13,9 +13,9 @@ depends: [
   "xenstore" {>= "1.2.5"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-platform"
 available: false
 install: [make "xen-install" "PREFIX=%{prefix}%"]
-dev-repo: "git://github.com/mirage/mirage-platform"
 synopsis: "MirageOS library for Xen compilation"
 url {
   src: "https://github.com/mirage/mirage-platform/archive/v1.0.0.tar.gz"

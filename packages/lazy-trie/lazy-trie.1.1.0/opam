@@ -18,8 +18,8 @@ depends: [
   "camlp4"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/ocaml-lazy-trie"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/mirage/ocaml-lazy-trie"
 synopsis: "Implementation of lazy prefix trees"
 flags: light-uninstall
 url {

@@ -30,12 +30,12 @@ To use it from emacs, add the following to your .emacs:
   (require 'ocp-index)"
   {success}
 ]
+dev-repo: "git+https://github.com/OCamlPro/ocp-index"
 install: [
   [make "install"]
   ["ocp-build" "install" "ocp-browser" "-install-lib" lib "-install-bin" bin]
     {curses:installed}
 ]
-dev-repo: "git://github.com/OCamlPro/ocp-index"
 synopsis: "Lightweight documentation extractor for installed OCaml libraries"
 description:
   "Optionally, if you have curses installed, will also install a tiny browser."

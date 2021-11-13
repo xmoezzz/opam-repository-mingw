@@ -1,3 +1,6 @@
+bug-reports: "https://github.com/mirage/mirage-fs-unix/issues"
+homepage: "https://github.com/mirage/mirage-fs-unix"
+authors: ["Anil Madhavapeddy <anil@recoil.org>"]
 opam-version: "2.0"
 maintainer: "anil@recoil.org"
 build: make
@@ -8,12 +11,12 @@ depends: [
   "ocamlfind" {build}
   "camlp4"
   "lwt" {>= "2.4.3" & < "4.0.0"}
-  "mirage-types" {>= "1.1.0"}
+  "mirage-types" {>= "1.1.0" & < "3.0.0"}
   "ocamlbuild" {build}
   "cstruct-lwt"
 ]
+dev-repo: "git+https://github.com/mirage/mirage-fs-unix"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirage-fs-unix"
 synopsis: "MirageOS filesystem passthrough driver for Unix"
 flags: light-uninstall
 url {

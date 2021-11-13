@@ -7,8 +7,8 @@ depends: [
   "core" {= "109.12.00"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/janestreet/async_core"
 install: [make "install"]
-dev-repo: "git://github.com/janestreet/async_core"
 synopsis: "Monadic concurrency library"
 description: """
 Part of Jane Street’s Core library

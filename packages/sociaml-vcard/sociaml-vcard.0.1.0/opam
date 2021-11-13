@@ -22,8 +22,8 @@ depends: [
   "camomile"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/dominicjprice/sociaml-vcard"
 install: [make "install"]
-dev-repo: "git://github.com/dominicjprice/sociaml-vcard"
 synopsis: "vCard library for OCaml"
 description: """
 Library for parsing and creating contact information in the vCard format.

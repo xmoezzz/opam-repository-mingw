@@ -16,8 +16,8 @@ depends: [
   "conf-libgsasl"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/nojb/ocaml-gsasl"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/nojb/ocaml-gsasl"
 synopsis: "Bindings ot the GNU SASL library using Ctypes"
 flags: light-uninstall
 url {

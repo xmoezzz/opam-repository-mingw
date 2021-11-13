@@ -13,8 +13,8 @@ depends: [
   "ocamlnet"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/Chris00/weberizer"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/Chris00/weberizer"
 synopsis: "Weberizer is a simple templating engine for OCaml"
 flags: light-uninstall
 extra-files: ["weberizer.install" "md5=7ad457d1ba0fe8b0872168082a18e8fe"]

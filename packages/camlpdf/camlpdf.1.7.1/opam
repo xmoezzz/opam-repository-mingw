@@ -6,8 +6,8 @@ depends: [
   "ocaml" {< "4.03.0"}
   "ocamlfind"
 ]
+dev-repo: "git+https://github.com/johnwhitington/camlpdf"
 install: [make "install"]
-dev-repo: "git://github.com/johnwhitington/camlpdf"
 synopsis: "Read, write and modify PDF files"
 flags: light-uninstall
 url {

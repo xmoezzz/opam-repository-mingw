@@ -21,8 +21,9 @@ depends: [
   "ocaml" {< "4.03.0"}
   "ocamlfind" {>= "1.5.0"}
   "camlp4"
-  "base-no-ppx" | "ppx_tools"
+  ("base-no-ppx" | "ppx_tools")
   "ocamlbuild" {build}
+  "conf-ncurses" {build}
 ]
 depopts: [
   "base-threads"
@@ -41,8 +42,8 @@ patches: [
   "patch-ocsigen-lwt-101.diff" {os = "macos"}
   "lwt-2.4.6.patch" {os = "win32"}
 ]
+dev-repo: "git+https://github.com/ocsigen/lwt"
 install: [make "install"]
-dev-repo: "git://github.com/ocsigen/lwt"
 synopsis: "A cooperative threads library for OCaml"
 description: """
 This library is part of the Ocsigen project. See:

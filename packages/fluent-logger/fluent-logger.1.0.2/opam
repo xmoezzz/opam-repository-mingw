@@ -9,8 +9,8 @@ depends: [
   "ocamlfind"
   "msgpack" {< "1.1.0"}
 ]
+dev-repo: "git+https://github.com/fluent/fluent-logger-ocaml"
 install: [make "install"]
-dev-repo: "git://github.com/fluent/fluent-logger-ocaml"
 synopsis: "A structured logger for Fluentd"
 url {
   src: "https://github.com/fluent/fluent-logger-ocaml/archive/v1.0.2.tar.gz"

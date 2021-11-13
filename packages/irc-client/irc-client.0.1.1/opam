@@ -12,8 +12,8 @@ conflicts: [
   "lwt" {>= "4.0.0"}
 ]
 patches: ["obuild-workaround.patch"]
+dev-repo: "git+https://github.com/johnelse/ocaml-irc-client"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/johnelse/ocaml-irc-client"
 synopsis: "IRC client library"
 extra-files: [
   "obuild-workaround.patch" "md5=ad7574cad716fbdff87777a3bacc902a"

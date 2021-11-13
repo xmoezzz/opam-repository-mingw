@@ -40,8 +40,8 @@ authors: [
   "Jérémie Dimino"
 ]
 homepage: "http://github.com/ocsigen/lwt"
+dev-repo: "git+https://github.com/ocsigen/lwt"
 install: [make "install"]
-dev-repo: "git://github.com/ocsigen/lwt"
 synopsis: "A cooperative threads library for OCaml"
 description: """
 This library is part of the Ocsigen project. See:

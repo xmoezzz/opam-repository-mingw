@@ -29,11 +29,11 @@ depends: [
 depopts: [
     "mpi"
 ]
+dev-repo: "git+https://github.com/inria-parkas/sundialsml"
 install: [
   [make "install-findlib"]
   [make "install-doc"] {with-doc}
 ]
-dev-repo: "git://github.com/inria-parkas/sundialsml"
 synopsis:
   "Sundials/ML is an interface to the Sundials suite of numerical solvers"
 description: """

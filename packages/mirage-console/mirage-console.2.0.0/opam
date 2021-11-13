@@ -19,8 +19,8 @@ conflicts: [
   "mirage-console-xen"
   "mirage-xen" {< "1.1.0" | >= "6.0.0"}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-console"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirage-console"
 synopsis: "A Mirage-compatible Console library for Xen and Unix"
 flags: light-uninstall
 url {

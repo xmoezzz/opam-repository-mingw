@@ -25,9 +25,9 @@ depends: [
   "ocamlbuild" {< "0.9.0"}
 ]
 conflicts: ["oasis"]
+dev-repo: "git+https://github.com/avsm/oasis"
 install: ["ocaml" "setup.ml" "-install"]
 available: os != "win32"
-dev-repo: "git://github.com/avsm/oasis"
 synopsis: "This is a fork of OASIS with support for native output-obj."
 description: """
 The upstream pull request is: https://github.com/ocaml/oasis/pull/7

@@ -12,9 +12,9 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/smondet/simple_pam"
 install: ["ocaml" "setup.ml" "-install"]
 available: os != "win32"
-dev-repo: "git://github.com/smondet/simple_pam"
 synopsis: "Tiny binding around PAM"
 flags: light-uninstall
 url {

@@ -17,8 +17,8 @@ depends: [
   "ssl"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/cowabloga"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/cowabloga"
 synopsis: "Simple static blogging support."
 description: "ALPHA. It will likely be in flux for a little while."
 flags: light-uninstall

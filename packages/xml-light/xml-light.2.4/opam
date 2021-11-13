@@ -3,13 +3,11 @@ maintainer: "https://github.com/ocaml/opam-repository/issues"
 build: [
  [make "all" "opt"]
 ]
-install: [
-  [make "install_ocamlfind"]
-]
 remove: ["ocamlfind" "remove" "xml-light"]
 depends: ["ocaml" "ocamlfind"]
+dev-repo: "git+https://github.com/ncannasse/xml-light"
 patches: "xml-light-2.4.patch" {os = "win32"}
-dev-repo: "git://github.com/ncannasse/xml-light"
+install: [make "install_ocamlfind"]
 synopsis: "Xml-Light is a minimal XML parser & printer for OCaml"
 description: """
 It provide functions to parse an XML document into an OCaml data

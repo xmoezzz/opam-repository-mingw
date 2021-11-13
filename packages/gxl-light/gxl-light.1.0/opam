@@ -5,8 +5,8 @@ license:  "MIT"
 build: [make "build"]
 remove: [ "ocamlfind" "remove" "gxl-light" ]
 depends: ["ocaml" "ocamlfind" "xml-light"]
+dev-repo: "git+https://github.com/amal029/ocaml-gxl-light"
 install: [make "install"]
-dev-repo: "git://github.com/amal029/ocaml-gxl-light"
 synopsis: "Gxl parser and in-place destructive update library"
 description: """
 GXL is an XML based format for representing different types of graphs:

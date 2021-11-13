@@ -13,8 +13,8 @@ depends: [
   "ocamlfind"
   "lwt"
 ]
+dev-repo: "git+https://github.com/mfp/ocaml-statsd-client"
 install: [make "install"]
-dev-repo: "git://github.com/mfp/ocaml-statsd-client"
 synopsis: "StatsD client library"
 description: """
 ocaml-statsd-client can be used to send statistics, like counters and timers,

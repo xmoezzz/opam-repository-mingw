@@ -12,12 +12,12 @@ depends: [
   "lwt" {>= "2.4.3"}
   "mirage-types" {>= "1.1.0" & < "2.3.0"}
   "io-page" {>= "1.0.0"}
-  "io-page" {< "2.0.0"} | "io-page-unix"
+  ("io-page" {< "2.0.0"} | "io-page-unix")
   "ounit"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-block-unix"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirage-block-unix"
 synopsis: "MirageOS disk block driver for Unix"
 url {
   src: "https://github.com/mirage/mirage-block-unix/archive/1.2.1.tar.gz"

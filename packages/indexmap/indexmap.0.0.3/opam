@@ -17,9 +17,9 @@ depends: [
   "ocamlbuild" {build}
   "oasis" {build}
 ]
-patches: "patch-oasis-indexmap.0.0.3" {os = "win32"}
+dev-repo: "git+https://github.com/hcarty/indexmap"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/hcarty/indexmap"
+patches: "patch-oasis-indexmap.0.0.3" {os = "win32"}
 synopsis: "Generic indexed data for OCaml"
 flags: light-uninstall
 extra-files: [

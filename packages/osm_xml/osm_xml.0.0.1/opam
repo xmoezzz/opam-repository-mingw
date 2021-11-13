@@ -16,8 +16,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 depopts: ["ounit"]
+dev-repo: "git+https://github.com/aluuu/osm_xml"
 install: [make "install"]
-dev-repo: "git://github.com/aluuu/osm_xml"
 synopsis: "Library for parsing OpenStreetMap XML dumps."
 flags: light-uninstall
 url {

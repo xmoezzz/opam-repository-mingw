@@ -29,8 +29,8 @@ depends: [
   "ocamlbuild" {build}
   "camlp4"
 ]
+dev-repo: "git+https://github.com/besport/aws"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/besport/aws"
 synopsis: "AWS client for Amazon Web Services"
 description: """
 Package to provide OCaml client access to Amazon services : S3, EC2,

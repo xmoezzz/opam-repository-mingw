@@ -15,8 +15,8 @@ depends: [
   "cow" {>= "0.8.1" & < "2.0.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/ocamllabs/opam-doc"
 install: [make "install"]
-dev-repo: "git://github.com/ocamllabs/opam-doc"
 synopsis: "Produce documentation for OPAM packages"
 url {
   src: "https://github.com/ocamllabs/opam-doc/archive/0.9.3.tar.gz"

@@ -14,8 +14,8 @@ depends: [
   "pa_qualified"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/cakeplus/pa_solution"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/cakeplus/pa_solution"
 synopsis: "A DSL for solving programming contest problems"
 description: """
 Pa_solution is a compiled DSL for generating the IO boilerplate code

@@ -14,8 +14,8 @@ depends: [
   "camlzip"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/discoproject/odisco"
 install: [make "install"]
-dev-repo: "git://github.com/discoproject/odisco"
 synopsis: "OCaml library for Disco workers."
 flags: light-uninstall
 url {

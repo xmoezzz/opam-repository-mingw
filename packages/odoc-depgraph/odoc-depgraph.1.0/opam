@@ -11,8 +11,8 @@ depends: [
   "ocaml" {>= "4.02.0"}
   "ocamldot" {>= "1.0"}
 ]
+dev-repo: "git+https://github.com/zoggy/odoc_depgraph"
 install: [make "findlib-install"]
-dev-repo: "git://github.com/zoggy/odoc_depgraph"
 synopsis:
   "Custom OCamldoc generator to insert clickable dependency graphs in generated html page"
 flags: light-uninstall

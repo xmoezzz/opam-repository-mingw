@@ -17,8 +17,8 @@ depends: [
 conflicts: [
   "lwt" {>= "4.0.0"}
 ]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-openflow"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/frenetic-lang/ocaml-openflow"
 synopsis: "A serialization library for OpenFlow."
 description: """
 This library supports almost all of OpenFlow 1.0 and also has some

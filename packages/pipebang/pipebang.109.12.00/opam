@@ -8,8 +8,8 @@ depends: [
   "ocamlbuild" {build}
   "camlp4"
 ]
+dev-repo: "git+https://github.com/janestreet/pipebang"
 install: [make "install"]
-dev-repo: "git://github.com/janestreet/pipebang"
 synopsis: "Part of Jane Street’s Core library"
 description: """
 The Core suite of libraries is an industrial strength alternative to

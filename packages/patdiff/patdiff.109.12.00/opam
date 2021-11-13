@@ -9,8 +9,8 @@ depends: [
   "core_extended" {= "109.12.00"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/janestreet/patdiff"
 install: [make "install"]
-dev-repo: "git://github.com/janestreet/patdiff"
 synopsis: "File Diff using the Patience Diff algorithm"
 url {
   src: "https://github.com/janestreet/patdiff/archive/109.12.00.tar.gz"

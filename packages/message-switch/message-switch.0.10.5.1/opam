@@ -22,9 +22,9 @@ depends: [
   "async" {< "v0.15"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/djs55/message-switch"
 install: [make "install"]
 available: os != "win32"
-dev-repo: "git://github.com/djs55/message-switch"
 synopsis: "A simple store-and-forward message switch."
 description: """
 The switch stores messages in queues with well-known names. Clients use

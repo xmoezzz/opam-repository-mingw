@@ -19,8 +19,8 @@ depends: [
   "menhir"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/hhugo/odate"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/hhugo/odate"
 synopsis: "Date & Duration Library"
 description: """
 Simple date and duration manipulation. Also implement duration printer

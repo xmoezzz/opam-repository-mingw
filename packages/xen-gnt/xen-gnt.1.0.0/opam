@@ -17,9 +17,8 @@ depends: [
 depexts: [
   ["libxen-dev"] {os-family = "debian"}
 ]
-available: os != "win32"
+dev-repo: "git+https://github.com/xapi-project/ocaml-gnt"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/xapi-project/ocaml-gnt"
 synopsis: "Xen grant table bindings"
 description: """
 These allow your program (running either in userspace or in kernelspace via
@@ -28,3 +27,4 @@ url {
   src: "https://github.com/xapi-project/ocaml-gnt/archive/v1.0.0.tar.gz"
   checksum: "md5=29f719f45d73cc1e80c21e8e296041f2"
 }
+available: os != "win32"

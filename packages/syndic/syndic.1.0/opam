@@ -19,8 +19,8 @@ depends: [
   "xmlm" {>= "1.2.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/Cumulus/Syndic"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/Cumulus/Syndic"
 synopsis: "RSS and Atom feed parsing"
 flags: light-uninstall
 url {

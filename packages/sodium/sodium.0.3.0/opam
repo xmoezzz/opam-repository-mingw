@@ -15,9 +15,8 @@ depends: [
   "ocamlbuild" {build}
   "conf-libsodium"
 ]
-available: os != "win32"
+dev-repo: "git+https://github.com/dsheets/ocaml-sodium"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/dsheets/ocaml-sodium"
 synopsis: "Binding to libsodium UNAUDITED"
 description: """
 Binding to libsodium 0.6.1+, a shared library wrapper for djb's NaCl.
@@ -31,3 +30,4 @@ url {
   src: "https://github.com/dsheets/ocaml-sodium/archive/0.3.0.tar.gz"
   checksum: "md5=7dafca32822d88e229648cec369bcc7e"
 }
+available: os != "win32"

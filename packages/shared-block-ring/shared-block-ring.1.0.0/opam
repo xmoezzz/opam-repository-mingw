@@ -1,18 +1,19 @@
 opam-version: "2.0"
 maintainer: "dave.scott@citrix.com"
-tags: [
-  "org:mirage"
-  "org:xapi-project"
-]
+homepage: "https://github.com/mirage/shared-block-ring"
+bug-reports: "https://github.com/mirage/shared-block-ring/issues"
+tags: ["org:mirage" "org:xapi-project"]
 build: [make "all"]
-remove: [["ocamlfind" "remove" "shared-block-ring"]]
+remove: [
+  ["ocamlfind" "remove" "shared-block-ring"]
+]
 depends: [
   "ocaml" {>= "4.01.0"}
   "cstruct" {>= "0.7.1"}
   "lwt"
   "ocamlfind"
   "ounit"
-  "mirage-types"
+  "mirage-types" {< "3.0.0"}
   "mirage-block-unix" {<= "2.4.0"}
   "sexplib" {< "113.01.00"}
   "io-page"
@@ -22,13 +23,14 @@ depends: [
   "type_conv"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/shared-block-ring"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/shared-block-ring"
 synopsis: "A shared ring over a MirageOS block device"
 description: """
 This allows 2 processes to exchange data over a shared disk, without
 a network connection. It also allows one process to exchange data with
 itself, which is useful to implement redo-logs or journals."""
+authors: "Dave Scott"
 flags: light-uninstall
 url {
   src: "https://github.com/mirage/shared-block-ring/archive/v1.0.0.tar.gz"

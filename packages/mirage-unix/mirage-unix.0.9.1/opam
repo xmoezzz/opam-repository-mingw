@@ -13,8 +13,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 conflicts: ["mirage-xen"]
+dev-repo: "git+https://github.com/mirage/mirage-platform"
 install: [make "unix-install" "PREFIX=%{prefix}%"]
-dev-repo: "git://github.com/mirage/mirage-platform"
 synopsis: "MirageOS platform library for UNIX compilation"
 flags: light-uninstall
 url {

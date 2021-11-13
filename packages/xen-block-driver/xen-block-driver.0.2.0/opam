@@ -18,8 +18,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 depopts: ["xenctrl"]
+dev-repo: "git+https://github.com/mirage/ocaml-xen-block-driver"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/mirage/ocaml-xen-block-driver"
 synopsis:
   "Xen disk device drivers: both client (\"frontend\") and server (\"backend\")"
 url {

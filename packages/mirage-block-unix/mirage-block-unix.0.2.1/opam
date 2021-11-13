@@ -12,8 +12,8 @@ depends: [
   "ounit"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-block-unix"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirage-block-unix"
 synopsis: "MirageOS block driver for Unix"
 url {
   src: "https://github.com/mirage/mirage-block-unix/archive/0.2.1.tar.gz"

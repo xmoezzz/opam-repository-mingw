@@ -32,8 +32,8 @@ depexts: [
   ["xen-devel"] {os-distribution = "centos"}
   ["xen-dom0-libs-devel" "xen-libs-devel"] {os = "xenserver"}
 ]
+dev-repo: "git+https://github.com/mirage/xentropyd"
 install: ["cp" "main.native" "%{bin}%/xentropyd"]
-dev-repo: "git://github.com/mirage/xentropyd"
 synopsis: "Xentropyd: provide entropy to Xen VMs"
 description: """
 It is difficult to find good entropy sources in a virtualised environment,

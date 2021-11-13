@@ -23,8 +23,8 @@ depopts: [
 conflicts: [
   "core_bench" {< "109.41.00"}
 ]
+dev-repo: "git+https://github.com/BYVoid/Dlist"
 install: ["ocp-build" "install" "dlist"]
-dev-repo: "git://github.com/BYVoid/Dlist"
 synopsis:
   "A purely functional list-like data structure supporting O(1) concatenation."
 description: """

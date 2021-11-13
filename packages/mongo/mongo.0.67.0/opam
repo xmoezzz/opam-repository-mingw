@@ -18,8 +18,8 @@ depopts: ["lwt"]
 conflicts: [
   "lwt" {>= "4.0.0"}
 ]
+dev-repo: "git+https://github.com/MassD/mongo"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/MassD/mongo"
 synopsis: "OCaml driver for MongoDB"
 flags: light-uninstall
 url {

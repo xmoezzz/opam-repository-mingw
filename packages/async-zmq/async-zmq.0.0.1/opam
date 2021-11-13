@@ -21,8 +21,8 @@ depends: [
   "oasis"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/rgrinberg/async-zmq"
 install: [make "install"]
-dev-repo: "git://github.com/rgrinberg/async-zmq"
 synopsis: "Async wrapper for OCaml's zeromq bindings"
 description: "A faithful port of lwt-zmq"
 flags: light-uninstall

@@ -16,8 +16,8 @@ depends: [
 depexts: [
   ["libzmq-dev"] {os-family = "debian"}
 ]
+dev-repo: "git+https://github.com/hcarty/lwt-zmq"
 install: [make "install"]
-dev-repo: "git://github.com/hcarty/lwt-zmq"
 synopsis: "Lwt-friendly wrapping around ZeroMQ sockets"
 flags: deprecated
 url {

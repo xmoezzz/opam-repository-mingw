@@ -9,8 +9,8 @@ depends: [
   "async_unix" {= "109.12.00"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/janestreet/async"
 install: [make "install"]
-dev-repo: "git://github.com/janestreet/async"
 synopsis: "Monadic concurrency library"
 description: """
 Part of Jane Street’s Core library

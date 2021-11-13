@@ -14,8 +14,8 @@ depends: [
   "ounit" {< "2.1.0"}
   "cmdliner"
 ]
+dev-repo: "git+https://github.com/xen-org/ocaml-qmp"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/xen-org/ocaml-qmp"
 synopsis: "OCaml implementation of a Qemu Message Protocol (QMP) client"
 url {
   src: "https://github.com/xen-org/ocaml-qmp/archive/0.9.0.tar.gz"

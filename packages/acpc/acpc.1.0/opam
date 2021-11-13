@@ -2,6 +2,7 @@ opam-version: "2.0"
 maintainer: "unixjunkie@sdf.org"
 authors: ["Francois Berenger"]
 homepage: "https://github.com/UnixJunkie/ACPC"
+dev-repo: "git+https://github.com/UnixJunkie/ACPC"
 license: "BSD-3-Clause"
 build: [
   ["obuild" "configure"]
@@ -24,7 +25,6 @@ install: [
   "dist/build/acpc_mol2tool/acpc_mol2tool"
   bin
 ]
-dev-repo: "git://github.com/UnixJunkie/ACPC"
 synopsis: "Chemoinformatics tool for ligand-based virtual screening"
 flags: light-uninstall
 url {

@@ -1,20 +1,12 @@
 opam-version: "2.0"
 maintainer: "vb@luminar.eu.org"
-build: [
-  [make]
-]
-install: [
-  [make "install"]
-]
+build: make
 remove: [[make "uninstall"]]
-depends: [
-  "ocaml"
-  "ocamlfind" {build}
-  "ocaml-makefile" {build}
-]
+depends: ["ocaml" "ocamlfind" "ocaml-makefile"]
 depexts: ["crypt"] {os = "win32" & os-distribution = "cygwinports"}
 patches: "ocaml-crypt-1.3.patch" {os = "win32"}
-dev-repo: "git://github.com/vbmithr/ocaml-crypt"
+dev-repo: "git+https://github.com/vbmithr/ocaml-crypt"
+install: [make "install"]
 synopsis: "Tiny binding for the unix crypt function"
 extra-files: ["ocaml-crypt-1.3.patch" "md5=5ba23ddca6e98c4159474034760cd954"]
 url {

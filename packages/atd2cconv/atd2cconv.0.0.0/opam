@@ -11,8 +11,8 @@ depends: [
   "smart-print"
   "atd" {< "1.13.0"}
 ]
+dev-repo: "git+https://github.com/smondet/atd2cconv"
 install: [make "-f" "Makefile-ocamlbuild" "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/smondet/atd2cconv"
 synopsis:
   "Convert ATD definitions to OCaml code that uses the CConv 0.1 library"
 url {

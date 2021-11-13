@@ -9,8 +9,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 x-ci-accept-failures: ["debian-unstable"]
+dev-repo: "git+https://github.com/vbmithr/ocaml-crypt"
 install: [make "install"]
-dev-repo: "git://github.com/vbmithr/ocaml-crypt"
 synopsis: "Tiny binding for the unix crypt function"
 url {
   src: "https://github.com/vbmithr/ocaml-crypt/archive/1.2.tar.gz"

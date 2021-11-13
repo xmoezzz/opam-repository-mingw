@@ -15,8 +15,8 @@ depends: [
   "ocamlbuild" {build}
   "base-unsafe-string"
 ]
+dev-repo: "git+https://github.com/hcarty/lwt-zmq"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/hcarty/lwt-zmq"
 synopsis: "Lwt-friendly interface to ZeroMQ"
 flags: deprecated
 url {

@@ -16,12 +16,12 @@ depends: [
   "omake"
 ]
 authors: "Carmelo Piccione carmelo.piccione+riakc_ppx@gmail.com"
+dev-repo: "git+https://github.com/struktured/riakc_ppx"
 install: ["omake" "install"]
-dev-repo: "git://github.com/struktured/riakc_ppx"
 synopsis:
   "An OCaml library that provides type safe caching extensions to riakc using ppx deriving"
 flags: light-uninstall
 url {
   src: "https://github.com/struktured/riakc_ppx/archive/3.1.0.zip"
-  checksum: "md5=f772e16dfec68ab08450eb96a4abfe52"
+  checksum: "md5=5a9a7070749e31ecab6bc59a2fbb9072"
 }

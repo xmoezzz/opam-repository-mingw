@@ -22,8 +22,8 @@ depends: [
 depopts: [
   "ounit"
 ]
+dev-repo: "git+https://github.com/BYVoid/Batsh"
 install: ["ocp-build" "install" "-install-lib" "%{lib}%/batsh"]
-dev-repo: "git://github.com/BYVoid/Batsh"
 synopsis:
   "A (C-like syntax) programming language that compiles to Bash and Windows Batch."
 description: """

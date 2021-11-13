@@ -20,8 +20,8 @@ depends: [
   "xen-evtchn"
   "xenstore"
 ]
+dev-repo: "git+https://github.com/mirage/mirage-entropy"
 install: [make "xen-install"]
-dev-repo: "git://github.com/mirage/mirage-entropy"
 synopsis: "MirageOS entropy device"
 flags: light-uninstall
 url {

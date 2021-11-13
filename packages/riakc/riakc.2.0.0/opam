@@ -12,8 +12,8 @@ depends: [
 depexts: [
   ["protobuf-compiler"] {os-family = "debian"}
 ]
+dev-repo: "git+https://github.com/orbitz/ocaml-riakc"
 install: [make "install"]
-dev-repo: "git://github.com/orbitz/ocaml-riakc"
 synopsis: "Protobuf based Riak client"
 flags: light-uninstall
 url {

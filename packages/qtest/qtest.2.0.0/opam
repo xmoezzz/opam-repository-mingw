@@ -11,8 +11,8 @@ depends: [
   "ocamlbuild" {build}
   "ounit"
 ]
+dev-repo: "git+https://github.com/vincent-hugot/iTeML"
 install: ["ocaml" "do.ml" "qtest" "install" prefix]
-dev-repo: "git://github.com/vincent-hugot/iTeML"
 synopsis: "Inline unit test extractor"
 description: """
 qTest2 allows to extract inline unit tests written using a special

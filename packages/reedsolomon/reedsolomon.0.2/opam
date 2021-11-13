@@ -12,8 +12,8 @@ depends: [
   "js_of_ocaml" {< "3.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/ujamjar/reedsolomon"
 install: [make "install"]
-dev-repo: "git://github.com/ujamjar/reedsolomon"
 synopsis: "Reed-Solomon error correction CODEC"
 url {
   src: "https://github.com/ujamjar/reedsolomon/archive/v0.2.tar.gz"

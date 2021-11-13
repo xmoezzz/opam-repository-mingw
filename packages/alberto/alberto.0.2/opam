@@ -11,8 +11,8 @@ depends: [
   "ocplib-endian"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/selectel/alberto"
 install: [make "install"]
-dev-repo: "git://github.com/selectel/alberto"
 synopsis: "OCaml interface to Erlang ports"
 flags: light-uninstall
 url {

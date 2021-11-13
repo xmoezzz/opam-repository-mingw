@@ -14,8 +14,8 @@ depends: [
   "ounit"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-net-unix"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirage-net-unix"
 synopsis: "Ethernet network driver for Mirage, using tuntap"
 url {
   src: "https://github.com/mirage/mirage-net-unix/archive/v1.0.0.tar.gz"

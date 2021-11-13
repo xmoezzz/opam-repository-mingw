@@ -30,8 +30,8 @@ depopts: [
 conflicts: [
   "bencode" {>= "2.0"}
 ]
+dev-repo: "git+https://github.com/c-cube/cconv"
 install: [make "install"]
-dev-repo: "git://github.com/c-cube/cconv"
 synopsis: "Combinators for Type Conversion in OCaml."
 description: """
 CConv provides type-safe combinators for describing how to read/build OCaml

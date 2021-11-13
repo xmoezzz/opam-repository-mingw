@@ -23,8 +23,8 @@ depends: [
   "ssl"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/nojb/ocaml-bt"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/nojb/ocaml-bt"
 synopsis: "BitTorrent library and client using Lwt"
 flags: light-uninstall
 extra-files: ["bt.install" "md5=3930cb93cfa27b2c88967c9994751b4a"]

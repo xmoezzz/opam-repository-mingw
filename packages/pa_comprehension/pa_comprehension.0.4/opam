@@ -14,8 +14,8 @@ depends: [
   "batteries"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/cakeplus/pa_comprehension"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/cakeplus/pa_comprehension"
 synopsis: "Syntax extension for comprehension expressions"
 flags: light-uninstall
 url {

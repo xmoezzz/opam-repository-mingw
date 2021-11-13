@@ -12,8 +12,8 @@ depends: [
   "oasis"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/danmey/omonad"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/danmey/omonad"
 synopsis: "Monad programming using ppx preprocessor"
 flags: light-uninstall
 url {

@@ -18,11 +18,11 @@ depends: [
   "ocamlbuild" {build}
   "num"
 ]
+dev-repo: "git+https://github.com/c-cube/datalog"
 install: [
   [make "all" "install_file" "doc" "man"]
   [make "install"]
 ]
-dev-repo: "git://github.com/c-cube/datalog"
 synopsis: "An in-memory datalog implementation for OCaml."
 description: """
 It features two main algorithm:

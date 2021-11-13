@@ -11,8 +11,8 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-tdk"
 install: [make "install"]
-dev-repo: "git://github.com/frenetic-lang/ocaml-tdk"
 synopsis: "tdk - The Decision Kit"
 description: """
 The Decision Kit is a collection of data structures that are useful for

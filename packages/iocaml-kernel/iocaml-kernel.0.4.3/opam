@@ -22,11 +22,11 @@ depexts: [
   ["libzmq3-dev"] {os-family = "debian"}
   ["zeromq3-devel"] {os-distribution = "centos"}
 ]
-available: os != "win32"
+dev-repo: "git+https://github.com/andrewray/iocaml"
 install: [make "install"]
-dev-repo: "git://github.com/andrewray/iocaml"
 synopsis: "An OCaml kernel for the IPython notebook."
 url {
   src: "https://github.com/andrewray/iocaml/archive/v0.4.3.tar.gz"
   checksum: "md5=08f5ef3e7eea3e7f8c1745f7ee7a374b"
 }
+available: os != "win32"

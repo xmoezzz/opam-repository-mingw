@@ -12,8 +12,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 depopts: ["lwt"]
+dev-repo: "git+https://github.com/dsheets/ocaml-dnscurve"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/dsheets/ocaml-dnscurve"
 synopsis: "DNSCurve protocol for DNS queries over a secure channel"
 description: "This package is *UNAUDITED*. Use at your own risk."
 flags: light-uninstall

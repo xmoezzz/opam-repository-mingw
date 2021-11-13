@@ -14,9 +14,9 @@ depends: [
   "camlp4"
   "num"
 ]
-available: os != "win32"
+dev-repo: "git+https://github.com/facebook/pfff"
 install: [make "install-findlib"]
-dev-repo: "git://github.com/facebook/pfff"
+available: os != "win32"
 synopsis:
   "Tools and APIs for program analysis, code visualization, refactoring"
 description: """

@@ -21,8 +21,8 @@ depopts: ["xenctrl"]
 conflicts: [
   "xenctrl" {< "0.9.8"}
 ]
+dev-repo: "git+https://github.com/mirage/ocaml-xen-block-driver"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/mirage/ocaml-xen-block-driver"
 synopsis:
   "Xen disk device drivers: both client (\"frontend\") and server (\"backend\")"
 url {

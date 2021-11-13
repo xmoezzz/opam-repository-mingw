@@ -6,7 +6,7 @@ license: "BSD-3-Clause"
 build: [
   [make]
 ]
-dev-repo: "git://github.com/masateruk/micro-caml"
+dev-repo: "git+https://github.com/masateruk/micro-caml"
 available: os != "win32"
 synopsis: "Translate OCaml code into C code"
 depends: ["ocaml"]

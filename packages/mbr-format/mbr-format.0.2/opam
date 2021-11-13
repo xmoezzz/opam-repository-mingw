@@ -11,15 +11,15 @@ depends: [
   "cstruct" {>= "1.0.1" & < "2.0.0"}
   "ounit"
   "re"
-  "mirage-types"
+  "mirage-types" {< "3.0.0"}
   "mirage-types-lwt" {< "3.0.0"}
   "ipaddr"
   "io-page"
   "cmdliner"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/ocaml-mbr"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/mirage/ocaml-mbr"
 synopsis: "A simple library for manipulating Master Boot Records."
 description: """
 Intended uses are:

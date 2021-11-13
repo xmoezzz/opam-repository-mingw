@@ -31,8 +31,8 @@ depends: [
 depopts: [
   "sqlite3"
 ]
+dev-repo: "git+https://github.com/smondet/trakeva"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/smondet/trakeva"
 synopsis:
   "Transactions, Keys, and Values: Common interface to various databases"
 flags: light-uninstall

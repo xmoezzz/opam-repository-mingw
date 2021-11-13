@@ -12,7 +12,7 @@ depends: [
   "ocaml" {>= "4.00.0" & < "4.03.0"}
   "ocamlfind"
   "ounit"
-  "oasis" {>= "0.3.0"} | "oasis-mirage" {>= "0.3.0"}
+  ("oasis" {>= "0.3.0"} | "oasis-mirage" {>= "0.3.0"})
   "ocamlbuild" {build}
 ]
 depexts: [
@@ -25,8 +25,8 @@ depexts: [
   ["libffi-dev"] {os-distribution = "alpine"}
   ["libffi-devel"] {os-family = "suse"}
 ]
+dev-repo: "git+https://github.com/ocamllabs/ocaml-ctypes"
 install: [make "install"]
-dev-repo: "git://github.com/ocamllabs/ocaml-ctypes"
 synopsis: "Combinators for binding to C libraries without writing any C."
 authors: "yallop@gmail.com"
 flags: light-uninstall

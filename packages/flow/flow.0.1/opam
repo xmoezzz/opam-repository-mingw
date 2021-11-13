@@ -10,8 +10,8 @@ depends: [
   "core" {< "v0.15"}
   "ssl"
 ]
+dev-repo: "git+https://github.com/smondet/flow"
 install: ["omake" "install"]
-dev-repo: "git://github.com/smondet/flow"
 synopsis: "Exceptionless “systems” library on top of Core and Lwt"
 flags: light-uninstall
 url {

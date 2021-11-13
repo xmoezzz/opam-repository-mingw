@@ -8,8 +8,8 @@ depends: [
   "core" {<= "111.13.00"}
   "bitstring"
 ]
+dev-repo: "git+https://github.com/orbitz/ocaml-protobuf"
 install: [make "install"]
-dev-repo: "git://github.com/orbitz/ocaml-protobuf"
 synopsis: "Protobuf implementation for Ocaml"
 flags: light-uninstall
 url {

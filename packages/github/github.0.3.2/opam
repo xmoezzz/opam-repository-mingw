@@ -17,9 +17,9 @@ depends: [
   "yojson"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/avsm/ocaml-github"
 install: [make "install"]
 available: os != "win32"
-dev-repo: "git://github.com/avsm/ocaml-github"
 synopsis: "API for the Github website"
 flags: light-uninstall
 url {

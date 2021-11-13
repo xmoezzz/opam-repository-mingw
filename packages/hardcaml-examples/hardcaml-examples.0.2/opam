@@ -12,8 +12,8 @@ depends: [
   "omd"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/ujamjar/hardcaml-examples"
 install: [make "install"]
-dev-repo: "git://github.com/ujamjar/hardcaml-examples"
 synopsis: "HardCaml example designs"
 url {
   src: "https://github.com/ujamjar/hardcaml-examples/archive/v0.2.tar.gz"

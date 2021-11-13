@@ -15,9 +15,9 @@ depends: [
   "ounit"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/djs55/ocaml-vhd"
 available: os = "linux"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/djs55/ocaml-vhd"
 synopsis: "A pure OCaml library for reading and writing .vhd format data"
 url {
   src: "https://github.com/djs55/ocaml-vhd/archive/0.0.2.tar.gz"

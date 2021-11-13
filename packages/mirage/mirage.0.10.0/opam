@@ -26,8 +26,8 @@ depends: [
   "cmdliner" {< "1.0.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirari"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirari"
 synopsis: "The MirageOS."
 description: """
 MirageOS is a unikernel for constructing secure, high-performance

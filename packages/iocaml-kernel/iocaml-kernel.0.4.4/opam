@@ -24,9 +24,9 @@ depexts: [
   ["zeromq"] {os = "macos" & os-distribution = "homebrew"}
   ["zeromq3-devel"] {os-distribution = "centos"}
 ]
-available: os != "win32"
+dev-repo: "git+https://github.com/andrewray/iocaml"
 install: [make "install"]
-dev-repo: "git://github.com/andrewray/iocaml"
+available: os != "win32"
 synopsis: "An OCaml kernel for the IPython notebook."
 url {
   src: "https://github.com/andrewray/iocaml/archive/v0.4.4.tar.gz"

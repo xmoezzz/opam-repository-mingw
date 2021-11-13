@@ -9,8 +9,8 @@ build: [
 remove: [["ocamlfind" "remove" "ocamlyices"]]
 depends: ["ocaml" "ocamlfind" "camlidl" "num"]
 x-ci-accept-failures: ["debian-unstable"]
+dev-repo: "git+https://github.com/polazarus/ocamlyices"
 install: [make "install"]
-dev-repo: "git://github.com/polazarus/ocamlyices"
 synopsis: "Yices SMT solver binding"
 description: """
 Yices is a Satisfiability Modulo Theories (SMT) solver from SRI.
@@ -26,4 +26,5 @@ downloaded tarball. Optionally you can set an installation directory:
 flags: light-uninstall
 url {
   src: "https://github.com/polazarus/ocamlyices/archive/v0.7.1.tar.gz"
+  checksum: "md5=0119df97a5809c41c992c38cc7a45225"
 }

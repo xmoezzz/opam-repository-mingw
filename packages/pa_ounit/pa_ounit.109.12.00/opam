@@ -9,8 +9,8 @@ depends: [
   "ounit"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/janestreet/pa_ounit"
 install: [make "install"]
-dev-repo: "git://github.com/janestreet/pa_ounit"
 synopsis: "Syntax extension for oUnit"
 description: """
 Pa_ounit is a syntax extension that helps writing in-line oUnit. It

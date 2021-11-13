@@ -13,8 +13,8 @@ depends: [
   "camlp4"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/cakeplus/pa_where"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/cakeplus/pa_where"
 synopsis: "Backward declaration syntax"
 description: """
 Pa_where provides a syntax for backward declarations (allowing a

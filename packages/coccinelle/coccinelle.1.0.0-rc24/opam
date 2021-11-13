@@ -25,8 +25,8 @@ depends: [
 patches: [
   "opam.patch"
 ]
+dev-repo: "git+https://github.com/coccinelle/coccinelle"
 install: [make "install"]
-dev-repo: "git://github.com/coccinelle/coccinelle"
 synopsis: "Coccinelle is a C source code matching and transformation engine."
 description: """
 Coccinelle provides the language SmPL (Semantic Patch Language) for specifying

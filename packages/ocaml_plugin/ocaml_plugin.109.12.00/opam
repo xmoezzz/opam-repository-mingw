@@ -9,9 +9,9 @@ depends: [
   "async" {= "109.12.00"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/janestreet/ocaml_plugin"
 available: os = "linux"
 install: [make "install"]
-dev-repo: "git://github.com/janestreet/ocaml_plugin"
 synopsis: "Automatically build and dynlink OCaml source files"
 url {
   src: "https://github.com/janestreet/ocaml_plugin/archive/109.12.00.tar.gz"

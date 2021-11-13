@@ -10,8 +10,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 depopts: ["pcre"]
+dev-repo: "git+https://github.com/vbmithr/ocaml-text"
 install: [make "install"]
-dev-repo: "git://github.com/vbmithr/ocaml-text"
 synopsis:
   "Library for dealing with \"text\", i.e. sequence of unicode characters, in a convenient way"
 url {

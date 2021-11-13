@@ -15,11 +15,11 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/c-cube/qcheck"
 install: [
   [make "all" "install_file"]
   [make "install"]
 ]
-dev-repo: "git://github.com/c-cube/qcheck"
 synopsis: "QuickCheck inspired property-based testing for OCaml."
 description: """
 This module allows to check invariants (properties of some types) over

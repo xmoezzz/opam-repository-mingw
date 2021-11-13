@@ -9,8 +9,8 @@ depends: [
   "ocamlbuild" {build}
   "menhir"
 ]
+dev-repo: "git+https://github.com/sagotch/To.ml"
 install: [make "install"]
-dev-repo: "git://github.com/sagotch/To.ml"
 synopsis: "TOML parser."
 description: """
 The Toml library provides a parser for Tom's Obvious Minimal Language v0.2.0, 

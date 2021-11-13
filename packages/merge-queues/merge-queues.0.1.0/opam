@@ -14,8 +14,8 @@ depends: [
   "sexplib" {< "113.01.00"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/merge-queues"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/merge-queues"
 synopsis: "Mergeable queues"
 description:
   "The package implements \"mergeable\" queues, ie. persistent queues with a fast merge operation."

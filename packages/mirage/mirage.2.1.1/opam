@@ -25,8 +25,8 @@ depends: [
   "sexplib" {< "113.01.00"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirage"
 synopsis: "The MirageOS library operating system"
 description: """
 MirageOS is a library operating system that constructs unikernels for

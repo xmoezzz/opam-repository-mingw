@@ -20,8 +20,8 @@ depends: [
   "mirage-types-lwt" {< "2.3.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/xen-disk"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/mirage/xen-disk"
 synopsis:
   "A command-line tool for attaching disks to VMs running on a xen host."
 url {

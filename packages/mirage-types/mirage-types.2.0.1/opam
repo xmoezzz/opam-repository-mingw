@@ -15,8 +15,8 @@ depopts: ["lwt" "cstruct" "io-page" "ipaddr"]
 conflicts: [
   "ipaddr" {< "0.2.0"}
 ]
+dev-repo: "git+https://github.com/mirage/mirage"
 install: [make "install-types"]
-dev-repo: "git://github.com/mirage/mirage"
 synopsis: "Module type definitions for Mirage-compatible applications"
 flags: light-uninstall
 url {

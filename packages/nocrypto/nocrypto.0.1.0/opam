@@ -17,8 +17,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 tags: [ "org:mirage"]
+dev-repo: "git+https://github.com/mirleft/ocaml-nocrypto"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/mirleft/ocaml-nocrypto"
 synopsis: "Small functional-style crypto library."
 description: """
 Ciphers: AES, 3DES, RC4.

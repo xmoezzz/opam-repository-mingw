@@ -19,8 +19,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 tags: ["org:mirage"]
+dev-repo: "git+https://github.com/mirage/ocaml-mbr"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/mirage/ocaml-mbr"
 synopsis: "A simple library for manipulating Master Boot Records."
 description: """
 Intended uses are:

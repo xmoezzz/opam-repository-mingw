@@ -14,8 +14,8 @@ depends: [
   "oasis" {build}
   "menhir"
 ]
+dev-repo: "git+https://github.com/mackwic/To.ml"
 install: [make "install"]
-dev-repo: "git://github.com/mackwic/To.ml"
 synopsis: "TOML parser."
 description: """
 The Toml library provides a parser and serializer for Tom's Obvious Minimal

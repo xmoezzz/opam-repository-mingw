@@ -17,8 +17,9 @@ depends: [
   "ocamlbuild" {build}
 ]
 patches: ["opam.patch"]
+dev-repo: "git+https://github.com/Incubaid/arakoon"
 install: [make "install" "DESTDIR=%{prefix}%"]
-dev-repo: "git://github.com/Incubaid/arakoon"
+
 synopsis:
   "A distributed key-value store that guarantees consistency above anything else."
 extra-files: ["opam.patch" "md5=98c7118b51800a1643b03d3ebd186fb6"]

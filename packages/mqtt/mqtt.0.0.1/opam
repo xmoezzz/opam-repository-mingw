@@ -18,9 +18,9 @@ depends: [
   "lwt" {<= "2.7.0"}
   "ocamlbuild" {build}
 ]
-patches: "patch-oasis-mqtt.0.0.1" {os = "win32"}
+dev-repo: "git+https://github.com/j0sh/ocaml-mqtt"
 install: [make "install"]
-dev-repo: "git://github.com/j0sh/ocaml-mqtt"
+patches: "patch-oasis-mqtt.0.0.1" {os = "win32"}
 synopsis: "MQTT message parser in OCaml"
 flags: light-uninstall
 extra-files: [

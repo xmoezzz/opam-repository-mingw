@@ -28,8 +28,8 @@ depopts: ["ounit"]
 conflicts: [
   "ounit" {< "2.0.0"}
 ]
+dev-repo: "git+https://github.com/msimon/the_movie_db"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/msimon/the_movie_db"
 synopsis: "API for TheMovieDb.org website"
 flags: light-uninstall
 url {

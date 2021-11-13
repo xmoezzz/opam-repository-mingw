@@ -14,8 +14,8 @@ depends: [
   "lwt"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/metadave/riak-ocaml-client"
 install: [make "install"]
-dev-repo: "git://github.com/metadave/riak-ocaml-client"
 synopsis: "A Riak OCaml client"
 flags: light-uninstall
 url {

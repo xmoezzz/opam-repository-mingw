@@ -16,8 +16,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 depopts: ["ounit"]
+dev-repo: "git+https://github.com/aluuu/spatial_index"
 install: [make "install"]
-dev-repo: "git://github.com/aluuu/spatial_index"
 synopsis: "Implementation of several spatial indexes (R-tree, etc.)"
 flags: light-uninstall
 url {

@@ -35,8 +35,8 @@ depends: [
 conflicts: [
   "tls"
 ]
+dev-repo: "git+https://github.com/djs55/vhd-tool"
 install: [make "install"]
-dev-repo: "git://github.com/djs55/vhd-tool"
 synopsis:
   "A command-line tool to manipulate, transcode and stream .vhd format data."
 description: """

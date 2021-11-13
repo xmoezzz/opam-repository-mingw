@@ -11,8 +11,8 @@ depends: [
   "js_of_ocaml" {< "3.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/andrewray/ocaml-cookie-js"
 install: [make "install"]
-dev-repo: "git://github.com/andrewray/ocaml-cookie-js"
 synopsis: "Simple library for setting/getting cookies in js_of_ocaml"
 description:
   "Based on javascript code at http://www.quirksmode.org/js/cookies.html"

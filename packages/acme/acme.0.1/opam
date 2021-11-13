@@ -11,8 +11,8 @@ depends: [
   "ocamlfind"
   "ocaml9p"
 ]
+dev-repo: "git+https://github.com/raphael-proust/ocaml-acme"
 install: [make "install"]
-dev-repo: "git://github.com/raphael-proust/ocaml-acme"
 synopsis: "A library to interact with the acme text editor."
 description: """
 The acme text editor is extended and interacted with through a 9p file system

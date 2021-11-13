@@ -6,15 +6,16 @@ build: [
 ]
 remove: [["ocamlfind" "remove" "quickcheck"]]
 depends: [
-  "ocaml"
+  "ocaml" {< "4.02.0"}
   "ocamlfind"
   "optcomp"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/avsm/ocaml-quickcheck"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/avsm/ocaml-quickcheck"
 synopsis: "Translation of QuickCheck from Haskell into OCaml"
 flags: light-uninstall
 url {
   src: "https://github.com/avsm/ocaml-quickcheck/archive/v1.0.0.tar.gz"
+  checksum: "md5=d0adf5b7b3223fb0788857c360c2d902"
 }

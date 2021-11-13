@@ -17,8 +17,8 @@ depends: [
   "js_of_ocaml" {>= "1.3" & < "3.0"}
   "cmdliner"
 ]
+dev-repo: "git+https://github.com/ocaml/opam2web"
 install: [make "install" "PREFIX=%{prefix}%"]
-dev-repo: "git://github.com/ocaml/opam2web"
 synopsis: "A tool to generate a website from an OPAM repository"
 description: """
 This utility creates a static website from an OPAM repository, listing all 

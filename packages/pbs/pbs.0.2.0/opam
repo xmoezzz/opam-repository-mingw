@@ -14,8 +14,8 @@ depends: [
   "sosa"
   "pvem"
 ]
+dev-repo: "git+https://github.com/smondet/pbs"
 install: ["omake" "install"]
-dev-repo: "git://github.com/smondet/pbs"
 synopsis: "Helper library around PBS/Torque"
 description: """
 The library provides parsing of `qstat` output, and PBS script

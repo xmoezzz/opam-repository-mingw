@@ -35,8 +35,8 @@ depopts: [
   "cairo2"
   "lablgtk"
 ]
+dev-repo: "git+https://github.com/Drup/LILiS"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/Drup/LILiS"
 synopsis: "Library to Interpret Lindenmayer Systems"
 description: "A Library to interpret, evaluate and draw L-systems."
 flags: light-uninstall

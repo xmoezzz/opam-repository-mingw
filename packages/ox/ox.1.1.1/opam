@@ -14,8 +14,8 @@ depends: [
   "openflow" {>= "0.5.0" & < "0.8.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/frenetic-lang/ox"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/frenetic-lang/ox"
 synopsis: "A platform for writing OpenFlow controllers"
 flags: light-uninstall
 url {

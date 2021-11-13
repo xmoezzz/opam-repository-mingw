@@ -29,11 +29,11 @@ depends: [
 depopts: [
     "mpi"
 ]
+dev-repo: "git+https://github.com/inria-parkas/sundialsml"
 install: [
   [make "install-findlib"]
   [make "install-doc"] {with-doc}
 ]
-dev-repo: "git://github.com/inria-parkas/sundialsml"
 synopsis:
   "Sundials/ML is an interface to the Sundials suite of numerical solvers"
 description: """
@@ -67,5 +67,5 @@ overhead of about 50% compared to the original C versions, and almost never
 more than 100%."""
 url {
   src: "https://github.com/inria-parkas/sundialsml/archive/v2.5.0p0.zip"
-  checksum: "md5=d4ac781f02069cb12c07bf48ace315b9"
+  checksum: "md5=ee0c22de275b1f26cab4ecfb08315c02"
 }

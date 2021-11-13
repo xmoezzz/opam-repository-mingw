@@ -21,8 +21,8 @@ depends: [
   "pa_ounit" {with-test}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-openflow"
 install: [make "install"]
-dev-repo: "git://github.com/frenetic-lang/ocaml-openflow"
 synopsis: "Serialization and protocol implementation for OpenFlow 1.{0,3}"
 description: """
 This library provides the basic building blocks that are necessary to build an

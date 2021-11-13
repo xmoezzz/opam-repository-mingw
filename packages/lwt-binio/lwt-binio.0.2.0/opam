@@ -16,8 +16,8 @@ depends: [
   "ocplib-endian" {>= "0.6"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/hcarty/lwt-binio"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/hcarty/lwt-binio"
 synopsis: "Asynchronous random access IO for numbers"
 flags: light-uninstall
 url {

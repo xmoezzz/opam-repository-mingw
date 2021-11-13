@@ -15,8 +15,8 @@ depends: [
   "shared-memory-ring" {< "0.4.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-platform"
 install: [make "install" "PREFIX=%{prefix}%"]
-dev-repo: "git://github.com/mirage/mirage-platform"
 synopsis: "MirageOS stdlib"
 flags: light-uninstall
 url {

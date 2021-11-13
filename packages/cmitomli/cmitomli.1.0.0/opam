@@ -1,18 +1,12 @@
 opam-version: "2.0"
 maintainer: "martin@mjambon.com"
-authors: "martin@mjambon.com"
 homepage: "https://github.com/mjambon/cmitomli"
-build: [
-  [make]
-]
-install: [
-  [make "install" "BINDIR=%{bin}%"]
-]
+build: make
 remove: [
   [make "uninstall" "BINDIR=%{bin}%"]
 ]
-patches: "cmitomli-1.0.0.patch" {os = "win32"}
-dev-repo: "git://github.com/mjambon/cmitomli"
+dev-repo: "git+https://github.com/mjambon/cmitomli"
+install: [make "install" "BINDIR=%{bin}%"]
 synopsis:
   "Converts compiled interface files (.cmi) into source interface files (.mli)"
 description: """

@@ -15,9 +15,9 @@ depends: [
   "spotlib" {>= "2.3.0" & <= "2.3.1"}
   "orakuda" {>= "1.1.0"}
 ]
+dev-repo: "git+https://github.com/yoshihiro503/ocamltter"
 install: ["ocaml" "setup.ml" "-install"]
 available: os != "win32"
-dev-repo: "git://github.com/yoshihiro503/ocamltter"
 synopsis: "The OCAMLTTER twitter client"
 description: """
 OCAMLTTER is a Twitter client written in OCaml.

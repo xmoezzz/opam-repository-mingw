@@ -15,11 +15,11 @@ remove: [
   [make "BINDIR=%{bin}%" "LIBDIR=%{lib}%" "uninstall"]
   [make "DOCDIR=%{doc}%" "uninstall-doc"]
 ]
+dev-repo: "git+https://github.com/OCamlPro/ocp-ocamlres"
 install: [
   [make "BINDIR=%{bin}%" "LIBDIR=%{lib}%" "install"]
   [make "DOCDIR=%{doc}%" "install-doc"]
 ]
-dev-repo: "git://github.com/OCamlPro/ocp-ocamlres"
 synopsis: "Manipulation, injection and extraction of embedded resources"
 description: """
 A tool ocp-ocamlres to embed files and directories inside OCaml

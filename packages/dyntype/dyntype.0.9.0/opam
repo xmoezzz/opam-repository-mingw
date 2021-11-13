@@ -19,8 +19,8 @@ depends: [
   "camlp4"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/dyntype"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/dyntype"
 synopsis:
   "syntax extension which makes OCaml types and values easier to manipulate programmatically"
 flags: light-uninstall

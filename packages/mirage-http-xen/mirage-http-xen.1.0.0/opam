@@ -12,8 +12,8 @@ depends: [
   "cohttp" {>= "0.9.14" & < "0.10.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-http-xen"
 install: [make "install"]
-dev-repo: "git://github.com/mirage/mirage-http-xen"
 synopsis: "MirageOS HTTP client and server driver for Xen"
 url {
   src: "https://github.com/mirage/mirage-http-xen/archive/v1.0.0.tar.gz"

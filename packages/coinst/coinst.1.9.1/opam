@@ -16,10 +16,10 @@ depends: [
   "js_of_ocaml"
   "cudf"
 ]
+dev-repo: "git+https://github.com/vouillon/coinst"
 install: [
   "install" "-c" "coinst" "coinst-upgrades" "comigrate" "%{prefix}%/bin"
 ]
-dev-repo: "git://github.com/vouillon/coinst"
 synopsis: "Coinst tool suite to perform analysis on package repositories."
 description: "See coinst.irill.org for more information."
 flags: light-uninstall

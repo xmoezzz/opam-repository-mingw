@@ -18,8 +18,8 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/nojb/ocaml-maildir"
 install: [make "install"]
-dev-repo: "git://github.com/nojb/ocaml-maildir"
 synopsis:
   "This is a preliminary release of an OCaml library to access directories in the Maildir format."
 url {

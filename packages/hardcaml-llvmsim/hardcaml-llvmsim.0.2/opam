@@ -14,8 +14,8 @@ depends: [
   "ctypes-foreign"
 ]
 depexts: ["llvm"] {os = "macos" & os-distribution = "homebrew"}
+dev-repo: "git+https://github.com/ujamjar/hardcaml-llvmsim"
 install: [make "install"]
-dev-repo: "git://github.com/ujamjar/hardcaml-llvmsim"
 synopsis: "HardCaml simulation backend using LLVM"
 url {
   src: "https://github.com/ujamjar/hardcaml-llvmsim/archive/v0.2.tar.gz"

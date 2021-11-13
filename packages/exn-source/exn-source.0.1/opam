@@ -6,9 +6,9 @@ depends: [
   "ocaml" {>= "4.02.0"}
   "ocamlfind"
 ]
-patches: "patch-ocamlmakefile-exn-source.0.1" {os = "win32"}
+dev-repo: "git+https://github.com/johnwhitington/exn-source"
 install: [make "install"]
-dev-repo: "git://github.com/johnwhitington/exn-source"
+patches: "patch-ocamlmakefile-exn-source.0.1" {os = "win32"}
 synopsis: "Exception backtrace for OCaml with source code printing"
 flags: light-uninstall
 extra-files: [

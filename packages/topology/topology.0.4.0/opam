@@ -20,8 +20,8 @@ depends: [
   "ounit" {with-test}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-topology"
 install: [make "install"]
-dev-repo: "git://github.com/frenetic-lang/ocaml-topology"
 synopsis: "A library for working with network topologies."
 flags: light-uninstall
 url {

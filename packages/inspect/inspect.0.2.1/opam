@@ -3,9 +3,9 @@ maintainer: "kaspar.rohrer@gmail.com"
 build: make
 remove: [[make "uninstall"]]
 depends: ["ocaml" "ocamlfind"]
+dev-repo: "git+https://github.com/krohrer/caml-inspect"
 install: [make "install"]
 available: os != "win32"
-dev-repo: "git://github.com/krohrer/caml-inspect"
 synopsis: "Inspect the runtime representation of arbitrary OCaml values."
 description: """
 Inspect is a small library to inspect arbitrary OCaml values and their

@@ -20,9 +20,9 @@ tags: [
   "org:mirage"
   "org:ocamllabs"
 ]
+dev-repo: "git+https://github.com/avsm/ezxmlm"
 homepage: "https://github.com/avsm/ezxmlm"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/avsm/ezxmlm"
 synopsis: "Combinators to use with XMLM for parsing and selection"
 description: """
 An "easy" interface on top of the Xmlm [1] library.  This version provides more

@@ -20,8 +20,8 @@ depopts: ["ctypes" "ctypes-foreign"]
 depexts: [
   ["libzbar-dev"] {os-family = "debian"}
 ]
+dev-repo: "git+https://github.com/vbmithr/ocaml-zbar"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/vbmithr/ocaml-zbar"
 synopsis: "Binding to ZBar (QR-code scanning library)"
 flags: light-uninstall
 url {

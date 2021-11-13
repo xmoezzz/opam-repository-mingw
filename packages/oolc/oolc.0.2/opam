@@ -15,8 +15,8 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/atrieu/Oolc"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/atrieu/Oolc"
 synopsis: "An Ocaml implementation of Open Location Code."
 flags: light-uninstall
 url {

@@ -16,8 +16,8 @@ depends: [
   "ipaddr" {>= "1.0.0" & < "2.0.0"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-tcpip"
 install: [make "install" "OS=xen"]
-dev-repo: "git://github.com/mirage/mirage-tcpip"
 synopsis: "Userlevel TCP/IP stack"
 flags: light-uninstall
 url {

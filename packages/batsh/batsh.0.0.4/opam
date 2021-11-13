@@ -24,8 +24,8 @@ depopts: [
 conflicts: [
   "core" {< "109.42.00"}
 ]
+dev-repo: "git+https://github.com/BYVoid/Batsh"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/BYVoid/Batsh"
 synopsis:
   "A (C-like syntax) programming language that compiles to Bash and Windows Batch."
 description: """

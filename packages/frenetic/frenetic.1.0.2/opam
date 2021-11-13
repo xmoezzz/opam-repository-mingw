@@ -17,8 +17,8 @@ depends: [
   "ounit"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/frenetic-lang/frenetic"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/frenetic-lang/frenetic"
 synopsis: "The Frenetic Network Programming Language for SDN"
 flags: light-uninstall
 url {

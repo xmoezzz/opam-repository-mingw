@@ -8,9 +8,9 @@ depends: [
   "core" {= "109.12.00"}
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/janestreet/core_extended"
 available: os != "openbsd"
 install: [make "install"]
-dev-repo: "git://github.com/janestreet/core_extended"
 synopsis:
   "Extra components that are not as closely vetted or as stable as Core"
 description: """

@@ -7,8 +7,8 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/rgrinberg/bencode"
 install: [make "install"]
-dev-repo: "git://github.com/rgrinberg/bencode"
 synopsis: "Read/Write bencode (.torrent) files in OCaml"
 url {
   src: "https://github.com/rgrinberg/bencode/archive/0.1.tar.gz"

@@ -20,7 +20,7 @@ depends: [
   "ounit"
   "ocamlbuild" {build}
 ]
-dev-repo: "git://github.com/mirage/ocaml-tuntap"
+dev-repo: "git+https://github.com/mirage/ocaml-tuntap"
 install: [make "PREFIX=%{prefix}%" "install"]
 available: os != "win32"
 synopsis: "TUN/TAP bindings"

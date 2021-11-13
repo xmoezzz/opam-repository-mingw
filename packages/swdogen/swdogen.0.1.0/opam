@@ -18,8 +18,8 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/dotcy/swdogen"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/dotcy/swdogen"
 synopsis: "SWagger DOcumentation GENerator"
 description: """
 Scan and parse your source code and generate valid swagger document

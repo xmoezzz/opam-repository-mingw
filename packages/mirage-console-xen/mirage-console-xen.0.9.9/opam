@@ -12,8 +12,8 @@ depends: [
   "mirage-xen" {>= "0.9.9" & < "2.0.0"}
   "io-page-xen" {>= "0.9.9"}
 ]
+dev-repo: "git+https://github.com/mirage/mirage-console"
 install: [make "xen-install"]
-dev-repo: "git://github.com/mirage/mirage-console"
 synopsis: "A Mirage-compatible Console library for Xen"
 url {
   src: "https://github.com/mirage/mirage-console/archive/v0.9.9.tar.gz"

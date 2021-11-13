@@ -19,8 +19,9 @@ depexts: [
   ["libxen-dev"] {os-family = "debian"}
 ]
 available: os != "win32"
+dev-repo: "git+https://github.com/mirage/ocaml-gnt"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/mirage/ocaml-gnt"
+available: os != "win32"
 synopsis: "Xen grant table bindings"
 description: """
 These allow your program (running either in userspace or in kernelspace

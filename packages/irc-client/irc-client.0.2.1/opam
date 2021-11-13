@@ -13,8 +13,8 @@ depopts: ["lwt"]
 conflicts: [
   "lwt" {>= "4.0.0"}
 ]
+dev-repo: "git+https://github.com/johnelse/ocaml-irc-client"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/johnelse/ocaml-irc-client"
 synopsis: "IRC client library"
 url {
   src: "https://github.com/johnelse/ocaml-irc-client/archive/0.2.1.tar.gz"

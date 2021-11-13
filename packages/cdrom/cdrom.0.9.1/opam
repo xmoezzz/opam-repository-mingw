@@ -10,9 +10,9 @@ build: make
 remove: [["ocamlfind" "remove" "cdrom"]]
 depends: ["ocaml" "ocamlfind" "obuild"]
 depexts: ["linux-headers"] {os-distribution = "alpine"}
+dev-repo: "git+https://github.com/xen-org/cdrom"
 available: os = "linux"
 install: [make "install"]
-dev-repo: "git://github.com/xen-org/cdrom"
 synopsis: "Query the state and contents of CDROM devices under Linux."
 authors: "Dave Scott <dave@recoil.org>"
 flags: light-uninstall

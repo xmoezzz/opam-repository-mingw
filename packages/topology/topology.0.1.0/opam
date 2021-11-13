@@ -13,9 +13,9 @@ depends: [
   "ocamlgraph" {< "1.8.6"}
   "ocamlbuild" {build}
 ]
-patches: "patch-oasis-topology.0.1.0" {os = "win32"}
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-topology"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/frenetic-lang/ocaml-topology"
+patches: "patch-oasis-topology.0.1.0" {os = "win32"}
 synopsis: "A library for working with network topologies."
 flags: light-uninstall
 extra-files: [

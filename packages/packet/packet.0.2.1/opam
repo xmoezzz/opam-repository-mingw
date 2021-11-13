@@ -14,8 +14,8 @@ depends: [
   "ocamlbuild" {build}
 ]
 depopts: ["quickcheck"]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-packet"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/frenetic-lang/ocaml-packet"
 synopsis: "A serialization library for network packets."
 description: """
 This library includes serializers for:

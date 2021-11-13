@@ -19,8 +19,8 @@ depends: [
   "ounit"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/johnelse/ocaml-spotify-web-api"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/johnelse/ocaml-spotify-web-api"
 synopsis:
   "OCaml library for interacting with the web-based Spotify metadata API"
 url {

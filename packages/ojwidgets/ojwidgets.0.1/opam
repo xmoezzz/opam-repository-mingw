@@ -15,8 +15,8 @@ depends: [
   "ojquery"
   "ocamlbuild" {build}
 ]
+dev-repo: "git+https://github.com/ocsigen/ojwidgets"
 install: [make "install"]
-dev-repo: "git://github.com/ocsigen/ojwidgets"
 synopsis: "Browser widgets in OCaml with js_of_ocaml."
 flags: light-uninstall
 url {

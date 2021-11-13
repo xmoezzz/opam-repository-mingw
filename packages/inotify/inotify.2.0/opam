@@ -15,9 +15,9 @@ depopts: ["lwt"]
 conflicts: [
   "lwt" {>= "4.0.0"}
 ]
+dev-repo: "git+https://github.com/whitequark/ocaml-inotify"
 available: os = "linux" | os = "macos"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/whitequark/ocaml-inotify"
 synopsis: "Inotify bindings for ocaml."
 flags: light-uninstall
 url {

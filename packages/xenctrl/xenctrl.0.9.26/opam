@@ -25,8 +25,8 @@ depexts: [
   ["xen-devel"] {os-distribution = "centos"}
   ["xen-dom0-libs-devel" "xen-libs-devel"] {os = "xenserver"}
 ]
+dev-repo: "git+https://github.com/xapi-project/ocaml-xen-lowlevel-libs"
 install: [make "install" "BINDIR=%{bin}%"]
-dev-repo: "git://github.com/xapi-project/ocaml-xen-lowlevel-libs"
 synopsis: "Low-level Xen hypercall bindings."
 description: """
 These are experimental bindings based on the code in xen-unstable.git.

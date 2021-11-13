@@ -22,8 +22,8 @@ conflicts: [
   "lwt" {>= "2.4.7"}
   "lwt" {< "2.4.1"}
 ]
+dev-repo: "git+https://github.com/avsm/ocaml-cohttp"
 install: [make "PREFIX=%{prefix}%" "install"]
-dev-repo: "git://github.com/avsm/ocaml-cohttp"
 synopsis: "HTTP library for Lwt, Async and Mirage"
 flags: light-uninstall
 url {

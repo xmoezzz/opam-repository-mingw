@@ -28,8 +28,8 @@ depends: [
 tags: [ "stdlib" "containers" "iterators" "list" "heap" "queue" ]
 homepage: "https://github.com/c-cube/ocaml-containers/"
 doc: "http://cedeela.fr/~simon/software/containers/"
+dev-repo: "git+https://github.com/c-cube/ocaml-containers"
 install: [make "build" "install"]
-dev-repo: "git://github.com/c-cube/ocaml-containers"
 synopsis: "A modular standard library focused on data structures."
 description: """
 Containers is a standard library (BSD license) focused on data structures,

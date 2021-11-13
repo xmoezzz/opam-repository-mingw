@@ -18,8 +18,8 @@ depexts: [
   ["libzmq3-dev"] {os-family = "debian"}
 ]
 conflicts: ["ocaml-zmq"]
+dev-repo: "git+https://github.com/issuu/ocaml-zmq"
 install: ["ocaml" "setup.ml" "-install"]
-dev-repo: "git://github.com/issuu/ocaml-zmq"
 synopsis: "OCaml bindings for ZeroMQ 3.2"
 url {
   src: "https://github.com/issuu/ocaml-zmq/archive/3.2-0.tar.gz"
