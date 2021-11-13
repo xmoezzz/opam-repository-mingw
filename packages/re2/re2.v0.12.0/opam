@@ -15,6 +15,7 @@ depends: [
   "ppx_jane"    {>= "v0.12" & < "v0.13"}
   "dune"        {>= "1.5.1" & < "2.0.0"}
 ]
+available: os != "win32" & arch != "arm32"
 synopsis: "OCaml bindings for RE2, Google's regular expression library"
 depexts: [
  ["gcc-c++"] {os-distribution = "fedora"}
@@ -24,4 +25,3 @@ url {
   src: "https://ocaml.janestreet.com/ocaml-core/v0.12/files/re2-v0.12.0.tar.gz"
   checksum: "md5=fcf5dc32f1a325f135624f1a3676539e"
 }
-available: os != "win32"
