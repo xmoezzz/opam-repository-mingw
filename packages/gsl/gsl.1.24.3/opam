@@ -28,6 +28,7 @@ depends: [
   "conf-gsl" {build}
   "conf-pkg-config" {build}
 ]
+available: arch != "arm32" & os != "win32"
 url {
   src:
     "https://github.com/mmottl/gsl-ocaml/releases/download/1.24.3/gsl-1.24.3.tbz"
@@ -36,4 +37,3 @@ url {
     "sha512=c6e2578618591d1bef428693b69026cdea0f1606cd25d9f02d637a90256a5685eee70ecd0259d2595a1cd7b292c34e3c913c007e2706aa125af045d37e55d9c4"
   ]
 }
-available: os != "win32"

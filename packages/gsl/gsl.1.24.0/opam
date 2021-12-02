@@ -24,7 +24,7 @@ depends: [
   "base" {build & < "v0.15"}
   "stdio" {build & < "v0.15"}
 ]
-
+available: arch != "arm32" & os != "win32"
 synopsis: "GSL - Bindings to the GNU Scientific Library"
 
 description: """
@@ -37,4 +37,3 @@ url {
     "https://github.com/mmottl/gsl-ocaml/releases/download/1.24.0/gsl-1.24.0.tbz"
   checksum: "md5=3785e7b6a473e4fc9b2d6e24f5475be0"
 }
-available: os != "win32"
