@@ -20,7 +20,7 @@ depends: [
   "ocaml" {>= "4.02.0"}
   "ocamlfind"
   "ulex"
-  "xtmpl" {>= "0.13.0"}
+  "xtmpl" {>= "0.13.0" & < "0.19.0"}
 ]
 patches: "higlo-0.5.patch" {os = "win32"}
 synopsis: "Library for syntax highlighting."
