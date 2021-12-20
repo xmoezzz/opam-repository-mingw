@@ -4,7 +4,7 @@ authors: " "
 homepage: " "
 build: [ "ocamlfind" "query" "raw_spacetime" ]
 depends: [
-  "ocaml" {>= "4.04.0"}
+  "ocaml" {>= "4.04.0" & < "4.12"}
   "ocamlfind" {>= "1.7.1"}
 ]
 synopsis: "Raw_spacetime_lib library distributed with the OCaml compiler"
