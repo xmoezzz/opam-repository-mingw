@@ -22,7 +22,6 @@ synopsis: "Small library to define, load and save options files."
 flags: light-uninstall
 extra-files: ["patch-aa" "md5=3f359cff269d6e7ea401c683618a40f2"]
 url {
-  src:
-    "https://download.ocamlcore.org/config-file/config_file/1.2/config-file-1.2.tar.gz"
-  checksum: "md5=fece1f143285fb5fddf17d5d36a577c5"
+  src: "https://framagit.org/zoggy/old-codes/-/archive/config-file-1.2/old-codes-config-file-1.2.tar.gz"
+  checksum: "md5=2f3679799ae8e3bc67847a204aae71c9"
 }
