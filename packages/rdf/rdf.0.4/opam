@@ -23,6 +23,6 @@ available: os != "win32"
 install: [make "install"]
 synopsis: "Native OCaml library to manipulate RDF graphs."
 url {
-  src: "https://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.4.tar.gz"
-  checksum: "md5=6a9f69c08e7f40d3392f193707c1319d"
+  src: "https://framagit.org/zoggy/ocaml-rdf/-/archive/0.4/ocaml-rdf-0.4.tar.gz"
+  checksum: "md5=63f6ae79ff0deef6cb4bec3dd0511ca0"
 }
