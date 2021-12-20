@@ -27,6 +27,9 @@ patches: [
   "lablgldir.patch"
   "lablgtk-2.18.11.patch" {os = "win32"}
 ]
+conflicts: [
+  "base-domains"
+]
 post-messages: [
   "This package requires gtk+ 2.0 development packages installed on your system"
     {failure}
