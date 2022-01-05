@@ -39,6 +39,7 @@ depopts: [
 ]
 conflicts: [
   "msat" { < "0.5" }
+  "menhir" { >= "20211215"}
 ]
 available: os != "win32"
 synopsis: "Logic Toolkit"
