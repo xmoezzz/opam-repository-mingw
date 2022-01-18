@@ -16,6 +16,9 @@ build: [
     "cc -c $CFLAGS -I/opt/homebrew/include -I/opt/local/include -I/usr/local/include test.c"
   ] {os = "macos"}
 ]
+depends: [
+  "ocaml" {build}
+]
 depexts: [
   ["libgmp-dev"] {os-family = "debian"}
   ["libgmp-dev"] {os-family = "ubuntu"}
@@ -28,7 +31,7 @@ depexts: [
   ["gmp"] {os = "freebsd"}
   ["gmp-dev"] {os-distribution = "alpine"}
   ["gmp-devel"] {os-family = "suse"}
-  ["mingw64-x86_64-gmp"] {os = "win32" & os-distribution = "cygwinports"}
+  ["gmp"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 synopsis: "Virtual package relying on a GMP lib system installation"
 description:
