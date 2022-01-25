@@ -22,6 +22,10 @@ depends: [
   "conf-libssl"
 ]
 patches: "patch-ocamlmakefile-ssl.0.5.2" {os = "win32"}
+conflicts: [
+  "base-nnp"
+  "ocaml-option-nppchecker"
+]
 synopsis: "Bindings for OpenSSL"
 authors: "Samuel Mimram <samuel.mimram@ens-lyon.org>"
 flags: light-uninstall
