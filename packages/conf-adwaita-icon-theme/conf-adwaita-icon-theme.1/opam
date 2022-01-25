@@ -23,7 +23,6 @@ depexts: [
   [ "adwaita-icon-theme" ] {os-family = "macports"}
   [ "adwaita-icon-theme" ] {os-family = "alpine"}
   [ "adwaita-icon-theme" ] {os-family = "arch" | os-family = "archlinux"}
-  [ "adwaita-icon-theme" ] {os = "win32" & os-distribution = "cygwinports"}
   [ "x11-themes/adwaita-icon-theme" ] {os-family = "gentoo"}
   [ "adwaita-icon-theme" ] {os = "freebsd"}
   [ "x11/gnome/adwaita-icon-theme" ] {os = "openbsd"}
