@@ -43,3 +43,4 @@ Down is distributed under the ISC license.
 Homepage: http://erratique.ch/software/down
 
 [ocp-index]: https://github.com/OCamlPro/ocp-index"""
+available: os != "win32"
