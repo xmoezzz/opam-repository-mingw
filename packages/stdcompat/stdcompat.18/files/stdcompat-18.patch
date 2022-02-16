@@ -1,0 +1,31 @@
+--- ./Makefile.am
++++ ./Makefile.am
+@@ -185,7 +185,9 @@
+ 	stdcompat.cmxa stdcompat__native.ml dllstdcompat__stubs.so \
+ 	stdcompat.cmxs $(STDCOMPAT_TESTS_EXE) $(bin_SCRIPTS) .depend
+ 
++EXT_DLL:=$(shell ocamlc -config | awk -F '[\t\r ]+' '/^ext_dll:/ {print $$2}')
++
+ install-exec-hook :
+ 	$(MKDIR_P) $(DESTDIR)$(libdir)/stublibs
+-	$(INSTALL_PROGRAM) dllstdcompat__stubs.so $(DESTDIR)$(libdir)/stublibs
+-	echo stdcompat >$(DESTDIR)$(libdir)/stublibs/dllstdcompat__stubs.so.owner
++	$(INSTALL_PROGRAM) dllstdcompat__stubs$(EXT_DLL) $(DESTDIR)$(libdir)/stublibs
++	echo stdcompat >$(DESTDIR)$(libdir)/stublibs/dllstdcompat__stubs$(EXT_DLL).owner
+--- ./Makefile.in
++++ ./Makefile.in
+@@ -1782,10 +1782,12 @@
+ 
+ @INCLUDE_DEPEND@
+ 
++EXT_DLL:=$(shell ocamlc -config | awk -F '[\t\r ]+' '/^ext_dll:/ {print $$2}')
++
+ install-exec-hook :
+ 	$(MKDIR_P) $(DESTDIR)$(libdir)/stublibs
+-	$(INSTALL_PROGRAM) dllstdcompat__stubs.so $(DESTDIR)$(libdir)/stublibs
+-	echo stdcompat >$(DESTDIR)$(libdir)/stublibs/dllstdcompat__stubs.so.owner
++	$(INSTALL_PROGRAM) dllstdcompat__stubs$(EXT_DLL) $(DESTDIR)$(libdir)/stublibs
++	echo stdcompat >$(DESTDIR)$(libdir)/stublibs/dllstdcompat__stubs$(EXT_DLL).owner
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
