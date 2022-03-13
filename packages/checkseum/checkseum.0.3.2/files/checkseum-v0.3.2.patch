@@ -1,0 +1,11 @@
+--- ./freestanding/Makefile
++++ ./freestanding/Makefile
+@@ -2,7 +2,7 @@
+ PKG_CONFIG_PATH ?= $(shell opam var prefix)/lib/pkgconfig
+ endif
+ 
+-EXISTS := $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) pkg-config --exists ocaml-freestanding; echo $$?)
++EXISTS := $(shell PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)" pkg-config --exists ocaml-freestanding; echo $$?)
+ 
+ .PHONY: all clean
+ all: libcheckseum_freestanding_stubs.a
