@@ -1,0 +1,20 @@
+--- ./freestanding/Makefile
++++ ./freestanding/Makefile
+@@ -2,7 +2,7 @@
+ 	PKG_CONFIG_PATH ?= $(shell opam var prefix)/lib/pkgconfig
+ endif
+ 
+-EXISTS := $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) pkg-config --exists ocaml-freestanding; echo $$?)
++EXISTS := $(shell PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)" pkg-config --exists ocaml-freestanding; echo $$?)
+ 
+ .PHONY: all clean
+ all: libtcpip_freestanding_stubs.a
+@@ -12,7 +12,7 @@
+ 	touch $@
+ else
+ CC ?= cc
+-FREESTANDING_CFLAGS := $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) pkg-config --cflags ocaml-freestanding)
++FREESTANDING_CFLAGS := $(shell PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)" pkg-config --cflags ocaml-freestanding)
+ CFLAGS := $(FREESTANDING_CFLAGS)
+ 
+ OBJS=checksum_stubs.o
