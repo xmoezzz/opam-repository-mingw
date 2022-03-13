@@ -6,7 +6,6 @@ doc: "https://issuu.github.io/uap-ocaml/"
 dev-repo: "git+https://github.com/issuu/uap-ocaml.git"
 bug-reports: "https://github.com/issuu/uap-ocaml/issues"
 build: [["dune" "build" "-p" name "-j" jobs]]
-run-test: [["dune" "runtest" "-p" name "-j" jobs]]
 depends: [
   "alcotest" {with-test & >= "0.8.3"}
   "base" {>= "v0.11"}
@@ -32,3 +31,4 @@ url {
     "sha512=d8e3fa10ef6d95ea3d176aa0c5d43c5ab7f54ff5f8d7ae4f543a19221a79e554e65d1078e7663be6214af4a6b165620735639d8dec1fc8e70158455784ec039d"
   ]
 }
+patches: "user-agent-parser-0.2.0.patch" {os = "win32"}

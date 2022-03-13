@@ -1,0 +1,27 @@
+--- ./src/dune
++++ ./src/dune
+@@ -3,21 +3,21 @@
+   (deps %{project_root}/uap-core/regexes.yaml)
+   (action
+     (with-stdout-to %{targets}
+-    (system "sed -e '/^os_parsers:/,$d' %{deps}"))))
++    (bash "sed -e '/^os_parsers:/,$d' %{deps}"))))
+ 
+ (rule
+   (targets os_regexes.yaml)
+   (deps %{project_root}/uap-core/regexes.yaml)
+   (action
+     (with-stdout-to %{targets}
+-    (system "sed -n '/^os_parsers:/,/^device_parsers:/p' %{deps} | sed '/^device_parsers:/d'"))))
++    (bash "sed -n '/^os_parsers:/,/^device_parsers:/p' %{deps} | sed '/^device_parsers:/d'"))))
+ 
+ (rule
+   (targets device_regexes.yaml)
+   (deps %{project_root}/uap-core/regexes.yaml)
+   (action
+     (with-stdout-to %{targets}
+-    (system "sed -n '/^device_parsers:/,$p' %{deps}"))))
++    (bash "sed -n '/^device_parsers:/,$p' %{deps}"))))
+ 
+ (rule
+   (targets user_agent_regexes.ml)
