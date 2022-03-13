@@ -8,7 +8,7 @@ build: [
   [
 		"sh"
 		"-exc"
-		"$(ocamlc -config-var c_compiler) -c $CFLAGS -I/usr/local/include test.c"
+               "$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {for(i=2;i<=NF;i++) printf \"%s \", $i}') -c $CFLAGS test.c"
 	] {os = "win32" & os-distribution = "cygwinports"}
   [
     "sh"
