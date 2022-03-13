@@ -8,6 +8,8 @@ bug-reports: "https://github.com/reasonml/reason/issues"
 dev-repo: "git://github.com/reasonml/reason.git"
 tags: [ "syntax" ]
 build: [
+  # try to avoid MAX_PATH limit of 260
+  ["sh" "-ecx" "mv ./src/vendored-ocaml-migrate-parsetree-* ./src/o"] {os = "win32"}
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
