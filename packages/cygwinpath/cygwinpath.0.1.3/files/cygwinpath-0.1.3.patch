@@ -1,0 +1,29 @@
+--- ./src/win32.c
++++ ./src/win32.c
+@@ -27,7 +27,7 @@
+ #include <caml/fail.h>
+ 
+ static void
+-sys_error(LONG code, char *path) {
++sys_error(LONG code, const char *path) {
+   static char buffer[256];
+   int len;
+ 
+@@ -46,7 +46,7 @@
+ cygwin2godi_get_file_system_attribute(value path)
+ {
+     DWORD code;
+-    char *p;
++    const char *p;
+ 
+     p = String_val(path);
+     code = GetFileAttributes(p);
+@@ -73,7 +73,7 @@
+     return (Val_int(0));
+   }
+   ostr = caml_alloc_string(ansi_len-1);
+-  ansi_len = WideCharToMultiByte(CP_ACP,0,ws,-1,String_val(ostr),
++  ansi_len = WideCharToMultiByte(CP_ACP,0,ws,-1,(char*)String_val(ostr),
+                                  ansi_len,NULL,NULL);
+   if ( ansi_len == 0 ){
+     return (Val_int(0));
