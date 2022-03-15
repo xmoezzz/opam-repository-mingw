@@ -31,13 +31,18 @@ build: [
   ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "config/Makefile"]
 ]
 install: [make "-f" "Makefile.nt" "flexdll" "world.opt" "install"]
-patches: "raw"
+patches: ["ocaml-4.04.0.patch" "inline-flexdll.patch"]
 url {
   src: "https://github.com/ocaml/ocaml/archive/4.04.0.tar.gz"
   checksum: "md5=dbf5f869bf0621d2922547b671b36566"
 }
-extra-source "raw" {
+extra-source "ocaml-4.04.0.patch" {
   src:
-    "https://gist.githubusercontent.com/fdopen/858f355db416335e06c10d7ad7be68b2/raw"
-  checksum: "md5=fa0f31f0a4b87e4b5da944c04657e7b5"
+    "https://gist.githubusercontent.com/fdopen/1bb0037e0f322856a143e4aa04317124/raw/3d87d28239fabfbba9ea5caae93c72a0796b02c1/ocaml-4.04.0.patch"
+  checksum: "sha512=cb8d9ff1434a3a36a7e3590089bf415796120173fe3af6103271e5009e8700e6fc499cf326a7b77402b80572043f1d29e2029f484eda45e1ddc6beb86bf89a75"
+}
+extra-source "inline-flexdll.patch" {
+  src:
+    "https://gist.githubusercontent.com/fdopen/afe3140904cc975cc9d2e4992e13d547/raw/3d8b647eb196a3174e6c6105881e5d6a4b8fa166/inline-flexdll.patch"
+  checksum: "sha512=1a5abdad64f222d7f6f201cdbc0c568c63892cf46fa587882d105e1c3e6f1ddae5e301460e0d6022ca73edfbe8cbc7baf9310930bafba50aedfe304031dc4496"
 }
