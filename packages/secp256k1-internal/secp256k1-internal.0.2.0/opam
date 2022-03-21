@@ -23,7 +23,7 @@ depends: [
   "alcotest" {with-test}
 ]
 
-available: arch != "s390x"
+available: arch != "s390x" & os != "win32"
 
 url {
   src: "https://gitlab.com/nomadic-labs/ocaml-secp256k1-internal/-/archive/v0.2/ocaml-secp256k1-internal-v0.2.tar.bz2"
@@ -32,4 +32,3 @@ url {
     "sha512=607b8c9d6514421f9fd042a883531d613eb2cb2c2c5bb38d038d930454081dbd707f5b318de6b0c981675ecf6ca56d1eec06b8afbabc293c7600e86b1578cf2d"
   ]
 }
-available: os != "win32"
