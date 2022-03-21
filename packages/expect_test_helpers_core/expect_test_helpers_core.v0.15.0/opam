@@ -7,6 +7,7 @@ dev-repo: "git+https://github.com/janestreet/expect_test_helpers_core.git"
 doc: "https://ocaml.janestreet.com/ocaml-core/latest/doc/expect_test_helpers_core/index.html"
 license: "MIT"
 build: [
+  ["mv" "expect_test_helpers_base" "e"] { os = "win32" }
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
