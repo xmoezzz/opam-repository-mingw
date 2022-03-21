@@ -19,6 +19,7 @@ depends: [
 conflicts: "solo5-kernel-ukvm"
 available:
   (arch = "x86_64" | arch = "x86_64") & os != "macos" & os != "win32"
+flags: deprecated
 patches: [ "solo5-no-werror.diff" ]
 synopsis: "Solo5 unikernel base (virtio target)"
 description: """
