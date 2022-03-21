@@ -7,6 +7,9 @@ dev-repo: "git+https://github.com/janestreet/async_kernel.git"
 doc: "https://ocaml.janestreet.com/ocaml-core/latest/doc/async_kernel/index.html"
 license: "MIT"
 build: [
+  ["mv" "persistent_connection_kernel" "pck"] { os = "win32" }
+  ["mv" "laziness_preserving_deferred" "lpd"] { os = "win32" }
+  ["mv" "weak_hashtbl_async" "wha"] { os = "win32" }
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
