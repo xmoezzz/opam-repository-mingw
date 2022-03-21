@@ -164,7 +164,7 @@
  UNAVAILABLE_PRIM(unix_closedir)
  
  UNAVAILABLE_PRIM(unix_getppid)
-+#if (OCAML_VERSION < 40300)
++#if (OCAML_VERSION < 40600)
  UNAVAILABLE_PRIM(unix_isatty)
 +#endif 
  UNAVAILABLE_PRIM(unix_opendir)
