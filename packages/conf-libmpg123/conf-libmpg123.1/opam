@@ -22,6 +22,7 @@ depexts: [
   ["mpg123"] {os = "netbsd"}
   ["mpg123"] {os = "macos" & os-distribution = "homebrew"}
   ["mpg123"] {os = "macos" & os-distribution = "macports"}
+  ["mpg123"] {os = "win32" & os-distribution = "cygwinports"}
 ]
 synopsis: "Virtual package relying on libmpg123"
 description:
