@@ -1,0 +1,10 @@
+--- ./Makefile
++++ ./Makefile
+@@ -8,6 +8,7 @@
+ ENT=head -c 1000000 | ent
+ 
+ include $(shell $(OCAMLC) -where)/Makefile.config
++SO=dll
+ 
+ all: PRNG.cmxa PRNG.cma
+ 
