@@ -17,10 +17,8 @@ depends: [
   "conf-g++"    {build}
   "dune"        {>= "2.0.0"}
 ]
-available: arch != "arm32"
+available: arch != "arm32" & os != "win32"
 synopsis: "OCaml bindings for RE2, Google's regular expression library"
-description: "
-"
 url {
 src: "https://ocaml.janestreet.com/ocaml-core/v0.15/files/re2-v0.15.0.tar.gz"
 checksum: "sha256=1815db47f3c01683df31037bb388c3514c65392fdd5604162e52682842c7ed7c"
