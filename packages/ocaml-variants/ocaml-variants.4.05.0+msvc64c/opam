@@ -25,6 +25,6 @@ build: [
 install: ["dash.exe" "install.sh" prefix]
 url {
   src:
-    "https://github.com/fdopen/ocaml/releases/download/4.05.0-0/4.05.0+msvc64c.tar.xz"
-  checksum: "md5=1b14e9304ca3db2a1351a9fc652f6645"
+    "https://github.com/fdopen/ocaml/releases/download/4.05.0-2/4.05.0+msvc64c2.tar.xz"
+  checksum: "sha512=90cadf33e25dfbf95364a20abb8ed8a8cf271f257978d3944751c505d32ed290dc8d240fa8c0ac1c6507cbe529e12d09d51af180428102b959031166ad8ebca2"
 }

@@ -41,6 +41,6 @@ url {
 }
 extra-source "raw" {
   src:
-    "https://gist.githubusercontent.com/fdopen/174b8862767e32b2e5dec253bb750873/raw/6784cb950ce72e1c40aa75d20254c35e60f628c9/ocaml-4.04.0.patch"
-  checksum: "sha512=87dbc008f35a3c0c882d55b760a6b726ec5bf093a2a779826de04c8a3d9875f2755a3b1f23e984923b0799d554bdc65c072c4e88589b73c918bea420500f9171"
+    "https://gist.githubusercontent.com/fdopen/e0977bdbbe8412a4c2dcde27fe63b50e/raw/c3afb46f7e0504d4c23a9651a8dc3f24ec20361c/ocaml-4.04.0.patch"
+  checksum: "sha512=6f104ec64a1395223fac4e5e395ee242ca3f55fb89e35a99e7b002ecd096bd222d681ecb2a5555eb1e9e6e7ff76f7f3720984a483ca10361cc93307dd2bf9756"
 }

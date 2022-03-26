@@ -33,8 +33,8 @@ url {
 }
 extra-source "ocaml-4.08.0+rc1.patch" {
   src:
-    "https://gist.githubusercontent.com/fdopen/37021ae0453e47e105713db092765d77/raw/209c97744aab4567fe22d1cbbd2f19e181bd05ee/ocaml-4.08.0+rc1.patch"
-  checksum: "sha512=4a5a56258437c7b0db14c2ce942b1082aa9951586f35489c3fe1b61bc8aaf0b6dc333912090a07a4d849a8d6eb1317a73b5027459f05c35fba425296439db815"
+    "https://gist.githubusercontent.com/fdopen/5af582282bc55744ea576b0321365c20/raw/2ebd4e26b277716bef8ba8ce31d1b6cf2adb9131/ocaml-4.08.0+rc1.patch"
+  checksum: "sha512=2e7f3ca06a399da16a8abc8655b3d70b11f8188b0e931ac98d6badc48a8bead75a47fbdc0ad8e5da12d2e9f8547e8d56462c7c3207ec4e76888f7c1a7f9eeead"
 }
 extra-source "inline-flexdll.patch" {
   src:
