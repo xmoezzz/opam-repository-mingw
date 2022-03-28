@@ -1,0 +1,31 @@
+opam-version: "2.0"
+synopsis: "Pre-compiled 4.14.0 release with flambda activated (mingw64)"
+maintainer: "platform@lists.ocaml.org"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://ocaml.org"
+bug-reports: "https://github.com/fdopen/opam-repository-mingw/issues"
+dev-repo: "git+https://github.com/ocaml/ocaml"
+depends: [
+  "ocaml" {= "4.14.0" & post}
+  "base-unix" {post}
+  "base-bigarray" {post}
+  "base-threads" {post}
+]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: [
+  [OCAMLLIB = "%{prefix}%/lib/ocaml"]
+  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
+  [CC = "x86_64-w64-mingw32-gcc.exe"]
+  [CPP = "x86_64-w64-mingw32-cpp.exe"]
+]
+build: [
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/ld.conf"]
+  ["sed" "-i" "s#@PREFIX@#%{prefix}%#g" "lib/ocaml/Makefile.config"]
+]
+install: ["dash.exe" "install.sh" prefix]
+url {
+  src:
+    "https://github.com/fdopen/ocaml/releases/download/4.14.0-0/4.14.0+flambda+mingw64c.tar.xz"
+  checksum: "sha512=a6fc46e9174613cb60992089e1ec48263ef4ef543a1201ce09e2ee491daf9c39c110669b974d0bcc95947a8cfa71c47fd9cde1c506451de0ac8d622404b88d9f"
+}
