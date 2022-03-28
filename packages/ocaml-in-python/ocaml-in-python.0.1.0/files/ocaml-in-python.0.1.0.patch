@@ -1,0 +1,126 @@
+--- ./ocaml/__init__.py
++++ ./ocaml/__init__.py
+@@ -247,7 +247,7 @@
+ 
+ def __initialize_ocaml():
+     curdir = os.path.dirname(os.path.realpath(__file__))
+-    dll = ctypes.PyDLL(f"{curdir}/ocaml_in_python.so", ctypes.RTLD_GLOBAL)
++    dll = ctypes.PyDLL(f"{curdir}/ocaml_in_python.dll", ctypes.RTLD_GLOBAL)
+     argv_t = ctypes.c_char_p * 2
+     argv = argv_t("python".encode('utf-8'), None)
+     dll.caml_startup(argv)
+--- ./ocaml/dune
++++ ./ocaml/dune
+@@ -10,11 +10,11 @@
+   (section share_root)
+   (files
+     (__init__.py as python/ocaml/__init__.py)
+-    (ocaml_in_python.so as python/ocaml/ocaml_in_python.so)))
++    (ocaml_in_python.dll as python/ocaml/ocaml_in_python.dll)))
+ 
+ (install
+   (section lib)
+   (files
+     pyproject.toml setup.cfg
+     (__init__.py as ocaml/__init__.py)
+-    (ocaml_in_python.so as ocaml/ocaml_in_python.so)))
++    (ocaml_in_python.dll as ocaml/ocaml_in_python.dll)))
+--- ./tests/aliases/dune
++++ ./tests/aliases/dune
+@@ -2,7 +2,7 @@
+   (alias runtest)
+   (deps
+      aliases.py
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/dict/dune
++++ ./tests/dict/dune
+@@ -4,7 +4,7 @@
+ (rule
+   (alias runtest)
+   (deps dict.py dict.cmxs
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/examples/dune
++++ ./tests/examples/dune
+@@ -8,7 +8,7 @@
+   (deps
+      examples.py
+ ;    examples.cmxs
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/exceptions/dune
++++ ./tests/exceptions/dune
+@@ -4,7 +4,7 @@
+ (rule
+   (alias runtest)
+   (deps exceptions.py exceptions.cmxs
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/extension_constructors/dune
++++ ./tests/extension_constructors/dune
+@@ -5,7 +5,7 @@
+   (alias runtest)
+   (deps extension_constructors.py extension_constructors_3_10.py
+      extension_constructors.cmxs
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/irregular/dune
++++ ./tests/irregular/dune
+@@ -4,7 +4,7 @@
+ (rule
+   (alias runtest)
+   (deps irregular.py irregular.cmxs
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/nested_modules/dune
++++ ./tests/nested_modules/dune
+@@ -4,7 +4,7 @@
+ (rule
+   (alias runtest)
+   (deps nested_modules.py nested_modules.cmxs
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/simple/dune
++++ ./tests/simple/dune
+@@ -4,7 +4,7 @@
+ (rule
+   (alias runtest)
+   (deps simple.py simple_3_10.py simple.cmxs
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
+--- ./tests/stdlib/dune
++++ ./tests/stdlib/dune
+@@ -1,7 +1,7 @@
+ (rule
+   (alias runtest)
+   (deps stdlib.py
+-     ../../ocaml/ocaml_in_python.so
++     ../../ocaml/ocaml_in_python.dll
+      ../../ocaml/__init__.py)
+   (action
+    (setenv PYTHONPATH %{workspace_root}:%{env:PYTHONPATH=}
