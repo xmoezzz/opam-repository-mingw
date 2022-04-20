@@ -12,8 +12,10 @@ depends: [
 patches: [ "tests_in-packages.patch" ]
 build: [
   ["rm" "-r" "vendors"]
+  ["mv" "src/lib_protocol_environment" "src/lpe"] {os = "win32"}
   ["dune" "build" "-p" name "-j" jobs]
-  ["mv" "src/lib_protocol_environment/%{name}%.install" "./"]
+  ["mv" "src/lpe/%{name}%.install" "./"] {os = "win32"}
+  ["mv" "src/lib_protocol_environment/%{name}%.install" "./"] {os != "win32"}
   ["dune" "runtest" "-p" name "-j" jobs] {with-test}
 ]
 synopsis: "Tezos: sigs/structs packer for economic protocol environment"
