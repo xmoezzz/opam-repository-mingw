@@ -13,8 +13,10 @@ depends: [
 ]
 build: [
   ["rm" "-r" "vendors"]
+  ["mv" "src/lib_event_logging" "src/lel"] {os = "win32"}
   ["dune" "build" "-p" name "-j" jobs]
-  ["mv" "src/lib_event_logging/test_helpers/%{name}%.install" "./"]
+  ["mv" "src/lel/test_helpers/%{name}%.install" "./"] {os = "win32"}
+  ["mv" "src/lib_event_logging/test_helpers/%{name}%.install" "./"] {os != "win32"}
   ["dune" "runtest" "-p" name "-j" jobs] {with-test}
 ]
 synopsis: "Tezos: test helpers for the event logging library"
