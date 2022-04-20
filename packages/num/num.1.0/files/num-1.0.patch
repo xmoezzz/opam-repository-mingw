@@ -1,6 +1,6 @@
 --- ./src/Makefile
 +++ ./src/Makefile
-@@ -74,12 +74,12 @@
+@@ -74,13 +74,13 @@
  
  TOINSTALL=nums.cma libnums.$(A) $(CMIS) $(CMIS:.cmi=.mli) $(CMIS:.cmi=.cmti)
  ifneq "$(ARCH)" "none"
@@ -10,13 +10,14 @@
  ifeq "$(NATDYNLINK)" "true"
  TOINSTALL+=nums.cmxs
  endif
+ ifeq "$(SUPPORTS_SHARED_LIBRARIES)" "true"
 -TOINSTALL_STUBS=dllnums.$(SO)
 +TOINSTALL_STUBS=dllnums$(EXT_DLL)
- 
- install:
- 	$(OCAMLFIND) install num META
-@@ -96,7 +96,7 @@
- 	$(OCAMLFIND) remove num
+ else
+ TOINSTALL_STUBS=
+ endif
+@@ -109,7 +109,7 @@
+ endif
  
  clean:
 -	rm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *.$(SO)
