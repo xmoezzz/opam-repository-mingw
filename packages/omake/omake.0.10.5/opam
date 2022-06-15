@@ -12,6 +12,8 @@ homepage: "http://projects.camlcity.org/projects/omake.html"
 bug-reports: "https://github.com/ocaml-omake/issues"
 
 build: [
+  ["ocamlfind" "ocamlopt" "-linkpkg" "-package" "str,cygwinpath" "ohelper.ml" "-o" "omake-mmtranslate.exe"] { os = "win32" }
+  ["install" "-m" "0755" "omake-mmtranslate.exe" "%{bin}%/omake-mmtranslate.exe"] { os = "win32" }
   ["./configure" "-prefix" "%{prefix}%"]
   [make]
 ]
@@ -29,6 +31,7 @@ remove: [
 depends: [
   "ocaml" {>= "4.03.0"}
   "ocamlfind"
+  "cygwinpath" {build & os = "win32"}
 ]
 conflicts: [ "base-effects" ]
 synopsis: "Build system designed for scalability and portability"
@@ -41,3 +44,4 @@ url {
   ]
   mirrors: "http://download2.camlcity.org/download/omake-0.10.5.tar.gz"
 }
+patches: "omake-0.10.5.patch" {os = "win32"}
