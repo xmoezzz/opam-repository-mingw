@@ -38,6 +38,7 @@ depopts: [
 conflicts: [
   "bencode" {>= "2.0"}
   "ppx_deriving" {< "2.0" | >= "5.0"}
+  "yojson" {>= "2.0.0"}
 ]
 patches: "patch-oasis-cconv.0.4" {os = "win32"}
 synopsis:
