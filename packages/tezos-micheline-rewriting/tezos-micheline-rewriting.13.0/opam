@@ -18,8 +18,10 @@ depends: [
 ]
 build: [
   ["rm" "-r" "vendors"]
+  ["mv" "src/lib_benchmark/lib_micheline_rewriting" "src/lib_benchmark/lmr"] { os = "win32" }
   ["dune" "build" "-p" name "-j" jobs]
-  ["mv" "src/lib_benchmark/lib_micheline_rewriting/%{name}%.install" "./"]
+  ["mv" "src/lib_benchmark/lib_micheline_rewriting/%{name}%.install" "./"] { os != "win32" }
+  ["mv" "src/lib_benchmark/lmr/%{name}%.install" "./"] { os = "win32" }
   ["dune" "runtest" "-p" name "-j" jobs] {with-test}
 ]
 synopsis: "Tezos: library for rewriting Micheline expressions"
