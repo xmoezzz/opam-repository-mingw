@@ -6,8 +6,8 @@ bug-reports:  "https://github.com/thvnx/mlmpfr/issues"
 license:      "LGPL-3.0-only"
 dev-repo:     "git+https://github.com/thvnx/mlmpfr.git"
 build: [
-  ["cc" "mlmpfr_compatibility_test.c" "-lmpfr" "-o" "mlmpfr_compatibility_test"]
-  ["./mlmpfr_compatibility_test"]
+  ["cc" "mlmpfr_compatibility_test.c" "-lmpfr" "-o" "mlmpfr_compatibility_test"]  {os != win32}
+  ["./mlmpfr_compatibility_test"]  {os != win32}
   ["dune" "subst"] {dev}
   ["dune" "build" "-p" name "-j" jobs]
 ]
