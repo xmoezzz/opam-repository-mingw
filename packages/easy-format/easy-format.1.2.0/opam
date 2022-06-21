@@ -12,7 +12,10 @@ install: [
   [make "install"]
 ]
 remove: [["ocamlfind" "remove" "easy-format"]]
-depends: ["ocaml" "ocamlfind"]
+depends: [
+  "ocaml" {< "5.0"}
+  "ocamlfind"
+]
 patches: "easy-format-1.2.0.patch" {os = "win32"}
 synopsis:
   "High-level and functional interface to the Format module of the OCaml standard library"
