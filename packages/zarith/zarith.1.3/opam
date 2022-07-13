@@ -16,7 +16,7 @@ build: [
 install: [make "install"]
 remove:  ["ocamlfind" "remove" "zarith"]
 depends: [
-  "ocaml"
+  "ocaml" {< "5.0"}
   "ocamlfind"
   "conf-gmp"
   "conf-perl" {build}
