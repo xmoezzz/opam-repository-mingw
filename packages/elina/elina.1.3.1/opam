@@ -36,8 +36,7 @@ depends: [
   "apron"
 ]
 flags: light-uninstall
-available: arch = "x86_32" | arch = "x86_64"
-
+available: (arch = "x86_32" | arch = "x86_64") & os != "win32"
 synopsis: "ETH LIBRARY FOR NUMERICAL ANALYSIS"
 description: """
 ELINA contains optimized implementations of popular numerical abstract
