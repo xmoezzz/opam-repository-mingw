@@ -20,7 +20,7 @@ build it.
 
 The design is based on Haskell's Cabal and borrows most of the layout
 and way of working, adapting parts where necessary to fully support OCaml."""
-depends: ["ocaml"]
+depends: ["ocaml" {< "5.0"}]
 extra-files: [
   "obuild-obuild-v0.1.10.patch" "md5=02c292c9410c8755760027f0d0fb152c"
 ]
