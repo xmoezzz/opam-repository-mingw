@@ -174,7 +174,6 @@ be able to use any HTTPS feature. You might want to install one of ssl or
 osx-secure-transport package."""
     {success & !ssl-enabled & !secure-transport-enabled}
 ]
-depexts: ["coreutils"] {os = "macos" & os-distribution = "homebrew"}
 dev-repo: "git+https://github.com/savonet/liquidsoap.git"
 url {
   src:
@@ -184,3 +183,4 @@ url {
     "sha512=20576c69fccadd96eb0fcb32ceb4f71fadf5b4b6ae85940915a35dd4b236c362918f7183bc64084ce00d6ae1929d031240102ca89ff2acf438219aceeef17535"
   ]
 }
+patches: "liquidsoap-2.1.0.patch" {os = "win32"}
