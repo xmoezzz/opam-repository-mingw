@@ -9,13 +9,16 @@ depexts: [
   ["python3-distutils"] {os-family = "debian"}
 ]
 build: [
-  [ "python3" "scripts/mk_make.py" "--ml" ]
+  [ "python3" "scripts/mk_make.py" "--ml" ]  {os != "win32"}
+  [ "sh" "-ecx" "env AR=\"$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}' | sed 's|gcc|ar|g').exe\" CXX=\"$(ocamlc -config | awk -F '[\t\r ]+' '/^bytecomp_c_compiler/ {print $2}' | sed 's|gcc|g++|g').exe\" python3 scripts/mk_make.py --ml" ] {os = "win32"}
   [ make "-C" "build" "-j" jobs ]
 ]
 
 install: [
-  [ "sh" "-c" "ocamlfind install z3 build/api/ml/* -dll build/libz3.*"]
+  [ "sh" "-c" "ocamlfind install z3 build/api/ml/* -dll build/libz3.*"] {os != "win32"}
+  [ "sh" "-c" "ocamlfind install z3 build/api/ml/META build/libz3.dll.a build/api/ml/*" ] {os = "win32"}
   [ "cp" "build/z3" "%{bin}%/z3"]
+  [ "install" "-m" "755" "build/libz3.dll" bin ] {os = "win32"}
 ]
 
 depends: [
@@ -45,3 +48,4 @@ url {
     "sha512=6c8e9f074d4b87f9388384d10dcde51fbdf0e1ee58cf2a5d321e3779ac5054a0ec7bfed3df4f8d3563c457ca7f5189ca310909656e500b6a8803f0df2c693baf"
   ]
 }
+patches: "z3-z3-4.10.1.patch" {os = "win32"}
