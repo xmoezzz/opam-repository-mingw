@@ -28,7 +28,6 @@ depends: [
   "result" {with-test}
   "ounit" {with-test}
 ]
-available: opam-version >= "1.2"
 patches: "patch-topkg-wquote-ppx_deriving_argparse.0.0.5" {os = "win32"}
 synopsis: "Very simple ppx deriver of command line parser for Ocaml >=4.02"
 description:

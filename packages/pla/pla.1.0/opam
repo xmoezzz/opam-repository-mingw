@@ -19,7 +19,6 @@ depends: [
   "cppo" {build}
   "cppo_ocamlbuild" {build}
 ]
-available: opam-version >= "1.2"
 patches: "patch-oasis-pla.1.0" {os = "win32"}
 synopsis: "Ppx templating library using verbatim strings."
 description:

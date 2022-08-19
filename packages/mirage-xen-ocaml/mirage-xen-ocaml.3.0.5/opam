@@ -16,7 +16,7 @@ depends: [
   "ocaml-src"
   "ocamlbuild" {build}
 ]
-available: os = "linux"
+available: false
 synopsis: "MirageOS headers for the OCaml runtime"
 description:
   "The package contains the OCaml runtime patches and build system."

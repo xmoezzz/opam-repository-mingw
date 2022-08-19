@@ -22,7 +22,6 @@ depends: [
   "ocamlbuild" {build}
   "ppx_deriving_protobuf"
 ]
-available: opam-version >= "1.2"
 patches: "ocaml-protoc-1.2.0.patch" {os = "win32"}
 synopsis: "A Protobuf Compiler for OCaml"
 description:

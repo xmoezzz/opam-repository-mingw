@@ -16,7 +16,7 @@ depends: [
   "webidl" {>= "1.3"}
   "yojson" {>= "1.4.0"}
 ]
-available: opam-version >= "1.2" & os != "win32"
+available: os != "win32"
 synopsis: "generate bucklescript code from Javascript type specifications"
 description: """
 * generate bucklescript code from Web IDL

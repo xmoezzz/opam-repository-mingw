@@ -36,7 +36,6 @@ depends: [
   "result"
   "ounit" {with-test}
 ]
-available: opam-version >= "1.2"
 patches: "ppx_deriving-4.2.1.patch" {os = "win32"}
 synopsis: "Type-driven code generation for OCaml >=4.02"
 description: """
