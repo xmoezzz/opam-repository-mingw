@@ -1,0 +1,17 @@
+--- ./dune
++++ ./dune
+@@ -128,7 +128,7 @@
+   Makefile.am
+   VERSION
+   configure.ac)
+- (action (run %{bin:autoreconf} --force --install --verbose)))
++ (action (run sh %{bin:autoreconf} --force --install --verbose)))
+ 
+ (rule
+  (targets
+@@ -491,4 +491,4 @@
+   stdcompat__weak.mli.in
+   stdcompat__weak_s.mli.in
+   stdcompat_tests.ml.in)
+-  (action (run %{configure})))
++  (action (run sh %{configure})))
