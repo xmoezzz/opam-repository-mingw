@@ -18,6 +18,7 @@ depends: [
   "odoc" {with-doc}
 ]
 depopts: ["lwt"]
+available: os = "linux"
 build: [
   ["dune" "subst"] {dev}
   [
@@ -42,4 +43,3 @@ url {
     "sha512=d164ab997517008671fdd60ab219cf1539f75928334838f416e31799a2c5198a97eb9d795225c3bb40cc41ac8431022c26b7c8b78ad2d45673158a5e2e554997"
   ]
 }
-available: os != "win32"
