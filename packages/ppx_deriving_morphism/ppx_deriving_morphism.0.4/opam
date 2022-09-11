@@ -31,7 +31,7 @@ depends: [
   "cppo_ocamlbuild" {build}
   "result"
   "ounit" {with-test}
-  "ppx_import" {with-test}
+  "ppx_import" {with-test & < "2.0"}
 ]
 patches: [
   "ppx_deriving_morphism-0.4.patch" {os = "win32"}

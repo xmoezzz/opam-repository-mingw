@@ -23,7 +23,7 @@ depends: [
   "cppo" {build}
   "cppo_ocamlbuild" {build}
   "alcotest" {with-test}
-  "ppx_import" {with-test & >= "1.1"}
+  "ppx_import" {with-test & >= "1.1" & < "2.0"}
 ]
 patches: "patch-topkg-quote-ppx_deriving_cmdliner.0.2.0" {os = "win32"}
 synopsis: "Cmdliner.Term.t generator"
