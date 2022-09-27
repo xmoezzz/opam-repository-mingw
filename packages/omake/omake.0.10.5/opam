@@ -29,7 +29,7 @@ remove: [
 ]
 
 depends: [
-  "ocaml" {>= "4.03.0"}
+  "ocaml" {>= "4.03.0" & < "5.0"}
   "ocamlfind"
   "cygwinpath" {build & os = "win32"}
 ]
