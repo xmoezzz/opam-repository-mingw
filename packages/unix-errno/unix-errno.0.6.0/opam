@@ -30,6 +30,7 @@ build: [
   ["dune" "build" "-p" name "-j" jobs]
   ["dune" "build" "-p" name "-j" jobs "@runtest"] {with-test}
 ]
+available: arch != "arm32" & os != "win32"
 dev-repo: "git+https://github.com/xapi-project/ocaml-unix-errno.git"
 url {
   src:
@@ -40,4 +41,3 @@ url {
   ]
 }
 x-commit-hash: "170b9aaef6143ef1b3b6b99d1d17078c58b9863a"
-available: os != "win32"
