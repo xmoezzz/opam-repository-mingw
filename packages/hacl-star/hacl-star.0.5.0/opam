@@ -17,7 +17,7 @@ depends: [
   "cppo" {build}
   "odoc" {with-doc}
 ]
-available: os = "freebsd" | os-family != "bsd"
+available: (os = "freebsd" | os-family != "bsd") & os != "win32"
 build: [
   ["dune" "subst"] {dev}
   [
