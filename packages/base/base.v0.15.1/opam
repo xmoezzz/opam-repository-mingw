@@ -34,3 +34,4 @@ url {
 src: "https://github.com/janestreet/base/archive/refs/tags/v0.15.1.tar.gz"
 checksum: "sha256=755e303171ea267e3ba5af7aa8ea27537f3394d97c77d340b10f806d6ef61a14"
 }
+patches: "base-0.15.1.patch" {os = "win32"}
