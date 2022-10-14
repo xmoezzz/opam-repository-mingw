@@ -46,3 +46,4 @@ url {
 src: "https://github.com/janestreet/core/archive/refs/tags/v0.15.1.tar.gz"
 checksum: "sha256=6f7bbdda1d97f2f542a45331f062127dd5264d6ed73ece7b2c6b330785dfc991"
 }
+patches: "core-0.15.1.patch" {os = "win32"}
