@@ -33,3 +33,4 @@ url {
 src: "https://github.com/ocaml/opam-source-archives/raw/main/core_unix-v0.15.1.tar.gz"
 checksum: "sha256=b467c7c64616d5cc88f42f9660b447247e7a848148336e0ad0de6bd35edce9b3"
 }
+available: os != "win32"

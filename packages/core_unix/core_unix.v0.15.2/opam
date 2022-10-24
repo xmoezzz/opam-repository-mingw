@@ -33,3 +33,4 @@ url {
 src: "https://github.com/janestreet/core_unix/archive/refs/tags/v0.15.2.tar.gz"
 checksum: "sha256=486d0e954603960fa081b3fd23e3cc3e50ac0892544acd35f9c2919c4bf5f67b"
 }
+available: os != "win32"
