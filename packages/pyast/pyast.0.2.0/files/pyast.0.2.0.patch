@@ -1,0 +1,31 @@
+--- ./compute_union_asdl/compute_union_asdl.ml
++++ ./compute_union_asdl/compute_union_asdl.ml
+@@ -172,7 +172,7 @@
+         open Common
+         module type S = [%m Ast_helper.Mty.signature signature ]
+       ]);
+-    let channel = open_out target_union in
++    let channel = open_out_bin target_union in
+     Redirect.write_and_close channel (fun () ->
+       Marshal.to_channel channel union []);
+   with Asdl.Err.E e ->
+--- ./ml_of_asdl/ml_of_asdl.ml
++++ ./ml_of_asdl/ml_of_asdl.ml
+@@ -584,7 +584,7 @@
+   match target with
+   | "-" -> f Format.std_formatter
+   | _ ->
+-      let channel = open_out target in
++      let channel = open_out_bin target in
+       Redirect.write_and_close channel (fun () ->
+         let fmt = Format.formatter_of_out_channel channel in
+         f fmt;
+@@ -594,7 +594,7 @@
+   try
+     let asdl = Asdl.of_file source_file in
+     let union =
+-      let channel = open_in union_file in
++      let channel = open_in_bin union_file in
+       Redirect.read_and_close channel (fun () ->
+         (Marshal.from_channel channel : Union_asdl.mod_)) in
+     let version = Pyast_utils.Version.parse version in
