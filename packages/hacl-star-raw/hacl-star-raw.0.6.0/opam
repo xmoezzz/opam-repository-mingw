@@ -20,7 +20,8 @@ depends: [
 ]
 available:
   arch != "ppc64" & arch != "ppc32" & arch != "arm32" &
-  (os = "freebsd" | os-family != "bsd")
+  (os = "freebsd" | os-family != "bsd") &
+  os != "win32"
 build: [
   [make "-C" "hacl-star-raw" "build-c"]
   [make "-C" "hacl-star-raw" "build-bindings"]
