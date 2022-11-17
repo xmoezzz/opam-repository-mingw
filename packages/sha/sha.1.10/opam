@@ -18,7 +18,7 @@ install: [make "install"]
 remove: [["ocamlfind" "remove" "sha"]]
 
 depends: [
-  "ocaml" {>= "4.02.0"}
+  "ocaml" {>= "4.02.0" & < "5.0"}
   "ocamlfind"
 ]
 patches: "ocaml-sha-1.10.patch" {os = "win32"}
