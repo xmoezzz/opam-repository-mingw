@@ -16,7 +16,7 @@ authors: [
 homepage: "https://opam.ocaml.org/"
 bug-reports: "https://github.com/ocaml/opam/issues"
 depends: [
-  "ocaml" {(os != "win32" & >= "4.02.3") | (os = "win32" & >= "4.06.0")}
+  "ocaml" {((os != "win32" & >= "4.02.3") | (os = "win32" & >= "4.06.0")) &  < "5.0"} 
   "base-unix"
   "base-bigarray"
   "ocamlgraph"
